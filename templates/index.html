@@ -2,8 +2,8 @@
 
 {% module UI_Head() %}
 
-{% import PRL_web %}
-{% import PRL_web.handlers as WH %}
+{% import personal.web %}
+{% import personal.web.handlers as WH %}
 
 <body>
     {% module UI_Navbar() %}
@@ -11,68 +11,26 @@
 
 
 
-    <main>
-        <section class="center" style="height: calc(100vh - 3.5rem);">
-            <div class="hero text-center">
-                <h1 class="display-4">
-                    Clayton J Roberts
-                </h1>
-                {% if not handler.user %}
-                <p class="lead">
-                    An Extraneous Cisco Web Application for General Manufacturing Operations
-                </p>
-                {% end if%}
-                <hr />
-                <p class="lead">
-                    {% if handler.user %}
-                    We're happy to see you again.
-                    <a href="{{WH.PH_Dashboard.localUrl()}}">
-                        Click here to quickly get to your dashboard.
-                    </a>
-                    {% else %}
-                    We're excited to have you! To jump right in,
-                    <a href="{{WH.PH_About.localUrl()}}">
-                        go here to see how everything works
-                    </a>,
-                    otherwise, scroll a little further to see what it's all about!
-                    {% end if%}
-                </p>
-            </div>
-        </section>
-        <section class="section-dark">
-            <h1>Initiative & Goals</h1>
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-body">
-                        <h5>Accurate Forecast</h5>
-                        <br />
-                        This is a tool that combines various sources of data in order to create an accurate build forecast
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5>One Stop Shop</h5>
-                        <br />
-                        Sometimes the data you're looking for is all over the place,
-                        this tool has combined a lot of views and outputs that allow you to get what you need without going through a plethora of people
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5>Accurate Forecast</h5>
-                        <br />
-                        This is a tool that combines various sources of data in order to create an accurate build forecast
-                    </div>
-                </div>
-            </div>
-        </section>
+    <main id="app">
 
+        <div class="btn btn-primary">
+            {{! message }}
+        </div>
 
     </main>
 
     {% module UI_Footer() %}
 
 </body>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+</script>
 
 
 

@@ -6,32 +6,6 @@
 
     <title>{{ handler.title().title() }}</title>
 
-    {#
-    <link href="/favicon.ico" rel="shortcut icon"> #}
-
-    <!-- AJAX JQuery -->
-    {# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script> #}
-
-    <!-- AJAX Popper -->
-    {# <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> #}
-
-    <!-- Vue -->
-    {# <script src="http://unpkg.com/vue/dist/vue.js"></script> #}
-    {# <script src="{{ static_url( "js/vue.js") }}"></script> #}
-
-    <!-- Font Awesome Icons-->
-    {#
-    <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> #}
-
-    <!-- Buefy CSS -->
-    {#
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/buefy/lib/buefy.min.css"> #}
-
-    <!-- Buefy JavaScript -->
-    {# <script src="https://unpkg.com/buefy"></script> #}
-
-    <link href="{{ static_url( "index.js") }}" rel="stylesheet" />
-    {#
-    <link href="{{ static_url( "css/style.css") }}" rel="stylesheet" /> #}
+    <script src="{{ static_url( "dist/bundle.js") }}"></script>
 
 </head>
