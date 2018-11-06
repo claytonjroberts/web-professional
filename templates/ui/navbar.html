@@ -1,14 +1,9 @@
 {# <template id="navbar"> #}
-    {% import CIS_web.handlers as WH %}
 
     <nav class="navbar navbar-expand-md fixed-top border">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
-
-        <div class="navbar-brand" href="#">
-            <img src="{{ static_url('images/cisco_logo.png') }}">
-        </div>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <div class="navbar-nav mr-auto">
@@ -36,21 +31,18 @@
             {# <span class="navbar-text">
                 {{ handler.get_current_user_obj().name.title() }}
             </span> #}
-            <span class="navbar-item">
+            {# <span class="navbar-item">
                 <span class="btn-group">
                     <a class="btn btn-outline-dark" href="/settings">
                         {% set u = handler.get_current_user_obj()%}
                         {{ u.name }}
                         <i class="fas fa-user-circle"></i>
                     </a>
-                    {# <a class="btn btn-outline-light" href="/logout">
-                        <i class="fas fa-sign-in-alt"></i>
-                    </a> #}
                     <a class="btn btn-outline-dark center" href="/logout">
                         <i class="fas fa-sign-in-alt"></i>
                     </a>
                 </span>
-            </span>
+            </span> #}
             {% end if %}
         </div>
     </nav>

@@ -1,0 +1,35 @@
+{
+    "name": "static",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "ajv": "^6.5.5",
+        "bootstrap": "^4.1.3",
+        "fontawesome": "^4.7.2",
+        "jquery": "^3.3.1",
+        "popper": "^1.0.1",
+        "popper.js": "^1.14.4",
+        "style-loader": "^0.23.1",
+        "vue": "^2.5.17",
+        "vue.js": "^0.3.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.1.2",
+        "@babel/preset-env": "^7.1.0",
+        "babel-loader": "^8.0.4",
+        "css-loader": "^1.0.1",
+        "node-sass": "^4.10.0",
+        "sass-loader": "^7.1.0",
+        "vue-loader": "^15.4.2",
+        "vue-template-compiler": "^2.5.17",
+        "webpack": "^4.25.1",
+        "webpack-cli": "^3.1.2"
+    },
+    "scripts": {
+        "test": "mocha",
+        "build": "webpack"
+    },
+    "author": "",
+    "license": "ISC"
+}
