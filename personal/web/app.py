@@ -18,6 +18,9 @@ from tornado.ioloop import IOLoop, PeriodicCallback
 from . import handlers as WH
 from . import ui as ui_module
 from ..core.console import ConsoleInterface
+from pynpm import NPMPackage
+import multiprocessing
+from threading import Thread
 
 
 class App(ConsoleInterface, tornado.web.Application):
@@ -77,7 +80,37 @@ class App(ConsoleInterface, tornado.web.Application):
         assert isinstance(websocket, WH.Websocket)
         self.websockets.add(websocket)
 
-    def serve(self, port=8000):
+    @gen.coroutine
+    def startWebpack(self, install=False, build=False):
+        pth = Path() / "package.json"
+        # print(pth)
+        pkg = NPMPackage(pth.absolute())
+
+        if install:
+            pkg.install()
+
+        if build:
+            pkg.build()
+
+        # self.process_webpack = multiprocessing.Process(
+        #     target=pkg.run_script, args=("build",), daemon=True
+        # )
+        # self.process_webpack.start()
+        # process.join()
+
+        self.process_webpack = Thread(
+            target=pkg.run_script, args=("build",), daemon=True
+        )
+        self.process_webpack.start()
+
+        # pkg.run_script("build")
+
+    def serve(self, port: int = 8000):
+
+        if tornado.ioloop.IOLoop.current():
+            print(1)
+            tornado.ioloop.IOLoop.current()
+
         ip = (
             (
                 [
@@ -97,13 +130,24 @@ class App(ConsoleInterface, tornado.web.Application):
         self.output(f"Starting at http://{ip}:{port}/")
         # self.output("Starting at port '{}'".format(port))
         server = tornado.httpserver.HTTPServer(self)
+        # server.bind(int(port))
         # , ssl_options={
         #     "certfile": "cert.cer",
         #     "keyfile":  "key.key",
         # })
         server.listen(int(port))
-        # PeriodicCallback(task, 1000).start()
-        tornado.ioloop.IOLoop.instance().start()
+        self.startWebpack()
+
+        # self.process_main = multiprocessing.Process(
+        #     target=tornado.ioloop.IOLoop.current().start, args=()
+        # )
+        # self.process_main.start()
+        try:
+            tornado.ioloop.IOLoop.current().start()
+        except KeyboardInterrupt:
+            self.process_webpack.stop()
+
+        # tornado.ioloop.IOLoop.current().stop()
 
     @gen.coroutine
     def chirp(self, user):
