@@ -4,6 +4,12 @@ var path = require('path');
 module.exports = {
     mode: 'development',
 
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js'
+        }
+    },
+
     // context: path.resolve(__dirname, 'src'),
     // entry: './static/src/index.js',
     entry: path.resolve(__dirname, 'static/src/index.js'),
@@ -30,10 +36,25 @@ module.exports = {
                         presets: ['@babel/preset-env']
                     }
                 }
-            }
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/'
+                    }
+                }
+            },
 
         ]
     },
+    watchOptions: {
+        ignored: /node_modules/
+    },
+    watch: true,
+
     // resolve: {
     //     alias: {
     //         'vue$': 'vue/dist/vue.esm.js'
