@@ -1,16 +1,19 @@
 import inspect
 import json
+import multiprocessing
 import re
 import socket
 import sys
 import time
 import uuid
 from pathlib import Path
+from threading import Thread
 
 import sqlalchemy
 import tornado
 import tornado.autoreload
 import tornado.websocket
+from pynpm import NPMPackage
 from sqlalchemy import func, or_
 from tornado import gen
 from tornado.ioloop import IOLoop, PeriodicCallback
@@ -18,9 +21,6 @@ from tornado.ioloop import IOLoop, PeriodicCallback
 from . import handlers as WH
 from . import ui as ui_module
 from ..core.console import ConsoleInterface
-from pynpm import NPMPackage
-import multiprocessing
-from threading import Thread
 
 
 class App(ConsoleInterface, tornado.web.Application):

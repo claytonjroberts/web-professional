@@ -1,3 +1,14 @@
-<footer class="center-items">
-    <h1>Contact</h1>
+<footer>
+    <div class="links">
+        <h4 class="links-list">
+            <span class="link" v-for="linkdict, linkname in links">
+                <a class="text-secondary" :href="linkdict['url']"><i :class="linkdict['icon']"></i>
+                    {# {{! linkname }} #}
+                </a>
+            </span>
+        </h4>
+    </div>
+    <!-- <h1>Contact</h1> -->
+
+    <div class="made-with"><i class="fas fa-hammer"></i> with <span class="text-secondary"><i class="fas fa-heart"></i></span> by <a href="https://github.com/ClaymasterJ" class="text-tertiary">ClaymasterJ</a></div>
 </footer>
