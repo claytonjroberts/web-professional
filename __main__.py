@@ -1,13 +1,11 @@
-from pywebpack import WebpackProject
-from pathlib import Path
-from pynpm import YarnPackage, NPMPackage
-from personal.web.app import App
-
-
 from multiprocessing import Process
-
+from pathlib import Path
 from threading import Thread
 
+from pynpm import NPMPackage, YarnPackage
+from pywebpack import WebpackProject
+
+from personal.web.app import App
 
 if __name__ == "__main__":
 

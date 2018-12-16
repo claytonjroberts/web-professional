@@ -7,32 +7,157 @@
 
 <body>
     {# {% module UI_Navbar() %} #}
-
-
-
-
-    <main id="app">
-
-        <div class="splash center-items">
-            <a href="mailto:me@claytonjroberts.com">
-                <h1><span class="text-muted">me @</span> <span class="name">Clayton J Roberts</span> <span class="text-muted">. com</span></h1>
+    <div class="body" id="app">
+        <header class="splash center-items">
+            <div class="iniitals">
+                CJR
+            </div>
+            <a href="mailto:me@claytonjroberts.com" class="email">
+                <h2><span class="name-around">me @</span> <span class="name">Clayton J Roberts</span> <span class="name-around">. com</span></h2>
             </a>
-            {# <h4>Clayton</h4> #}
+            <div class="location">
+                San Jose, California, U.S.
+            </div>
+        </header>
+
+        <main>
+
+            {# <section class="objective">
+                <h2 class="objective-label">
+                    Objective
+                </h2>
+                <div class="objective-line">
+                </div>
+                <blockquote class="blockquote objective-blockquote">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="mb-0">To test myself against true challenge.
+                        To lead and learn, promoting growth in interdependent relationships, and drive the advancement and enhancement of business efficiency.
+                        Show the distinction between leader and a boss, and make the difference between an active thinker and a worker drone.
+                        The perfect job is one that gives me room to create, encounter challenges, and re-imagine what is thought to already be conquered.
+                    </p>
+                    <div style="text-align:right;"><i class="fas fa-quote-right text-right"></i></div>
+                    <footer class="blockquote-footer">Clayton Roberts <cite title="Source Title">May 5th, 2018</cite></footer>
+                </blockquote>
+
+    </div>
+
+
+    </section> #}
+
+    <section class="me">
+        <img class="me-picture" src="{{  static_url( "src/images/me.jpg") }}"></img>
+        {# <div class="me-line"></div> #}
+        <div class="me-about">
+            <p>Re-imagineer, selfless leader, challenge-driven</p>
         </div>
 
-        <div>
-            <a class="cool-link" href="mailto:me@claytonjroberts.com">Hello</a>
+    </section>
+
+
+    {# <section class="card-deck expskl">
+        <div class="card experience">
+            <div class="card-header">
+                <h3><i class="fas fa-brain"></i> Experience</h3>
+            </div>
+            <div class="list-group list-group-flush" v-for="">
+
+                <li class="list-group-item">
+                    <h5>Data Manipulation</h5>
+                    <p>
+                        Clayton is well aquanited with data manipulation. He
+                    </p>
+                    <div>
+                        <span class="skills tool">Python <i class="fab fa-python"></i></span>
+                    </div>
+
+                </li>
+                <li class="list-group-item">
+                    <h5>Database Management</h5>
+                    <p>
+                        Meticulus for normalization, Clayton frequently finds it his duty to insure that the data he and others are using is properly
+                    </p>
+                    <div>
+                        <span class="skills tool">Python <i class="fab fa-python"></i></span>
+                    </div>
+                </li>
+                <li class="list-group-item"><i class="fab fa-html5"></i> HTML</li>
+                <li class="list-group-item"><i class="fab fa-vuejs"></i> Vue</li>
+                <li class="list-group-item"><i class="fab fa-microsoft"></i> Office</li>
+            </div>
         </div>
 
+
+        <div class="card">
+            <div class="card-header">
+                <h3><i class="fas fa-hammer"></i> Skills</h3>
+            </div>
+            <div class="list-group list-group-flush" v-for="">
+
+                <li class="list-group-item">
+                    <h5>Data Manipulation</h5>
+                    <p>
+                        Clayton is well aquanited with data manipulation. He
+                    </p>
+                    <div>
+                        <span class="skills tool">Python <i class="fab fa-python"></i></span>
+                    </div>
+
+                </li>
+                <li class="list-group-item">
+                    <h5>Database Management</h5>
+                    <p>
+                        Meticulus for normalization, Clayton frequently finds it his duty to insure that the data he and others are using is properly
+                    </p>
+                    <div>
+                        <span class="skills tool">Python <i class="fab fa-python"></i></span>
+                    </div>
+                </li>
+                <li class="list-group-item"><i class="fab fa-html5"></i> HTML</li>
+                <li class="list-group-item"><i class="fab fa-vuejs"></i> Vue</li>
+                <li class="list-group-item"><i class="fab fa-microsoft"></i> Office</li>
+            </div>
+        </div>
+
+
+    </section> #}
+
+    <section class="tools">
+        <div class="tool-list d-flex flex-wrap">
+            <div class="tool" v-for="tooldict, toolname in tools">
+                <span class="tool-icon">
+                    <i :class="tooldict['icon']"></i>
+                </span>
+                <span class="tool-name">{{! toolname }}</span>
+                <span class="tool-exp">{{! tooldict['exp']}}</span>
+            </div>
+        </div>
+
+        {# <footer>
+            <span class="badge badge-info"></span> Time associated with a tool represents condensed experience, not a time range. Clayton started working with CSS at a very young age, but does not consider years that he did not use it.
+        </footer> #}
+
+    </section>
+
+
+
+    <section class="seeking">
+        <h2>Seeking</h2>
         <div class="btn btn-primary">
-            {{! message1 }}
             Hello
         </div>
-        {# <h1> HELLO</h1> #}
+    </section>
+
+
 
     </main>
-
     {% module UI_Footer() %}
+
+
+    </div>
+
+
+
+
 
 </body>
 
@@ -42,16 +167,72 @@
         data: function() {
             return {
                 message1: 'Hello Vue!',
+                tools: {
+                    "Python 3": {
+                        "icon": "fab fa-python",
+                        "exp": "4 years"
+                    },
+                    "HTML": {
+                        "icon": "fab fa-html5",
+                        "exp": "6 years"
+                    },
+                    "CSS": {
+                        "icon": "fab fa-css3-alt",
+                        "exp": "2 years"
+                    },
+                    "SCSS (Sass)": {
+                        "icon": "fab fa-sass",
+                        "exp": "1 year"
+                    },
+                    "Vue": {
+                        "icon": "fab fa-vuejs",
+                        "exp": "1 year"
+                    },
+                    "Angular": {
+                        "icon": "fab fa-angular",
+                        "exp": "\u00BD years"
+                    },
+                    "Office": {
+                        "icon": "fab fa-microsoft",
+                        "exp": "Many years"
+                    },
+                    "Postgres": {
+                        "icon": "fas fa-database",
+                        "exp": "1 \u00BD years"
+                    },
+                    "Swift": {
+                        "icon": "fab fa-app-store",
+                        "exp": "\u00BD years"
+                    },
+                    "Markdown": {
+                        "icon": "fab fa-markdown",
+                        "exp": "1 year"
+                    },
+                    "npm": {
+                        "icon": "fab fa-npm",
+                        "exp": "\u00BD years"
+                    },
+
+                },
+                skills: {
+
+                    "Python": "Clayton is very skilled in Python, having worked with it for over 4 years"
+                },
+                links: {
+                    "LinkedIn": {
+                        "icon": "fab fa-lg fa-linkedin",
+                        "url": "http://www.linkedin.com/in/claytonjroberts"
+                    },
+                    "GitHub": {
+                        "icon": "fab  fa-lg fa-github-square",
+                        "url": "http://github.com/ClaymasterJ"
+                    }
+                }
             }
         }
     })
-</script>
 
-<style>
-    main {
-        /* padding-top: 15rem; */
-    }
-</style>
+</script>
 
 
 

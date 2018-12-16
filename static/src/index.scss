@@ -1,36 +1,303 @@
 // XXX - COLORS
 $theme-colors: (
-    "primary"      : #F0544F,
-    "danger"       : #b04136,
-    "html"         : #606060,
-    "splash"       : #404040,
-    "splash-text"  : #E0E0E0,
-    "bg-light"     : #E0E0E0,
-    "footer"       : #C0C0C0,
-    "footer-border": #707070,
+    // "primary"           :
+    "primary"           : #E8A000, //#EC9F05
+    "secondary"         : #505050,
+    // #D7B740,
+    // #D8A000
+    // "primary-1"         : #E8A000,
+    // "secondary"         : #F05048, //#F0544F
+    "tertiary"          : #3090E0, //#3C91E6
+    "danger"            : #B04040, //#b04136
+    "html"              : #636360,
+    "splash"            : #404040,
+    // "splash"            : #906000,
+    "splash-text"       : #E5E5E0,
+    "splash-text-darker": #C0B8B8,
+    "bg-light"          : #F5F5F5, // Make slightly more reddish, gives a warmer feel
+    "light"             : #E5E5E5,
+    "medium-light"      : #D5D5D5,
+    "medium"            : #B5B5B5,
+    "dark"              : #757570,
+    "footer"            : #D5D5D5,
+    // "footer"            : #D5D5D0,
+    "footer-border"     : #757570,
+    "tool-border"       : #757570,
 );
-@import "~bootstrap/scss/bootstrap.scss"; // @import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+$colors: (
+    // "blue": $blue,
+    // "indigo": $indigo,
+    // "purple": $purple,
+    // "pink": $pink,
+    // "red": $red,
+    // "orange": $orange,
+    // "yellow": $yellow,
+    // "green": $green,
+    // "teal": $teal,
+    // "cyan": $cyan,
+    // "white": #906000,
+    // "gray": $gray-600,
+    // "gray-dark": $gray-800
+);
+@import "~bootstrap/scss/bootstrap.scss"; // @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+// @import "~font-awesome/scss/font-awesome.scss";
 @font-face {
     font-family: "ProFontWindows";
     src        : url("~/static/src/fonts/ProFontWindows.TTF");
 }
+@font-face {
+    font-family: "Roboto";
+    src        : url("~/static/src/fonts/Roboto/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family: "OpenSans";
+    src        : url("~/static/src/fonts/OpenSans/OpenSans-Regular.ttf");
+}
+// VARIABLES
+$border-radius: 0.25rem;
 
 html {
     background-color: theme-color("html");
 }
 
+.body,
 body {
     background-color: theme-color("bg-light");
     // Set font for website -->
-    font-family     : "ProFontWindows" !important;
+    font-family     : "OpenSans" !important;
+    display         : flex;
+    flex-direction  : column;
+    flex            : 1 0 auto;
 }
 
-footer {
-    // background-image: linear-gradient(theme-color("bg-light"), theme-color("footer"));
+main {
+    flex: 1;
+
+    section {
+        // margin   : 1rem 3rem;
+        margin   : 0;
+        padding  : 2rem 15rem;
+        max-width: 100% !important;
+
+        &.objective {
+            padding-top   : 5rem;
+            padding-bottom: 5rem;
+            display       : flex;
+            flex-direction: row;
+
+            .objective-label {
+                width     : 20%;
+                align-self: center;
+                // border-right : 0.5rem;
+                // border-style : none solid none none;
+                // padding-right: 2rem;
+                // &::after {
+                //     content       : "";
+                //     display       : flex;
+                //     flex-direction: row;
+                //     width         : 2px;
+                //     height        : 10px;
+                //     background    : theme-color("primary");
+                // }
+            }
+
+            .objective-line {
+                // height: 100%;
+                // width       : 1rem;
+                border      : 0.25rem;
+                border-style: none none none solid;
+                border-color: theme-color("primary");
+            }
+
+            .objective-blockquote {
+                width      : 80%;
+                // outline-width: 1rem;
+                // outline-style: none none none solid;
+                // border-style: none none none solid;
+                margin-left: 2rem;
+            }
+        }
+
+        &.expskl {
+            padding: 0 2.5rem;
+            margin : 0 !important;
+
+            .card {
+                border    : none;
+                box-shadow: 0 0.5rem 1.5rem darken(theme-color("bg-light"),10%);
+
+                .card-body {
+                    background-color: darken(theme-color("bg-light"),10%);
+                }
+
+                .list-group-item {
+                    background-color: lighten(theme-color("bg-light"),2.5%);
+                }
+            }
+            // Experiance and Skills
+            .experience {}
+
+            .skills {}
+        }
+
+        &.tools {
+            // border      : 1rem none;
+            // border-style  : dashed none;
+            // border-width  : 3rem 0.1rem;
+            // border-radius : 0.05rem;
+            // border-width  : 0.1rem;
+            max-width     : none;
+            // border-color  : theme-color("tool-border");
+            // padding     : 0;
+            // margin        : 2rem 0;
+            // padding       : 1rem 0;
+            display       : flex;
+            flex-direction: column;
+            // overflow   : scroll;
+            .tool-list {
+                // text-align: center;
+                justify-content: center;
+                // display       : flex;
+                // flex-direction: row;
+                // overflow      : auto;
+                // // transform     : translate3d(0, 0, 0);
+                // width         : 100%;
+                // & > .tool {
+                //     transform     : translate3d(0, 0, 0);
+                // }
+                // &:hover {}
+                .tool {
+                    margin-top: 0;
+                    display   : flex;
+                    flex      : 0 1 auto;
+                    // margin-bottom: 0;
+                }
+            }
+
+            footer {
+                color      : theme-color("medium");
+                // background-color: darken(theme-color("primary"), 10%);
+                align-items: center;
+                text-align : center;
+                padding    : 0 3rem;
+            }
+        }
+    }
+}
+
+.me {
+    padding        : 3rem 7rem;
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-around;
+
+    .me-picture {
+        max-width      : 15rem;
+        max-height     : 15rem;
+        border-radius  : 50%;
+        object-fit     : cover;
+        object-position: 100% 0;
+        width          : 300px;
+        height         : 300px;
+        border         : solid theme-color("primary");
+    }
+
+    .me-line {
+        border      : 0.25rem;
+        border-style: none none none solid;
+        border-color: theme-color("primary");
+        padding     : 0 1rem;
+    }
+
+    .me-about {
+        align-self : center;
+        align-items: center;
+        display    : flex;
+    }
+}
+
+.contact {
+    // background-image: linear-gradient(theme-color("bg-light"), theme-color("medium"));
+    background-color: theme-color("medium");
+    // background-color: darken(theme-color("primary"), 10%);
+    // background-color: lighten(theme-color("primary"), 5%);
+    color           : theme-color("dark");
+    // color           : theme-color("light");
+    padding         : 2rem 0 1rem;
+    // border-style    : solid none none none;
+    // border-color    : theme-color("footer-border");
+    flex-direction  : column;
+}
+
+.made-with {
+    background-color: theme-color("medium");
+    // background-color: darken(theme-color("primary"), 10%);
+    // background-color: lighten(theme-color("primary"), 5%);
+    color           : theme-color("dark");
+    // color           : theme-color("light");
+    padding         : 2rem 0 1rem;
+    // border-style    : solid none none none;
+    // border-color    : theme-color("footer-border");
+    flex-direction  : column;
+    // border-radius: 1.5rem;
+    // box-shadow   : inset 0 0 1rem darken(theme-color("footer"), 15%);
+    // background-color: darken(theme-color("footer"), 10%);
+    padding         : 3rem 0;
+    text-align      : center;
+}
+
+.card {
+    background-color: theme-color("bg-light");
+}
+
+.tool {
     background-color: theme-color("footer");
-    padding         : 2rem 0 5rem;
-    border-style    : solid none none none;
-    border-color    : theme-color("footer-border");
+    display         : flex;
+    align-items     : center;
+    flex-direction  : row;
+    border-radius   : $border-radius;
+    margin          : 0.5rem;
+    flex            : 1 0 auto;
+
+    .tool-name {
+        padding: 0 0.5rem;
+        // color: theme-color("primary");
+        // display: flex;
+        // flex   : 1 1 auto;
+    }
+
+    .tool-exp {
+        padding-right: 0.5rem;
+        color        : color("gray");
+        // color: theme-color("light");
+    }
+
+    .tool-icon {
+        background-color: theme-color("secondary");
+        padding         : 0.5rem;
+        text-emphasis   : bold;
+        color           : theme-color("bg-light");
+        border-radius   : 0.25rem;
+
+        .outer {
+            position: relative;
+
+            &:before {
+                display    : block;
+                content    : "";
+                width      : 100%;
+                padding-top: (1 / 1) * 100%;
+            }
+
+            > .inner {
+                position: absolute;
+                top     : 0;
+                right   : 0;
+                bottom  : 0;
+                left    : 0;
+            }
+        }
+    }
 }
 
 .center-items {
@@ -41,22 +308,69 @@ footer {
     display        : flex;
 }
 
+.skills {
+    &.tool {
+        // For the list of tools used at the bottom of the skill
+        outline-width   : 0.5rem;
+        // background-color: darken(theme-color("bg-light"), 10%);
+        background-color: theme-color("primary");
+        padding         : 0.5rem;
+        text-emphasis   : bold;
+        color           : theme-color("bg-light");
+        border-radius   : 0.25rem;
+        // &::after {
+        //
+        // }
+    }
+}
+
 .splash {
     width           : 100%;
-    height          : 100%;
+    // height          : 100%;
     background-color: theme-color("splash");
     // text-shadow:
     color           : theme-color("splash-text");
     border-style    : solid none solid none;
     border-color    : theme-color("primary");
-    font-family     : "ProFontWindows";
-
+    margin          : 1rem 0;
+    // box-shadow      : inset 0 0 1rem 0 theme-color("primary");
     .name {
-        color: theme-color("splash-text");
+        color      : theme-color("splash-text");
+        text-shadow: none;
+        transition : text-shadow 0.3s;
+    }
+
+    .name-around {
+        color: theme-color("dark");
+    }
+
+    .name:hover {
+        text-shadow: 2px 2px theme-color("splash-text-darker");
+    }
+
+    .email {
+        padding: 1.5rem;
+    }
+
+    .location {
+        position: absolute;
+        right   : 1rem;
+    }
+
+    .iniitals {
+        font-style: italic;
+        position  : absolute;
+        left      : 1rem;
+        color     : theme-color("dark");
     }
 
     a,
-    h1 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         margin-bottom: 0;
     }
     /* The animation code */
@@ -102,5 +416,29 @@ footer {
             width: 100%;
             //transition: width .3s;
         }
+    }
+}
+
+.links {
+    background-color: theme-color("medium-light");
+    padding         : 2rem;
+
+    .links-list {
+        display        : flex;
+        justify-content: center;
+        margin         : 0;
+    }
+
+    .link {
+        padding: 0 1rem;
+    }
+}
+
+.btn {
+    border-bottom: 1rem !important;
+    // border-color : darken(theme-color("primary"), 10%);
+    .active {
+        border-bottom: 0;
+        border-top   : 1rem;
     }
 }
