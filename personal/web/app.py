@@ -136,7 +136,7 @@ class App(ConsoleInterface, tornado.web.Application):
         #     "keyfile":  "key.key",
         # })
         server.listen(int(port))
-        self.startWebpack()
+        # self.startWebpack()
 
         # self.process_main = multiprocessing.Process(
         #     target=tornado.ioloop.IOLoop.current().start, args=()
@@ -145,7 +145,8 @@ class App(ConsoleInterface, tornado.web.Application):
         try:
             tornado.ioloop.IOLoop.current().start()
         except KeyboardInterrupt:
-            self.process_webpack.stop()
+            pass
+            # self.process_webpack.stop()
 
         # tornado.ioloop.IOLoop.current().stop()
 
