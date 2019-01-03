@@ -1,0 +1,45 @@
+.me {
+    padding        : 3rem 7rem;
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-around;
+    max-width      : 100% !important;
+    $image-size    : 250px;
+
+    .me-picture {
+        max-width      : 15rem;
+        max-height     : 15rem;
+        border-radius  : 50%;
+        object-fit     : cover;
+        object-position: 100% 0;
+        width          : $image-size;
+        height         : $image-size;
+        min-width      : $image-size;
+        min-height     : $image-size;
+        border         : solid theme-color("primary");
+        // padding        : 0.25rem;
+        margin         : 1rem;
+    }
+
+    .me-line {
+        border      : 0.25rem;
+        border-style: none none none solid;
+        border-color: theme-color("primary");
+        padding     : 0 1rem;
+    }
+
+    .me-about {
+        align-self    : center;
+        align-items   : center;
+        display       : flex;
+        flex-direction: column;
+    }
+
+    .me-about-item {
+        color: darken(theme-color("primary"), 5%);
+    }
+
+    .me-about-principle {
+        color: darken(theme-color("primary"), 10%);
+    }
+}

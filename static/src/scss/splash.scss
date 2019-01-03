@@ -1,0 +1,94 @@
+.splash {
+    width           : 100%;
+    // height          : 100%;
+    background-color: theme-color("splash");
+    // text-shadow:
+    color           : theme-color("splash-text");
+    border-style    : solid none solid none;
+    border-color    : theme-color("primary");
+    margin          : 1rem 0 0;
+    // box-shadow      : inset 0 0 1rem 0 theme-color("primary");
+    .name {
+        color      : theme-color("splash-text");
+        text-shadow: none;
+        transition : text-shadow 0.3s;
+    }
+
+    .name-around {
+        color: theme-color("dark");
+    }
+
+    .name:hover {
+        text-shadow: 2px 2px theme-color("splash-text-darker");
+    }
+
+    .email {
+        padding: 1.5rem;
+    }
+
+    .location {
+        position: absolute;
+        right   : 1rem;
+    }
+
+    .iniitals {
+        font-style: italic;
+        position  : absolute;
+        left      : 1rem;
+        color     : theme-color("dark");
+    }
+
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 0;
+    }
+    /* The animation code */
+    @keyframes example {
+        0% {
+            width: 0;
+        }
+
+        75% {
+            width: 100%;
+        }
+
+        100% {
+            text-shadow: 5rem;
+        }
+    }
+    /* The element to apply the animation to */
+    // div {
+    //     width             : 100px;
+    //     height            : 100px;
+    //     position          : relative;
+    //     background-color  : red;
+    //     animation-name    : example;
+    //     animation-duration: 4s;
+    // }
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+
+        &::after {
+            content   : "";
+            display   : block;
+            width     : 0;
+            height    : 2px;
+            background: theme-color("primary");
+            transition: width 0.3s ease-in-out;
+            // animation-name    : example;
+            // animation-duration: 4s;
+        }
+
+        &:hover::after {
+            width: 100%;
+            //transition: width .3s;
+        }
+    }
+}

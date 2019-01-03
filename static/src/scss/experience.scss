@@ -1,0 +1,37 @@
+.experience-item {
+    padding-bottom: 1rem;
+}
+
+.experience-title {
+    margin: 0;
+}
+
+.experience-subheader {
+    padding: 0.5rem;
+}
+
+.experience-company {
+    color: theme-color("primary");
+    filter: hue-rotate(-45deg);
+}
+
+.experience-location {
+    color: darken(theme-color("primary"), 15%);
+    filter: hue-rotate(-45deg);
+}
+
+.experience-timeline {
+    color: darken(theme-color("primary"), 30%);
+    filter: hue-rotate(-45deg);
+}
+
+.experience-company,
+.experience-location,
+.experience-timeline {
+    padding: 0 1rem;
+}
+
+.experience-challenge {
+    color     : theme-color("medium-dark");
+    font-style: italic;
+}
