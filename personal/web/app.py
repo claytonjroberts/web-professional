@@ -1,22 +1,25 @@
 import inspect
 import json
-import multiprocessing
+
+# import multiprocessing
 import re
-import socket
-import sys
+
+# import socket
+# import sys
 import time
 import uuid
 from pathlib import Path
 from threading import Thread
 
-import sqlalchemy
 import tornado
 import tornado.autoreload
 import tornado.websocket
-from pynpm import NPMPackage
-from sqlalchemy import func, or_
+
+# from pynpm import NPMPackage
 from tornado import gen
 from tornado.ioloop import IOLoop, PeriodicCallback
+import tornado.web
+import tornado.wsgi
 
 from . import handlers as WH
 from . import ui as ui_module
@@ -27,7 +30,15 @@ class App(ConsoleInterface, tornado.web.Application):
     """Master application"""
 
     def getHandlerList(self) -> list:
-        handlers = [(r"/ws", WH.Websocket), (r"/", WH.PH_Index)]
+        handlers = [
+            (r"/ws", WH.Websocket),
+            (r"/", WH.PH_Index),
+            (
+                r"/static/(.*)",
+                tornado.web.StaticFileHandler,
+                {"path": self.settings["static_path"]},
+            ),
+        ]
 
         "Add all the pages by their names here."
         for y in inspect.getmembers(WH, inspect.isclass):
@@ -54,17 +65,17 @@ class App(ConsoleInterface, tornado.web.Application):
         #     # autoreload.watch(file)
 
         "Set tornado settings"
-        settings = {
-            "template_path": "templates",
-            "static_path": "static",
+        self.settings = {
+            "template_path": Path() / "templates",
+            "static_path": Path() / "static",
             "ui_modules": ui_module,
-            "debug": True,
+            "debug": False,
             "login_url": "/login",
             "default_handler_class": WH.PH_Notfound,
         }
 
         # NOTE: Following not fully implemented yet
-        ssl_options = {"certfile": "cert.cer", "keyfile": "key.key"}
+        # ssl_options = {"certfile": "cert.cer", "keyfile": "key.key"}
 
         # http_server = tornado.httpserver.HTTPServer(application, )
 
@@ -73,7 +84,7 @@ class App(ConsoleInterface, tornado.web.Application):
         # self.websockets = set()
 
         tornado.web.Application.__init__(
-            self, self.getHandlerList(), **settings, cookie_secret=cookie_secret
+            self, self.getHandlerList(), **self.settings, cookie_secret=cookie_secret
         )
 
     def addWebsocket(self, websocket):
@@ -105,7 +116,7 @@ class App(ConsoleInterface, tornado.web.Application):
 
         # pkg.run_script("build")
 
-    def serve(self, port: int = 8000):
+    def serve(self, port: int = 8000, isWSGI: bool = False):
 
         if tornado.ioloop.IOLoop.current():
             print(1)
@@ -129,24 +140,34 @@ class App(ConsoleInterface, tornado.web.Application):
         )[0]
         self.output(f"Starting at http://{ip}:{port}/")
         # self.output("Starting at port '{}'".format(port))
-        server = tornado.httpserver.HTTPServer(self)
-        # server.bind(int(port))
-        # , ssl_options={
-        #     "certfile": "cert.cer",
-        #     "keyfile":  "key.key",
-        # })
-        server.listen(int(port))
-        # self.startWebpack()
 
-        # self.process_main = multiprocessing.Process(
-        #     target=tornado.ioloop.IOLoop.current().start, args=()
-        # )
-        # self.process_main.start()
-        try:
-            tornado.ioloop.IOLoop.current().start()
-        except KeyboardInterrupt:
-            pass
-            # self.process_webpack.stop()
+        if not isWSGI:
+            server = tornado.httpserver.HTTPServer(self)
+            # server.bind(int(port))
+            # , ssl_options={
+            #     "certfile": "cert.cer",
+            #     "keyfile":  "key.key",
+            # })
+            server.listen(int(port))
+
+            # self.startWebpack()
+
+            # self.process_main = multiprocessing.Process(
+            #     target=tornado.ioloop.IOLoop.current().start, args=()
+            # )
+            # self.process_main.start()
+            try:
+                tornado.ioloop.IOLoop.current().start()
+
+            except KeyboardInterrupt:
+                pass
+                # self.process_webpack.stop()
+        else:
+            # wsgi_app = tornado.wsgi.WSGIAdapter(self)
+
+            # server = wsgiref.simple_server.make_server("", 8888, wsgi_app)
+            # server.serve_forever()
+            raise
 
         # tornado.ioloop.IOLoop.current().stop()
 

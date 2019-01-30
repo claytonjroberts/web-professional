@@ -1,6 +1,10 @@
 import os
 
-rows, cols = [int(x) for x in os.popen("stty size", "r").read().split()]
+try:
+    rows, cols = [int(x) for x in os.popen("stty size", "r").read().split()]
+except ValueError:
+    # Something wrong with platform (server-related)
+    rows, cols = (100, 80)
 
 
 class ConsoleInterface:
