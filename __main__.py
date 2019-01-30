@@ -1,41 +1,41 @@
-from multiprocessing import Process
-from pathlib import Path
-from threading import Thread
+# from multiprocessing import Process
+# from pathlib import Path
+# from threading import Thread
 
-from pynpm import NPMPackage, YarnPackage
-from pywebpack import WebpackProject
+# from pynpm import NPMPackage, YarnPackage
+# from pywebpack import WebpackProject
 
 from personal.web.app import App
 
+import tornado
+import tornado.web
+import tornado.wsgi
+import tornado.ioloop
+
+
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        # q = self.get_query_argument("q")
+        # res = Pricing(q).pricing()
+        self.write("hello")
+
+
+global application
+
 if __name__ == "__main__":
 
-    # project_path = Path() / "static"
-    # project = WebpackProject(project_path)
-    # # project.install()
-    # project.build()
+    # application = tornado.wsgi.WSGIAdapter(App())
 
-    # pkg = NPMPackage((Path() / "package.json").absolute())
-    # # # pkg.install()
-    # # # pkg.build()
-    # #
-    # # # pkg.run_script("build")
-    # p_pkg = Thread(target=pkg.run_script, args=("build",), daemon=True)
+    app = App()
+    app.listen(8080)
+    tornado.ioloop.IOLoop.current().start()
 
-    # p_pkg.start()
-
-    # pkg = NPMPackage((Path() / "package.json").absolute())
-    # p_pkg = Thread(target=pkg.run_script, args=("build",), daemon=True)
-
-    # a = App()
-    # p_web = Thread(target=a.serve, args=())
+    # def make_app():
+    #     return tornado.web.Application([(r"/", MainHandler)], debug=False)
     #
-    # ps = [p_pkg, p_web]
-    #
-    # for p in ps:
-    #     p.start()
-    #
-    # for p in ps:
-    #     p.join()
-    App().serve()
+    # application = make_app()
+    # application.listen(8080)
+    # tornado.ioloop.IOLoop.current().start()
 
-    # p_pkg.kill()
+    # application = make_app()
+    # application = tornado.wsgi.WSGIAdapter(application)

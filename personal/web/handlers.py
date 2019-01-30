@@ -4,7 +4,6 @@ import re
 import sys
 from pathlib import Path
 
-import markdown
 import tornado
 import tornado.autoreload
 import tornado.websocket
