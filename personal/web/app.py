@@ -24,6 +24,8 @@ import tornado.wsgi
 from . import handlers as WH
 from . import ui as ui_module
 from ..core.console import ConsoleInterface
+import yaml
+from pathlib import Path
 
 
 class App(ConsoleInterface, tornado.web.Application):
@@ -69,7 +71,7 @@ class App(ConsoleInterface, tornado.web.Application):
             "template_path": Path() / "templates",
             "static_path": Path() / "static",
             "ui_modules": ui_module,
-            "debug": False,
+            "debug": True,
             "login_url": "/login",
             "default_handler_class": WH.PH_Notfound,
         }
@@ -82,6 +84,8 @@ class App(ConsoleInterface, tornado.web.Application):
         cookie_secret = "Super secret cookie 4"  # TODO
 
         # self.websockets = set()
+        with open(Path() / "info.yaml") as fh:
+            self.info = yaml.load(fh, Loader=yaml.FullLoader)
 
         tornado.web.Application.__init__(
             self, self.getHandlerList(), **self.settings, cookie_secret=cookie_secret
