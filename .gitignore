@@ -72,4 +72,7 @@ venv.bak/
 # NPM #
 # Dependency directories
 node_modules/
+node_modules/**
+node_modules/**/LICENSE
+node_modules/**/*.json
 jspm_packages/

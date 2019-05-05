@@ -1,0 +1,10 @@
+meta:
+
+info:
+    links:
+        -   name: LinkedIn
+            icon: "fab fa-lg fa-linkedin"
+            url:  "http://www.linkedin.com/in/claytonjroberts"
+        -   name: GitHub
+            icon: "fab fa-lg fa-github-square"
+            url:  "http://github.com/ClaymasterJ"
