@@ -1,20 +1,28 @@
+$primary: #F05048; //#3090E0;
 $theme-colors: (
     // "primary"           :
-    "primary"           : #E8A000, //#EC9F05
-    "secondary"         : #505050,
+    // "primary"           : #E8A000, //#EC9F05
+    "primary"           : $primary,
+    // "secondary"         : adjust-hue($primary, 15deg),
+    "secondary"         : adjust-hue($primary, 270deg),
+    // "secondary"         : darken($primary, 20%),
+    "tertiary"          : adjust-hue($primary, 30deg),
+    "quaternary"        : adjust-hue($primary, 45deg),
+    // "secondary"         : #E88300, //#E8A000,
+    // "secondary"         : #505050,
     // "secondary"         : #,
     // #D7B740,
     // #D8A000
     // "primary-1"         : #E8A000,
     // "secondary"         : #F05048, //#F0544F
-    "tertiary"          : #3090E0, //#3C91E6
     "danger"            : #B04040, //#b04136
+    // "html"              : #232320,
     "html"              : #636360,
     "splash"            : #404040,
     // "splash"            : #906000,
     "splash-text"       : #E5E5E0,
     "splash-text-darker": #C0B8B8,
-    "bg-light"          : #F5F5F5, // Make slightly more reddish, gives a warmer feel
+    "bg-light"          : #FBFBFB, // Make slightly more reddish, gives a warmer feel
     "light"             : #E5E5E5,
     "medium-light"      : #D5D5D5,
     "medium"            : #B5B5B5,
@@ -24,6 +32,7 @@ $theme-colors: (
     // "footer"            : #D5D5D0,
     "footer-border"     : #757570,
     "tool-border"       : #757570,
+    "white"             : #FFFFFF,
 );
 $colors: (
     // "blue": $blue,
@@ -63,8 +72,8 @@ html {
 
 .body,
 body {
-    // background-color: theme-color("bg-light");
-    background-color: lighten(theme-color("medium-light"), 5%);
+    background-color: theme-color("bg-light");
+    // background-color: lighten(theme-color("medium-light"), 5%);
     // Set font for website -->
     font-family     : "OpenSans" !important;
     display         : flex;
@@ -288,11 +297,37 @@ section {
     // margin         : 2rem;
     // border-radius  : 1rem;
     // padding        : 3rem;
-    margin           : 2rem;
+    margin           : 0 2rem;
     border-radius    : 1rem;
     padding-bottom   : 3rem;
     box-shadow       : 0 0 2rem darken($color-background, 10%);
     border-style     : solid;
     border-width     : 0.25rem;
     border-color     : darken($color-background, 10%);
+}
+// HELPERS
+
+.link-unstyled {
+    &,
+    &:active,
+    &:active:hover,
+    &:focus,
+    &:hover,
+    &:visited {
+        font-style     : inherit;
+        color          : inherit;
+        // background-color: transparent;
+        font-size      : inherit;
+        text-decoration: none;
+        font-variant   : inherit;
+        font-weight    : inherit;
+        // line-height   : inherit;
+        // font-family   : inherit;
+        // border-radius : inherit;
+        // border        : inherit;
+        // outline       : inherit;
+        // box-shadow    : inherit;
+        // padding       : inherit;
+        // vertical-align: inherit;
+    }
 }

@@ -4,31 +4,180 @@
 
 {% import personal.web %}
 {% import personal.web.handlers as WH %}
+{% import markdown %}
+{% import tornado %}
 
 <body>
     {# {% module UI_Navbar() %} #}
+
+
     <div class="body"
          id="app">
 
-        <header>
-            hello
-        </header>
+        <div class="static-tr links">
+            {% for linkdict in handler.application.info["info"]["links"] %}
+
+            <a class="link"
+               href="{{ linkdict['url'] }}"><i class="{{ linkdict['icon'] }}"></i>
+            </a>
+
+            {% end for %}
+
+        </div>
+
+        <a class="email-header link-unstyled"
+           href="mailto:me@claytonjroberts.com">
+            <span class="email">
+                <span class="name-around">me @</span>
+                <span class="name">Clayton J Roberts</span>
+                <span class="name-around">. com</span>
+            </span>
+        </a>
+
+        {# <div class="sticky-top"> #}
+
+
+            {# </div> #}
+
+
 
         <main>
-            Heloo
-            <div>
-                <div class="links">
-                    {% for linkdict in handler.application.info["info"]["links"] %}
-                    <span>
-                        <a class="text-secondary"
-                           href="{{ linkdict['url'] }}"><i class="{{ linkdict['icon'] }}"></i>
-                        </a>
-                    </span>
-                    {% end for %}
+            <div class="container-fluid"
+                 style="max-width: 50rem;">
 
-                </div class="links">
+
+                <div class="row align-items-center"
+                     style="margin-bottom: 2rem; justify-content: center;">
+                    <div class="col-auto">
+                        <img class="me-portrait"
+                             src="{{  static_url( "src/images/me.jpg") }}">
+                        </img>
+                    </div>
+                    <div class="col">
+                        <p class="me-objective">
+                            {% raw markdown.markdown(handler.application.info["info"]["me"]["introduction"]) %}
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h5 class="text-muted">Experience</h5>
+
+                        {% for item in handler.application.info["info"]["experience"] %}
+                        <div class="card">
+                            <a href="{{item.get('company').get('link', None)}}">
+                                <img class="card-img-top"
+                                     src="{{  static_url( item.get('company').get('logo', None) ) }}"
+                                     alt="{{item.get('company').get('name', None)}}">
+                            </a>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">{{item["title"]}} </h5>
+                                    {% if item.get("isCurrent", False) %}
+                                    <h6 style="align-self: center">
+                                        <span class="badge badge-primary">Current</span>
+                                    </h6>
+                                    {% end if %}
+                                </div>
+                                <h6 class="card-subtitle text-muted ">{{f"""{item["dateStart"]["month"]}, {item["dateStart"]["year"]}"""}} </h6>
+                                <p class="card-text mt-2">
+                                    {% raw markdown.markdown(item.get("description", None), extensions=["extra"]) %}
+                                </p>
+                                <div style="text-align: right;">
+                                    <a class="btn btn-light btn-sm"
+                                       href>
+                                        Show Skills
+                                    </a>
+                                </div>
+
+                                {# <a href="#"
+                                   class="btn btn-primary">Go somewhere</a> #}
+                            </div>
+                        </div>
+                        {% end for %}
+
+
+                    </div>
+                    <div class="col">
+                        <h5 class="text-muted"
+                            style="text-align: right;">Skills</h5>
+
+                        <div class="card">
+                            <div class="card-header">
+
+                                <div class="input-group mb-3">
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="Skill Search"
+                                           aria-label="Skill Search"
+                                           aria-describedby="basic-addon1"
+                                           style="text-align: center;">
+                                </div>
+                            </div>
+                            <div class="list-group list-group-flush">
+
+                                {% for skill in handler.application.info["info"]["skills"]["list"] %}
+
+                                <div class="list-group-item">
+                                    <div class="row">
+
+                                        <div class="col-2"
+                                             style="text-align: center; justify-content:center;">
+
+                                            {% if skill.get("icon", False) %}
+                                            <div>
+                                                <i class="fab {{skill.get('icon')}}"
+                                                   style="align-self:center;"></i>
+                                            </div>
+                                            {% end if %}
+                                        </div>
+                                        <div class="col">
+                                            {{skill["name"]}}
+                                            {% if skill.get("parent", False) %}
+                                            (<span class="text-muted">{{skill["parent"]}}</span>)
+                                            {% end if %}
+                                            {% if skill.get("link", False) %}
+                                            <a href="{{skill.get('link', False)}}">
+                                                <i class="far fa-question-circle"></i>
+                                            </a>
+                                            {% end if %}
+
+                                        </div>
+                                        <div class="col-auto">
+                                            {{skill.get("level", None)}}
+
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+                                {% end for %}
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+
+
             </div>
+
         </main>
+
+        <footer style="text-align: right;">
+            <small class="text-muted">
+                Last-updated: {{handler.application.info["meta"]["last updated"]}}
+            </small>
+        </footer>
 
         <footer>
             {# <div class="links">
@@ -43,10 +192,17 @@
             </div> #}
             <!-- <h1>Contact</h1> -->
 
-            <div class="made-with"><i class="fas fa-hammer"></i> with <span class="text-secondary"><i class="fas fa-heart"></i></span> by <a href="https://github.com/ClaymasterJ"
-                   class="text-tertiary">ClaymasterJ</a>
-                <br />
-                <small>This website is still under development due to career obligations</small>
+            <div class="made-with">
+                <i class="fas fa-hammer"></i>
+                with
+                <span class="text-secondary"><i class="fas fa-heart"></i></span>
+                by
+                <a href="https://github.com/ClaymasterJ"
+                   class="text-muted">
+                    ClaymasterJ
+                </a>
+                {# <br /> #}
+                {# <small>This website is still under development due to career obligations</small> #}
             </div>
         </footer>
 

@@ -1,10 +1,117 @@
 meta:
-
+    last updated:        "May 13th 2019"
 info:
     links:
-        -   name: LinkedIn
-            icon: "fab fa-lg fa-linkedin"
-            url:  "http://www.linkedin.com/in/claytonjroberts"
-        -   name: GitHub
-            icon: "fab fa-lg fa-github-square"
-            url:  "http://github.com/ClaymasterJ"
+        -   name:        LinkedIn
+            icon:        "fab fa-linkedin-in"
+            url:         "http://www.linkedin.com/in/claytonjroberts"
+        -   name:        GitHub
+            icon:        "fab fa-github"
+            url:         "http://github.com/ClaymasterJ"
+        -   name:        Email
+            icon:        "fas fa-at"
+            url:         "mailto:me@claytonjroberts.com"
+        # -   name:      Resume
+        #     icon:      "far fa-lg fa-file"
+        #     url:       "http://google.com/"
+    experience:
+        -   title:       "Data Scientist"
+            company:
+                name:    "Cisco"
+                logo:    "src/images/logo_cisco.svg"
+                link:    "http://www.cisco.com/"
+
+            dateStart:
+                month:   "June"
+                year:    2018
+            isCurrent:   True
+            description: |
+                Sole-creator of full-fledged web application featuring:
+            
+                -   Product classification via machine learning for direct fulfillment sites,
+                -   Quarterly demand forecasting baseline tool,
+                -   Holistic network optimization and scenario tool, and
+                -   Logistics lane rate normalization and standardization.
+
+        -   title:       "President"
+            company:
+                name:    "WaveWise Technical Solutions"
+                logo:    "src/images/logo_wavewise.png"
+                link:    "http://www.wavewisetech.com/"
+
+            dateStart:
+                month:   "May"
+                year:    2017
+            isCurrent:   True
+            description: "Wide range and scope of various projects usually weighty in Python and relevant supporting libraries.
+                Projects entail API creation, library creation, data analysis and management, game logic and deep database design."
+
+    me:
+        introduction:    "**Hello!** My name is Clayton!"
+
+
+    skills:
+        levels:
+
+        list:
+            -   name:    "Python"
+                icon:    "fab fa-python"
+                level:   5
+            -   name:    "HTML"
+                level:   5
+                icon:    "fab fa-html5"
+            -   name:    "CSS"
+                level:   4
+                icon:    "fab fa-css3-alt"
+            -   name:    "SCSS"
+                level:   3
+                icon:    "fab fa-sass"
+            -   name:    "Pandas"
+                parent:  "Python"
+                level:   4
+            -   name:    "Tornado"
+                parent:  "Python"
+                level:   4
+            -   name:    "SQLAlchemy"
+                parent:  "Python"
+                level:   5
+            -   name:    "Sci-Kit Learn"
+                parent:  "Python"
+                level:   3
+            -   name:    "Vue"
+                parent:  "JavaScript"
+                icon:    "fab fa-vuejs"
+                level:   4
+            -   name:    "Vuex"
+                parent:  "Vue"
+                level:   2
+            -   name:    "Angular"
+                icon:    "fab fa-angular"
+                level:   2
+            -   name:    "Microsoft Office"
+                icon:    "fab fa-microsoft"
+                level:   5
+            -   name:    "Postgres"
+                icon:    "fas fa-database"
+                level:   5
+            -   name:    "Swift"
+                icon:    "fab fa-app-store"
+                level:   2
+            -   name:    "Markdown"
+                icon:    "fab fa-markdown"
+                level:   5
+            -   name:    "JavaScript"
+                icon:    "fab fa-js-square"
+                level:   2
+            -   name:    "npm"
+                icon:    "fab fa-npm"
+                level:   2
+            -   name:    "Leadership"
+                icon:    "fas fa-chalkboard-teacher"
+                level:   2
+            -   name:    "Writing"
+                icon:    "fas fa-pencil-alt"
+                level:   5
+            -   name:    "Emotional Intelligence"
+                level:   5
+                icon:    "far fa-grin-beam"

@@ -86,7 +86,9 @@ class App(ConsoleInterface, tornado.web.Application):
         # self.websockets = set()
         with open(Path() / "info.yaml") as fh:
             self.info = yaml.load(fh, Loader=yaml.FullLoader)
+            # print(self.info)
 
+        tornado.autoreload.watch(Path() / "info.yaml")
         tornado.web.Application.__init__(
             self, self.getHandlerList(), **self.settings, cookie_secret=cookie_secret
         )
