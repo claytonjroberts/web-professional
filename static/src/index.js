@@ -9,9 +9,21 @@ import _ from 'lodash';
 // require("font-awesome-webpack"); import "font-awesome-loader"; import
 // "font-awesome";
 import VueScrollTo from 'vue-scrollto';
+import VueMarkdown from 'vue-markdown';
+import showdown from 'showdown';
+var mdconverter = new showdown.Converter();
+window.mdconverter = mdconverter;
 
-Vue.use(VueScrollTo)
+// console.log(mdconverter.makeHtml("**hello**"));
+
+Vue.filter('fromMarkdownToHTML', function(value) {
+    return window.mdconverter.makeHtml(value);
+});
+
+Vue.use(VueScrollTo);
+Vue.use(VueMarkdown);
 window.Vue = Vue;
+window.VueMarkdown = VueMarkdown;
 // import Vuex from 'vuex'; Vue.use(Vuex) import fontawesome; const Vue =
 // require('node_modules/vue');
 //

@@ -27,7 +27,7 @@ info:
             isCurrent:   True
             description: |
                 Sole-creator of full-fledged web application featuring:
-            
+
                 -   Product classification via machine learning for direct fulfillment sites,
                 -   Quarterly demand forecasting baseline tool,
                 -   Holistic network optimization and scenario tool, and
@@ -47,12 +47,17 @@ info:
                 Projects entail API creation, library creation, data analysis and management, game logic and deep database design."
 
     me:
-        introduction:    "**Hello!** My name is Clayton!"
+        introduction:    |
+            **Hello!** My name is Clayton!
+
+            My __overarching goal__ is to test myself against true challenge with *passion*, *honesty*, and *determination*.
+
+            My __objective__ is to learn and lead, promoting growth in interdependent relationships,
+            and drive the advancement and enhancement of business efficiency.
 
 
     skills:
         levels:
-
         list:
             -   name:    "Python"
                 icon:    "fab fa-python"

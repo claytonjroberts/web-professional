@@ -6,6 +6,7 @@
 {% import personal.web.handlers as WH %}
 {% import markdown %}
 {% import tornado %}
+{% import json %}
 
 <body>
     {# {% module UI_Navbar() %} #}
@@ -18,7 +19,7 @@
             {% for linkdict in handler.application.info["info"]["links"] %}
 
             <a class="link"
-               href="{{ linkdict['url'] }}"><i class="{{ linkdict['icon'] }}"></i>
+               href="{{  linkdict['url']  }}"><i class="{{  linkdict['icon']  }}"></i>
             </a>
 
             {% end for %}
@@ -50,14 +51,15 @@
                      style="margin-bottom: 2rem; justify-content: center;">
                     <div class="col-auto">
                         <img class="me-portrait"
-                             src="{{  static_url( "src/images/me.jpg") }}">
+                             src="{{   static_url( "src/images/me.jpg")  }}">
                         </img>
                     </div>
                     <div class="col">
-                        <p class="me-objective">
-                            {% raw markdown.markdown(handler.application.info["info"]["me"]["introduction"]) %}
+                        <span class="me-objective"
+                              v-html="$options.filters.fromMarkdownToHTML(info.me.introduction)">
+                            {# {% raw markdown.markdown(handler.application.info["info"]["me"]["introduction"]) %} #}
 
-                        </p>
+                        </span>
 
                     </div>
 
@@ -67,38 +69,49 @@
                     <div class="col">
                         <h5 class="text-muted">Experience</h5>
 
-                        {% for item in handler.application.info["info"]["experience"] %}
-                        <div class="card">
-                            <a href="{{item.get('company').get('link', None)}}">
-                                <img class="card-img-top"
-                                     src="{{  static_url( item.get('company').get('logo', None) ) }}"
-                                     alt="{{item.get('company').get('name', None)}}">
-                            </a>
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">{{item["title"]}} </h5>
-                                    {% if item.get("isCurrent", False) %}
-                                    <h6 style="align-self: center">
-                                        <span class="badge badge-primary">Current</span>
-                                    </h6>
-                                    {% end if %}
-                                </div>
-                                <h6 class="card-subtitle text-muted ">{{f"""{item["dateStart"]["month"]}, {item["dateStart"]["year"]}"""}} </h6>
-                                <p class="card-text mt-2">
-                                    {% raw markdown.markdown(item.get("description", None), extensions=["extra"]) %}
-                                </p>
-                                <div style="text-align: right;">
-                                    <a class="btn btn-light btn-sm"
-                                       href>
-                                        Show Skills
-                                    </a>
-                                </div>
+                        {# {% for item in handler.application.info["info"]["experience"] %} #}
+                        <exp v-for="expdict in info.experience"
+                             :expdict="expdict"
+                             inline-template>
+                            <div class="card">
+                                <a :href="expdict.company.link">
+                                    {# <img class="card-img-top"
+                                         src="{{   static_url( expdict.get('company').get('logo', None) )  }}"
+                                         alt="{{ expdict.get('company').get('name', None) }}"> #}
+                                </a>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">{{! expdict["title"] }} </h5>
+                                        {# {% if expdict.get("isCurrent", False) %} #}
+                                        <h6 style="align-self: center"
+                                            v-if="expdict.isCurrent">
+                                            <span class="badge badge-primary">Current</span>
+                                        </h6>
+                                        {# {% end if %} #}
+                                    </div>
+                                    <h6 class="card-subtitle text-muted ">{{! expdict["dateStart"]["month"] }}, {{! expdict["dateStart"]["year"] }}</h6>
+                                    <div class="card-text mt-2">
+                                        {# {% raw markdown.markdown(expdict.get("description", None), extensions=["extra"]) %} #}
+                                        {# <vue-markdown> #}
+                                            <span v-html="$options.filters.fromMarkdownToHTML(expdict.description)"></span>
 
-                                {# <a href="#"
-                                   class="btn btn-primary">Go somewhere</a> #}
+                                            {# </vue-markdown> #}
+
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <a class="btn btn-light btn-sm"
+                                           href>
+                                            Show Skills
+                                        </a>
+                                    </div>
+
+                                    {# <a href="#"
+                                       class="btn btn-primary">Go somewhere</a> #}
+                                </div>
                             </div>
-                        </div>
-                        {% end for %}
+
+                        </exp>
+                        {# {% end for %} #}
 
 
                     </div>
@@ -106,8 +119,8 @@
                         <h5 class="text-muted"
                             style="text-align: right;">Skills</h5>
 
-                        <div class="card">
-                            <div class="card-header">
+                        {# <div class="card"> #}
+                            {# <div class="card-header"> #}
 
                                 <div class="input-group mb-3">
                                     <input type="text"
@@ -117,8 +130,8 @@
                                            aria-describedby="basic-addon1"
                                            style="text-align: center;">
                                 </div>
-                            </div>
-                            <div class="list-group list-group-flush">
+                                {# </div> #}
+                            <div class="list-group">
 
                                 {% for skill in handler.application.info["info"]["skills"]["list"] %}
 
@@ -130,25 +143,25 @@
 
                                             {% if skill.get("icon", False) %}
                                             <div>
-                                                <i class="fab {{skill.get('icon')}}"
+                                                <i class="fab {{ skill.get('icon') }}"
                                                    style="align-self:center;"></i>
                                             </div>
                                             {% end if %}
                                         </div>
                                         <div class="col">
-                                            {{skill["name"]}}
+                                            {{ skill["name"] }}
                                             {% if skill.get("parent", False) %}
-                                            (<span class="text-muted">{{skill["parent"]}}</span>)
+                                            (<span class="text-muted">{{ skill["parent"] }}</span>)
                                             {% end if %}
                                             {% if skill.get("link", False) %}
-                                            <a href="{{skill.get('link', False)}}">
+                                            <a href="{{ skill.get('link', False) }}">
                                                 <i class="far fa-question-circle"></i>
                                             </a>
                                             {% end if %}
 
                                         </div>
                                         <div class="col-auto">
-                                            {{skill.get("level", None)}}
+                                            {{ skill.get("level", None) }}
 
                                         </div>
                                     </div>
@@ -159,7 +172,7 @@
 
                                 {% end for %}
                             </div>
-                        </div>
+                            {# </div> #}
 
 
 
@@ -175,7 +188,7 @@
 
         <footer style="text-align: right;">
             <small class="text-muted">
-                Last-updated: {{handler.application.info["meta"]["last updated"]}}
+                Last-updated: {{ handler.application.info["meta"]["last updated"] }}
             </small>
         </footer>
 
@@ -185,7 +198,7 @@
                     {% for linkdict in handler.application.info["info"]["links"] %}
                     <span class="link">
                         <a class="text-secondary"
-                           :href="{{ linkdict['url'] }}"><i :class="{{ linkdict['url'] }}"></i>
+                           :href="{{  linkdict['url']  }}"><i :class="{{  linkdict['url']  }}"></i>
                         </a>
                     </span>
                 </h4>
@@ -215,6 +228,56 @@
 
 
 </body>
+
+<script type="text/javascript">
+    Vue.component('skill', {
+        template: "#skill",
+        props: [
+            "skilldict",
+        ],
+        data: function() {
+            return {}
+        },
+        computed: {},
+        methods: {},
+    });
+
+    Vue.component('exp', {
+        template: "#exp",
+        props: [
+            "expdict",
+        ],
+        data: function() {
+            return {}
+        },
+        computed: {},
+        methods: {},
+    });
+
+    var app = new Vue({
+        el: '#app',
+        components: {
+            VueMarkdown,
+        },
+        data: function() {
+            // Following line is from tornado
+            // var a = String.raw  //.replace("&#39;", "'")
+            // alert(a);
+            //
+            // console.log(JSON.parse(String.raw `{% raw json.dumps(handler.application.info) %}`));
+
+            return JSON.parse(String.raw `{% raw json.dumps(handler.application.info) %}`);
+
+
+        },
+        methods: {
+            "fromMarkdownToHTML": function(x) {
+                return mdconverter.makeHTML(x);
+            }
+        }
+    })
+
+</script>
 
 
 
