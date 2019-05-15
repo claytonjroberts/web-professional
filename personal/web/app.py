@@ -71,7 +71,7 @@ class App(ConsoleInterface, tornado.web.Application):
             "template_path": Path() / "templates",
             "static_path": Path() / "static",
             "ui_modules": ui_module,
-            "debug": True,
+            "debug": False,
             "login_url": "/login",
             "default_handler_class": WH.PH_Notfound,
         }
