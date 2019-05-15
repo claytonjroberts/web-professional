@@ -1,53 +1,176 @@
 meta:
-    last updated:        "May 13th 2019"
+    last updated:             "May 13th 2019"
 info:
     links:
-        -   name:        LinkedIn
-            icon:        "fab fa-linkedin-in"
-            url:         "http://www.linkedin.com/in/claytonjroberts"
-        -   name:        GitHub
-            icon:        "fab fa-github"
-            url:         "http://github.com/ClaymasterJ"
-        -   name:        Email
-            icon:        "fas fa-at"
-            url:         "mailto:me@claytonjroberts.com"
-        # -   name:      Resume
-        #     icon:      "far fa-lg fa-file"
-        #     url:       "http://google.com/"
+        LinkedIn:
+            icon:             "fab fa-linkedin-in"
+            url:              "http://www.linkedin.com/in/claytonjroberts"
+        GitHub:
+            icon:             "fab fa-github"
+            url:              "http://github.com/ClaymasterJ"
+        Email:
+            icon:             "fas fa-at"
+            url:              "mailto:me@claytonjroberts.com"
+        # -   name:           Resume
+        #     icon:           "far fa-lg fa-file"
+        #     url:            "http://google.com/"
     experience:
-        -   title:       "Data Scientist"
+        1:
+            title:            "Data Scientist"
             company:
-                name:    "Cisco"
-                logo:    "src/images/logo_cisco.svg"
-                link:    "http://www.cisco.com/"
+                name:         "Cisco"
+                logo:         "src/images/logo_cisco.svg"
+                link:         "http://www.cisco.com/"
 
             dateStart:
-                month:   "June"
-                year:    2018
-            isCurrent:   True
-            description: |
+                month:        "June"
+                year:         2018
+            isCurrent:        True
+            description:      |
                 Sole-creator of full-fledged web application featuring:
 
                 -   Product classification via machine learning for direct fulfillment sites,
                 -   Quarterly demand forecasting baseline tool,
                 -   Holistic network optimization and scenario tool, and
                 -   Logistics lane rate normalization and standardization.
-
-        -   title:       "President"
+            skillList:
+                -   Python
+                -   SQLAlchemy
+                -   Pandas
+                -   NumPy
+                -   Vue
+                -   Vuex
+                -   JavaScript
+                -   R
+                -   Neural Network
+                -   Network Optimization
+                -   Factory Optimization
+                -   Tornado
+        2:
+            title:            "Capstone"
             company:
-                name:    "WaveWise Technical Solutions"
-                logo:    "src/images/logo_wavewise.png"
-                link:    "http://www.wavewisetech.com/"
+                name:         "Georgia Tech"
+                logo:         "src/images/logo_gt.png"
+                link:         "https://www.gatech.edu/"
+                abbreviation: "GT"
+            dateStart:
+                month:        August
+                year:         2017
+            dateEnd:
+                month:        May
+                year:         2018
+            description:      |
+                Optimization of manufacturing facility in terms of machine asset cost.
+                Lead designer in data transformation and generation tools. Optimization model co-designer.
+            skillList:
+                -   Python
+                -   Network Optimization
+                -   Xpress
+                -   SQL
+                -   Motorcycle Riding
+
+
+        3:
+            title:            "BS in Industrial Engineering"
+            company:
+                name:         "Georgia Tech"
+                logo:         "src/images/logo_gt.png"
+                link:         "https://www.gatech.edu/"
+                abbreviation: "GT"
+            dateStart:
+                month:        August
+                year:         2014
+            dateEnd:
+                month:        May
+                year:         2018
+            description:      |
+                -   Attained membership of Dean’s List more than half of semesters attended.
+                -   Dual enrolled during high school.
+                -   Entered with 8 credits from Advanced Placement courses.
+                -   Double-competing cheerleading athlete.
+            skillList:
+                -   Python
+                -   Network Optimization
+                -   Factory Optimization
+                -   Xpress
+                -   R
+                -   Regression
+                -   Simio
+                -   Optimization
+                -   Cheerleading
+                -   Stunting
+
+        4:
+            title:            "President"
+            company:
+                name:         "WaveWise Technical Solutions"
+                logo:         "src/images/logo_wavewise.png"
+                link:         "http://www.wavewisetech.com/"
+                abbreviation: "WaveWise"
 
             dateStart:
-                month:   "May"
-                year:    2017
-            isCurrent:   True
-            description: "Wide range and scope of various projects usually weighty in Python and relevant supporting libraries.
+                month:        "May"
+                year:         2017
+            isCurrent:        True
+            description:      "Wide range and scope of various projects usually weighty in Python and relevant supporting libraries.
                 Projects entail API creation, library creation, data analysis and management, game logic and deep database design."
+            skillList:
+                -   Python
+                -   SQLAlchemy
+                -   PostgreSQL
+                -   MongoDB
+                -   Tornado
+                -   Vue
+                -   Vuex
+
+
+        5:
+            title:            "Consultant"
+            company:
+                name:         "StartBox"
+                logo:         "src/images/logo_startbox_screenshot.png"
+                link:         "http://www.startboxor.com/"
+
+            dateStart:
+                month:        "July"
+                year:         2017
+
+            dateEnd:
+                month:        "February"
+                year:         2018
+            isCurrent:        False
+            description:      "Feature integration and medical mobile application streamlining. Solo development focused. API development and documentation."
+            skillList:
+                -   Python
+                -   Swift
+                -   Xcode
+        6:
+            title:            "Consultant"
+            company:
+                name:         "RHA"
+                logo:         "src/images/logo_rha.png"
+                link:         "https://rhahealthservices.org/"
+            dateStart:
+                month:        "May"
+                year:         2016
+            dateEnd:
+                month:        "August"
+                year:         2016
+            isCurrent:        False
+            description:      |
+                Development of maintenance of large scale web application heavy in C#, Entity Framework, JavaScript, and Vue.
+                Lead creation of government standardized form printing project that cut operating expense by two-thirds.
+            skillList:
+                -   "C#"
+                -   "JavaScript"
+                -   "Vue"
+
+
+
+
 
     me:
-        introduction:    |
+        introduction:         |
             **Hello!** My name is Clayton!
 
             My __overarching goal__ is to test myself against true challenge with *passion*, *honesty*, and *determination*.
@@ -58,65 +181,212 @@ info:
 
     skills:
         levels:
+            5:                "Mastery"
+            4:                "Experienced"
+            3:                "Proficient"
+            2:                "Adequate"
+            1:                "Exposed"
         list:
-            -   name:    "Python"
-                icon:    "fab fa-python"
-                level:   5
-            -   name:    "HTML"
-                level:   5
-                icon:    "fab fa-html5"
-            -   name:    "CSS"
-                level:   4
-                icon:    "fab fa-css3-alt"
-            -   name:    "SCSS"
-                level:   3
-                icon:    "fab fa-sass"
-            -   name:    "Pandas"
-                parent:  "Python"
-                level:   4
-            -   name:    "Tornado"
-                parent:  "Python"
-                level:   4
-            -   name:    "SQLAlchemy"
-                parent:  "Python"
-                level:   5
-            -   name:    "Sci-Kit Learn"
-                parent:  "Python"
-                level:   3
-            -   name:    "Vue"
-                parent:  "JavaScript"
-                icon:    "fab fa-vuejs"
-                level:   4
-            -   name:    "Vuex"
-                parent:  "Vue"
-                level:   2
-            -   name:    "Angular"
-                icon:    "fab fa-angular"
-                level:   2
-            -   name:    "Microsoft Office"
-                icon:    "fab fa-microsoft"
-                level:   5
-            -   name:    "Postgres"
-                icon:    "fas fa-database"
-                level:   5
-            -   name:    "Swift"
-                icon:    "fab fa-app-store"
-                level:   2
-            -   name:    "Markdown"
-                icon:    "fab fa-markdown"
-                level:   5
-            -   name:    "JavaScript"
-                icon:    "fab fa-js-square"
-                level:   2
-            -   name:    "npm"
-                icon:    "fab fa-npm"
-                level:   2
-            -   name:    "Leadership"
-                icon:    "fas fa-chalkboard-teacher"
-                level:   2
-            -   name:    "Writing"
-                icon:    "fas fa-pencil-alt"
-                level:   5
-            -   name:    "Emotional Intelligence"
-                level:   5
-                icon:    "far fa-grin-beam"
+            Python:
+                icon:         "fab fa-python"
+                level:        5
+                link:         "https://www.python.org/"
+            HTML:
+                level:        5
+                icon:         "fab fa-html5"
+            CSS:
+                level:        4
+                icon:         "fab fa-css3-alt"
+            SCSS:
+                level:        3
+                icon:         "fab fa-sass"
+                link:         "https://sass-lang.com/"
+            Bootstrap:
+                level:        4
+                icon:         "fab fa-bootstrap"
+                parent:       "SCSS"
+                link:         "https://getbootstrap.com/"
+            FontAwesome:
+                level:        5
+                parent:       "SCSS"
+                icon:         "fab fa-font-awesome"
+                link:         "https://fontawesome.com/?from=io"
+            Pandas:
+                parent:       "Python"
+                level:        4
+                link:         "https://pandas.pydata.org/"
+            NumPy:
+                parent:       "Python"
+                level:        3
+                link:         "https://www.numpy.org/"
+            Tornado:
+                parent:       "Python"
+                level:        4
+                link:         "https://www.tornadoweb.org/en/stable/"
+            SQLAlchemy:
+                parent:       "Python"
+                level:        5
+                link:         "https://www.sqlalchemy.org/"
+            scikit-learn:
+                parent:       "Python"
+                level:        3
+                link:         "https://scikit-learn.org/stable/"
+            Click:
+                parent:       "Python"
+                level:        4
+                link:         "https://click.palletsprojects.com/en/master/"
+            RegEx:
+                icon:         "fas fa-search"
+                level:        4
+                link:         "https://en.wikipedia.org/wiki/Regular_expression"
+            Vue:
+                parent:       "JavaScript"
+                icon:         "fab fa-vuejs"
+                level:        4
+                link:         "https://vuejs.org/"
+            Vuex:
+                parent:       "Vue"
+                level:        3
+                link:         "https://vuex.vuejs.org/"
+            Angular:
+                icon:         "fab fa-angular"
+                level:        1
+                link:         "https://angular.io/"
+            Microsoft Office:
+                icon:         "fab fa-microsoft"
+                level:        5
+            PostgreSQL:
+                icon:         "fas fa-database"
+                level:        4
+                link:         "https://www.postgresql.org/"
+            SQL:
+                icon:         "fas fa-database"
+                level:        4
+            Server Management:
+                icon :        "fas fa-server"
+                level:        4
+            Swift:
+                level:        1
+                icon:         "fab fa-app-store"
+            Xcode:
+                level:        2
+                icon:         "fab fa-app-store"
+            "C#":
+                level:        2
+                icon:         "fas fa-bug"
+
+            Java:
+                level:        2
+                icon:         "fab fa-java"
+            Assembly:
+                level:        2
+                icon:         "fas fa-microchip"
+                link:         "https://en.wikipedia.org/wiki/Assembly_language"
+            R:
+                level:        2
+                link:         "https://www.r-project.org/about.html"
+                icon:         "fab fa-r-project"
+            git:
+                level:        4
+                icon:         "fab fa-git"
+            GitHub:
+                level:        4
+                icon:         "fab fa-github"
+            Markdown:
+                icon:         "fab fa-markdown"
+                level:        5
+            JavaScript:
+                icon:         "fab fa-js-square"
+                level:        2
+            npm:
+                icon:         "fab fa-npm"
+                level:        2
+                link:         "https://www.npmjs.com/"
+            Xpress:
+                level:        3
+                parent:       "Network Optimization"
+                link:         "https://www.fico.com/en/products/fico-xpress-optimization"
+            Leadership:
+                icon:         "fas fa-chalkboard-teacher"
+                level:        2
+            Writing:
+                icon:         "fas fa-pencil-alt"
+                level:        5
+            Emotional Intelligence:
+                level:        5
+                icon:         "far fa-grin-beam"
+            Urwid:
+                parent:       "Python"
+                level:        2
+                link:         "http://www.urwid.org/"
+            Linux:
+                icon:         "fab fa-linux"
+
+                level:        4
+            Ubuntu:
+                icon:         "fab fa-ubuntu"
+                level:        4
+                parent:       "Linux"
+            OSX:
+                icon:         "fab fa-apple"
+                level:        5
+                parent:       "Linux"
+            Homebrew:
+                level:        5
+                link:         "https://brew.sh/"
+                parent:       "OSX"
+            DataGrip:
+                icon:         "fas fa-table"
+                level:        3
+                link:         "https://www.jetbrains.com/DataGrip/"
+            MongoDB:
+                icon:         "far fa-file"
+                level:        2
+                link:         "https://www.mongodb.com/"
+            Machine Learning:
+                icon:         "fas fa-desktop"
+                level:        3
+            Regression:
+                icon:         "fas fa-chart-line"
+                level:        4
+                parent:       Machine Learning
+            Neural Network:
+                icon:         "fas fa-brain"
+                level:        3
+                parent:       Machine Learning
+            Deep Learning:
+                level:        3
+                parent:       Neural Network
+            Optimization:
+                level:        5
+                icon:         "fas fa-tachometer-alt"
+            Factory Optimization:
+                level:        5
+                icon:         "fas fa-industry"
+                parent:       Optimization
+            Network Optimization:
+                level:        5
+                icon:         "fas fa-project-diagram"
+                parent:       Optimization
+            Supply Chain Guru:
+                parent:       "Network Optimization"
+                level:        4
+                link:         "https://llamasoft.com/products/design/supply-chain-guru/"
+            Simio:
+                parent:       Optimization
+                level:        3
+                link:         "https://www.simio.com/index.php"
+            Cheerleading:
+                icon:         "far fa-laugh-beam"
+                level:        3
+                link:         "https://en.wikipedia.org/wiki/Cheerleading"
+            Stunting:
+                level:        3
+                link:         "https://en.wikipedia.org/wiki/List_of_cheerleading_stunts"
+                parent:       "Cheerleading"
+            Motorcycle Riding:
+                level:        3
+                icon:         "fas fa-motorcycle"
+            Photography:
+                level:        1
+                icon:         "fas fa-camera-retro"

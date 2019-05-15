@@ -10,6 +10,10 @@ import _ from 'lodash';
 // "font-awesome";
 import VueScrollTo from 'vue-scrollto';
 import VueMarkdown from 'vue-markdown';
+import Vuex from 'vuex';
+// import all from '@fortawesome/fontawesome-free/js/'
+// require("~@fortawesome/fontawesome-free/js/all.js");
+
 import showdown from 'showdown';
 var mdconverter = new showdown.Converter();
 window.mdconverter = mdconverter;
@@ -22,8 +26,10 @@ Vue.filter('fromMarkdownToHTML', function(value) {
 
 Vue.use(VueScrollTo);
 Vue.use(VueMarkdown);
+Vue.use(Vuex);
 window.Vue = Vue;
 window.VueMarkdown = VueMarkdown;
-// import Vuex from 'vuex'; Vue.use(Vuex) import fontawesome; const Vue =
+window.VueScrollTo = VueScrollTo;
+// import fontawesome; const Vue =
 // require('node_modules/vue');
 //
