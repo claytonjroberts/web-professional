@@ -48,7 +48,7 @@
                 <div class="row align-items-center me pb-3">
                     <div class="col-auto">
                         <img class="me-portrait"
-                             src="{{   static_url( "src/images/me.jpg")  }}">
+                             :src="static_url + 'src/images/me.jpg'">
                         </img>
                     </div>
                     <div class="col">
@@ -117,7 +117,7 @@
                                                 <div>
                                                     <a :href="expdict.company.link">
                                                         <img class="card-img-side"
-                                                             :src="'{{ static_url("")}}' + expdict.company.logo"
+                                                             :src="this.$parent.static_url + expdict.company.logo"
                                                              :alt="expdict.company.name">
                                                     </a>
                                                 </div>
@@ -400,9 +400,12 @@
                 ...{
                     filtersearch: null,
 
-                    selectedexperiance: null
+                    selectedexperiance: null,
+                    static_url: `{% raw static_url("") %}`
                 },
                 ...JSON.parse(String.raw `{% raw json.dumps(handler.application.info) %}`)
+
+
             }
         },
         methods: {
