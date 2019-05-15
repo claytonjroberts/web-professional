@@ -22,7 +22,8 @@ $theme-colors: (
     // "splash"            : #906000,
     "splash-text"       : #E5E5E0,
     "splash-text-darker": #C0B8B8,
-    "bg-light"          : #FBFBFB, // Make slightly more reddish, gives a warmer feel
+    "bg"                : #FBFBFB,
+    "bg-light"          : #FBFBFB,
     "light"             : #E5E5E5,
     "medium-light"      : #D5D5D5,
     "medium"            : #B5B5B5,
@@ -51,6 +52,10 @@ $colors: (
 );
 @import "~bootstrap/scss/bootstrap.scss"; // @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 // @import "~font-awesome/scss/font-awesome.scss";
+@import '~@fortawesome/fontawesome-free/css/all.css'; // @import '~@fortawesome/fontawesome-free/css/fontawesome.scss';
+// @import '~@fortawesome/fontawesome-free/scss/brands.scss';
+// @import '~@fortawesome/fontawesome-free/scss/regular.scss';
+// @import '~@fortawesome/fontawesome-free/scss/solid.scss';
 @font-face {
     font-family: "ProFontWindows";
     src        : url("~/static/src/fonts/ProFontWindows.TTF");
@@ -63,11 +68,22 @@ $colors: (
     font-family: "OpenSans";
     src        : url("~/static/src/fonts/OpenSans/OpenSans-Regular.ttf");
 }
+@font-face {
+    font-family: "FontAwesome";
+    src        : url("~font-awesome/fonts/fontawesome-webfont.ttf");
+}
 // VARIABLES
 $border-radius: 0.25rem;
 
 html {
     background-color: theme-color("html");
+    font-family     : "OpenSans", !important;
+}
+
+.faf {
+    // Font awesome font
+    font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", "OpenSans" !important;
+    font-weight: 900;
 }
 
 .body,
@@ -75,7 +91,6 @@ body {
     background-color: theme-color("bg-light");
     // background-color: lighten(theme-color("medium-light"), 5%);
     // Set font for website -->
-    font-family     : "OpenSans" !important;
     display         : flex;
     flex-direction  : column;
     flex            : 1 0 auto;

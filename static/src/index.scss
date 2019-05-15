@@ -10,6 +10,7 @@
 //     // border-color    : theme-color("footer-border");
 //     flex-direction  : column;
 // }
+$transition_time_color: 0.5s;
 
 .expand {
     display  : flex;
@@ -19,13 +20,16 @@
 main {
     // background-color: theme-color("light");
     // border-radius   : 1rem;
-    margin         : 0 2rem;
+    margin         : 0;
     // display       : flex;
     // flex-direction: column;
     // flex-grow     : 1;
     // align-items   : center;
     align-content  : center;
     justify-content: center;
+    @media (min-width: 576px) {
+        margin: 0 2rem;
+    }
 
     .inner {
         display       : flex;
@@ -50,10 +54,37 @@ main {
     border         : solid theme-color("primary");
     // padding        : 0.25rem;
     margin         : 1rem;
+    transition     : $transition_time_color;
+
+    &:hover {
+        border: solid theme-color("secondary");
+
+        .me-objective-keyword {
+            color: theme-color("secondary");
+        }
+    }
 }
 
 .me-objective {
+    em {
+        transition: $transition_time_color;
+        color     : inherit;
+    }
     align-self: center;
+}
+
+.me {
+    justify-content: center;
+
+    &:hover {
+        .me-portrait {
+            border: solid theme-color("secondary");
+        }
+
+        .me-objective em {
+            color: theme-color("secondary") !important;
+        }
+    }
 }
 
 .card-img-top {
@@ -63,6 +94,20 @@ main {
     padding   : 20% 20% 10%;
     // max-width : 15rem;
     // max-height: 8rem;
+    align-self: center;
+    // max-height: 3rem;
+    // border      : 0.1rem;
+    // border-style: solid;
+    // border-color: theme-color("medium");
+}
+
+.card-img-side {
+    // border    : solid transparent;
+    // padding     : 2rem 2rem 0;
+    // padding   : 25%;
+    // padding   : 20% 20% 10%;
+    max-width : 5rem;
+    max-height: 5rem;
     align-self: center;
     // max-height: 3rem;
     // border      : 0.1rem;
@@ -82,12 +127,21 @@ main {
     top     : 0.5rem;
 }
 
+.sister-col {
+    max-height: 75vh;
+}
+
 .email-header {
     padding        : 1rem;
     // max-width      : 30rem;
-    width          : 40rem;
+    // width          : 80%;
+    @media (min-width: 576px) {
+        width: 50%;
+    }
+    // width          : 40rem;
     border-radius  : 2rem;
     height         : 4rem;
+    max-height     : 4rem;
     margin         : 1rem 0;
     text-align     : center;
     display        : flex;
@@ -95,7 +149,7 @@ main {
     flex-grow      : 1;
     // flex-shrink    : 0;
     align-content  : center;
-    transition     : 0.5s;
+    transition     : $transition_time_color;
     justify-content: center;
     align-self     : center;
     border         : 0.1rem;
@@ -103,12 +157,16 @@ main {
     border-style   : solid;
 
     &:hover {
-        // transition      : 0.5s;
+        // transition      : $transition_time_color;
         background-color: theme-color("secondary");
         border-color    : theme-color("secondary") !important;
         border          : 1rem;
         border-style    : solid;
-        width           : 30rem;
+        // width           : 30rem;
+        // width           : 70%;
+        @media (min-width: 576px) {
+            width: 40%;
+        }
 
         .name {
             // color: lightskyblue;
@@ -117,7 +175,7 @@ main {
         }
 
         .name-around {
-            // transition: 0.5s;
+            // transition: $transition_time_color;
             // color: lightskyblue;
             color: lighten(theme-color("secondary"), 25%);
         }
@@ -127,7 +185,7 @@ main {
 .email {
     align-self: center;
     text-align: center;
-    // transition: 0.5s;
+    // transition: $transition_time_color;
     // background-color: white;
     .name {
         // color      : theme-color("splash-text");
@@ -143,7 +201,8 @@ main {
 }
 
 .made-with {
-    background-color: theme-color("medium-light");
+    // background-color: theme-color("medium-light");
+    background-color: darken(theme-color("bg-light"), 10%);
     // background-color: darken(theme-color("primary"), 10%);
     // background-color: lighten(theme-color("primary"), 5%);
     color           : theme-color("dark");
@@ -156,6 +215,17 @@ main {
     // background-color: darken(theme-color("footer"), 10%);
     padding         : 1.5rem 0;
     text-align      : center;
+    transition      : $transition_time_color;
+
+    .text-primary {
+        transition: $transition_time_color;
+    }
+
+    &:hover {
+        .text-primary {
+            color: theme-color("secondary") !important;
+        }
+    }
 }
 // .card {
 //     background-color: theme-color("bg-light");
@@ -168,11 +238,23 @@ main {
     flex-direction: column;
     flex-shrink   : 1;
     z-index       : 1000;
+    transition    : $transition_time_color;
+
+    &:hover {
+        .link {
+            color: theme-color("secondary");
+        }
+    }
 
     .link {
         padding   : 0.5rem;
         font-size : 1.5rem;
         align-self: center;
+        transition: $transition_time_color;
+
+        &:hover {
+            color: lighten($color: theme-color("secondary"), $amount: 15%) !important;
+        }
     }
 }
 

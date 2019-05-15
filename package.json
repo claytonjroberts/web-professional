@@ -9,11 +9,10 @@
     "dependencies": {
         "@babel/core": "^7.4.4",
         "@babel/preset-env": "^7.4.4",
-        "@fortawesome/fontawesome-free": "^5.8.2",
         "ajv": "^6.10.0",
         "babel": "^6.23.0",
         "babel-core": "^6.26.3",
-        "babel-loader": "^8.0.5",
+        "babel-loader": "^8.0.6",
         "bootstrap": "^4.3.1",
         "css-loader": "^1.0.1",
         "file": "^0.2.2",
@@ -21,6 +20,7 @@
         "font-awesome": "^4.7.0",
         "font-awesome-loader": "^1.0.2",
         "font-awesome-webpack": "0.0.5-beta.2",
+        "fontawesome": "^5.6.3",
         "jquery": "^3.4.1",
         "less": "^3.9.0",
         "lodash": "^4.17.11",
@@ -43,6 +43,7 @@
         "webpack-cli": "^3.3.2"
     },
     "devDependencies": {
+        "@fortawesome/fontawesome-free": "^5.8.2",
         "less-loader": "^4.1.0"
     },
     "scripts": {
