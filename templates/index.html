@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-{% module UI_Head() %}
-
 {% import personal.web %}
 {% import personal.web.handlers as WH %}
 {% import markdown %}
 {% import tornado %}
 {% import json %}
 {% from pyfiglet import Figlet %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type"
+          content="text/html; charset=UTF-8">
+
+
+    <title>Clayton</title>
+
+    <script src="{{ static_url( 'dist/bundle.js' ) }}"></script>
+
+</head>
 
 <body>
     {# {% module UI_Navbar() %} #}

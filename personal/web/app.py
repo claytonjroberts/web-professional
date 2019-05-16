@@ -33,13 +33,26 @@ class App(ConsoleInterface, tornado.web.Application):
 
     def getHandlerList(self) -> list:
         handlers = [
-            (r"/ws", WH.Websocket),
-            (r"/", WH.PH_Index),
+            # (r"/ws", WH.Websocket),
+            (r"/(.*)", WH.PH_Index),
             (
                 r"/static/(.*)",
                 tornado.web.StaticFileHandler,
                 {"path": self.settings["static_path"]},
             ),
+            # (
+            #     r"/favicon.ico",
+            #     tornado.web.StaticFileHandler,
+            #     {
+            #         "path": (
+            #             self.settings["static_path"]
+            #             / "src"
+            #             / "images"
+            #             / "favicon_io"
+            #             # / "favicon.ico"
+            #         )
+            #     },
+            # ),
         ]
 
         "Add all the pages by their names here."

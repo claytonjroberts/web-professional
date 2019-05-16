@@ -2,7 +2,8 @@ var path = require('path');
 
 
 module.exports = {
-    mode: 'development',
+    // mode: 'development',
+    mode: 'production',
 
     resolve: {
         alias: {
