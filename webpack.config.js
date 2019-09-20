@@ -1,5 +1,4 @@
 var path = require('path');
-<<<<<<< HEAD
 // import webpack from 'webpack';
 const webpack = require('webpack');
 
@@ -7,13 +6,6 @@ const webpack = require('webpack');
 module.exports = {
     mode: 'development',
     // mode: 'production',
-=======
-
-
-module.exports = {
-    // mode: 'development',
-    mode: 'production',
->>>>>>> 1344c7791c8721cc70d06349611ca3beaa7c018a
 
     resolve: {
         alias: {
@@ -62,11 +54,8 @@ module.exports = {
             {
                 test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
                 loader: 'file-loader'
-<<<<<<< HEAD
             }
-=======
-            },
->>>>>>> 1344c7791c8721cc70d06349611ca3beaa7c018a
+
             // {
             //     test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
             //     // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
@@ -106,7 +95,6 @@ module.exports = {
     },
     watch: true,
 
-<<<<<<< HEAD
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
@@ -114,8 +102,6 @@ module.exports = {
         })
     ]
 
-=======
->>>>>>> 1344c7791c8721cc70d06349611ca3beaa7c018a
     // resolve: {
     //     alias: {
     //         'vue$': 'vue/dist/vue.esm.js'
