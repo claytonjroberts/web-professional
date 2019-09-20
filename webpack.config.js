@@ -1,9 +1,11 @@
 var path = require('path');
+// import webpack from 'webpack';
+const webpack = require('webpack');
 
 
 module.exports = {
-    // mode: 'development',
-    mode: 'production',
+    mode: 'development',
+    // mode: 'production',
 
     resolve: {
         alias: {
@@ -52,7 +54,7 @@ module.exports = {
             {
                 test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
                 loader: 'file-loader'
-            },
+            }
             // {
             //     test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
             //     // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
@@ -91,6 +93,13 @@ module.exports = {
         ignored: /node_modules/
     },
     watch: true,
+
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        })
+    ]
 
     // resolve: {
     //     alias: {

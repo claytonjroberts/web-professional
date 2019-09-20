@@ -1,12 +1,35 @@
-from flask import Flask
+import inspect
+import json
+
+# import multiprocessing
+import re
+
+# import socket
+# import sys
+import time
+import uuid
+from pathlib import Path
+from threading import Thread
+
+import tornado
+import tornado.autoreload
+import tornado.websocket
+
+# from pynpm import NPMPackage
+from tornado import gen
+from tornado.ioloop import IOLoop, PeriodicCallback
+import tornado.web
+import tornado.wsgi
+
+from . import handlers as WH
+from . import ui as ui_module
+from ..core.console import ConsoleInterface
+import yaml
+from pathlib import Path
 
 
-class App(ConsoleInterface, Flask):
+class App(ConsoleInterface, tornado.web.Application):
     """Master application"""
-
-    def __init__(self):
-        super()
-        self.template_folder =
 
     def getHandlerList(self) -> list:
         handlers = [

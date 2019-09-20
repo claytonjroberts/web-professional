@@ -1,41 +1,25 @@
-# from multiprocessing import Process
-# from pathlib import Path
-# from threading import Thread
+from flask import Flask
+import flask
+from pathlib import Path
+import yaml
 
-# from pynpm import NPMPackage, YarnPackage
-# from pywebpack import WebpackProject
+app = Flask(
+    __name__, template_folder=Path() / "templates", static_folder=Path() / "static"
+)
 
-from personal.web.app import App
-
-import tornado
-import tornado.web
-import tornado.wsgi
-import tornado.ioloop
+with open(Path() / "info.yaml") as fh:
+    app.info = yaml.load(fh, Loader=yaml.FullLoader)
 
 
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        # q = self.get_query_argument("q")
-        # res = Pricing(q).pricing()
-        self.write("hello")
+@app.route("/")
+def index():
+    return flask.render_template("index_flask.html", app=app)
 
 
-global application
+@app.route("/info", methods=["GET"])
+def info():
+    return app.info
 
-if __name__ == "__main__":
 
-    # application = tornado.wsgi.WSGIAdapter(App())
-
-    app = App()
-    app.listen(8080)
-    tornado.ioloop.IOLoop.current().start()
-
-    # def make_app():
-    #     return tornado.web.Application([(r"/", MainHandler)], debug=False)
-    #
-    # application = make_app()
-    # application.listen(8080)
-    # tornado.ioloop.IOLoop.current().start()
-
-    # application = make_app()
-    # application = tornado.wsgi.WSGIAdapter(application)
+# if __name__ == "__main__":
+app.run(use_reloader=True, debug=True)
