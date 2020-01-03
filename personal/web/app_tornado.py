@@ -1,13 +1,14 @@
 import inspect
 import json
-
-# import multiprocessing
+import yaml
 import re
-
-# import socket
-# import sys
 import time
 import uuid
+import typing
+import socket
+
+# import sys
+
 from pathlib import Path
 from threading import Thread
 
@@ -21,54 +22,54 @@ from tornado.ioloop import IOLoop, PeriodicCallback
 import tornado.web
 import tornado.wsgi
 
-from . import handlers as WH
-from . import ui as ui_module
-from ..core.console import ConsoleInterface
-import yaml
-from pathlib import Path
+from . import handlers as hd
+from . import ui
+
+from ..core.console import output
+from ..core.constants import PATH_INFO
 
 
-class App(ConsoleInterface, tornado.web.Application):
+class App(tornado.web.Application):
     """Master application"""
 
-    def getHandlerList(self) -> list:
-        handlers = [
-            # (r"/ws", WH.Websocket),
-            (r"/(.*)", WH.PH_Index),
-            (
-                r"/static/(.*)",
-                tornado.web.StaticFileHandler,
-                {"path": self.settings["static_path"]},
-            ),
-            # (
-            #     r"/favicon.ico",
-            #     tornado.web.StaticFileHandler,
-            #     {
-            #         "path": (
-            #             self.settings["static_path"]
-            #             / "src"
-            #             / "images"
-            #             / "favicon_io"
-            #             # / "favicon.ico"
-            #         )
-            #     },
-            # ),
-        ]
+    def get_list_handlers(self) -> list:
+        handlers = [(r"/", hd.PH_Index)]
 
         "Add all the pages by their names here."
-        for y in inspect.getmembers(WH, inspect.isclass):
-            x = y[1]
-            if issubclass(x, WH.PageHandler) and x is not WH.PageHandler:
+        for handler_name, handler_cls in inspect.getmembers(hd, inspect.isclass):
+            if (
+                issubclass(handler_cls, hd.HandlerPage)
+                and handler_cls is not hd.HandlerPage
+            ):
+                handlers.append((handler_cls.url_local(), handler_cls))
+
+        [
+            output(
+                source=self, message=f"{handler_name :>30} -> {handler_cls.__name__}"
+            )
+            for handler_name, handler_cls in handlers
+        ]
+
+        return handlers
+
+    def get_list_ui(self) -> typing.List[ui.HandlerUI]:
+        uis = []
+
+        "Add all the pages by their names here."
+        for _, item in inspect.getmembers(ui, inspect.isclass):
+            if issubclass(item, ui.HandlerUI) and item is not ui.HandlerUI:
                 # if issubclass(x, API) and x is not API:
                 #     "API Handlers"
                 #     handlers.append(
-                #         ("/api{}".format(x.localUrl()), x)
+                #         ("/api{}".format(x.url_local()), x)
                 #         )
                 # else:
                 #     "Page handlers"
-                handlers.append(("{}".format(x.localUrl()), x))
-        [self.output("{:>30} -> {}".format(x[0], x[1].__name__)) for x in handlers]
-        return handlers
+                uis.append(item)
+
+        [output(source=self, message=f"{item !r} -> {item.__name__}") for item in uis]
+
+        return uis
 
     def __init__(self):
         # print(list(inspect.getmembers(sys.modules[__name__], inspect.isclass)))
@@ -79,61 +80,31 @@ class App(ConsoleInterface, tornado.web.Application):
         #     tornado.autoreload.watch(file)
         #     # autoreload.watch(file)
 
-        "Set tornado settings"
-        self.settings = {
-            "template_path": Path() / "templates",
-            "static_path": Path() / "static",
-            "ui_modules": ui_module,
-            "debug": False,
-            "login_url": "/login",
-            "default_handler_class": WH.PH_Notfound,
-        }
-
         # NOTE: Following not fully implemented yet
         # ssl_options = {"certfile": "cert.cer", "keyfile": "key.key"}
 
         # http_server = tornado.httpserver.HTTPServer(application, )
 
-        cookie_secret = "Super secret cookie 4"  # TODO
-
-        # self.websockets = set()
-        with open(Path() / "info.yaml") as fh:
+        with open(PATH_INFO) as fh:
             self.info = yaml.load(fh, Loader=yaml.FullLoader)
-            # print(self.info)
 
+        # If information in info.yaml is changed, reload app
         tornado.autoreload.watch(Path() / "info.yaml")
+
         tornado.web.Application.__init__(
-            self, self.getHandlerList(), **self.settings, cookie_secret=cookie_secret
+            self,
+            self.get_list_handlers(),
+            **{
+                # Tornado settings
+                "template_path": "src/templates",
+                "static_path": "static",
+                "ui_modules": ui,
+                "debug": True,
+                "login_url": "/login",
+                "default_handler_class": hd.PH_NotFound,
+            },
+            cookie_secret="Super secret cookie 4",
         )
-
-    def addWebsocket(self, websocket):
-        assert isinstance(websocket, WH.Websocket)
-        self.websockets.add(websocket)
-
-    @gen.coroutine
-    def startWebpack(self, install=False, build=False):
-        pth = Path() / "package.json"
-        # print(pth)
-        pkg = NPMPackage(pth.absolute())
-
-        if install:
-            pkg.install()
-
-        if build:
-            pkg.build()
-
-        # self.process_webpack = multiprocessing.Process(
-        #     target=pkg.run_script, args=("build",), daemon=True
-        # )
-        # self.process_webpack.start()
-        # process.join()
-
-        self.process_webpack = Thread(
-            target=pkg.run_script, args=("build",), daemon=True
-        )
-        self.process_webpack.start()
-
-        # pkg.run_script("build")
 
     def serve(self, port: int = 8000, isWSGI: bool = False):
 
@@ -157,8 +128,8 @@ class App(ConsoleInterface, tornado.web.Application):
             )
             + ["no IP found"]
         )[0]
-        self.output(f"Starting at http://{ip}:{port}/")
-        # self.output("Starting at port '{}'".format(port))
+        output(f"Starting at http://{ip}:{port}/", self)
+        # output("Starting at port '{}'".format(port), self)
 
         if not isWSGI:
             server = tornado.httpserver.HTTPServer(self)
@@ -187,20 +158,3 @@ class App(ConsoleInterface, tornado.web.Application):
             # server = wsgiref.simple_server.make_server("", 8888, wsgi_app)
             # server.serve_forever()
             raise
-
-        # tornado.ioloop.IOLoop.current().stop()
-
-    @gen.coroutine
-    def chirp(self, user):
-        """Look at all websockets and have them relay chirp if the client needs to be updated"""
-        # If the user is in a campaign, update all users in that campaign, otherwise, chirp
-
-        if not self.settings.get("debug", False):
-            for x in self.websockets:
-                if x.user == user:
-                    return x.chirp()
-
-        else:
-            # DEBUG ONLY: chirp everywhere
-            for x in self.websockets:
-                x.chirp()

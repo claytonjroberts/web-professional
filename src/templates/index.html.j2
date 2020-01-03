@@ -1,8 +1,11 @@
-{% extends "base.html" %}
+{% extends "base.html.j2" %}
 
-{% block other %}
+{% block content %}
 
-<div class="body" id="app">
+{% import markdown2 as markdown %}
+
+
+<div class="body" id="app" v-if="ready">
 
     <!-- LINKS -->
     <div class="static-tr links">
@@ -30,19 +33,12 @@
             <!-- ME -->
             <div class="row align-items-center me pb-3">
                 <div class="col-auto">
-                    <img class="me-portrait" :src="static_url + 'src/images/me.jpg'">
+                    <img class="me-portrait" :src="static_url + 'images/me.jpg'">
                     </img>
                 </div>
                 <div class="col">
-                    <span class="me-objective" v-html="$options.filters.fromMarkdownToHTML(info.me.introduction)">
-                        {{ markdown.toHTML(info["info"]["me"]["introduction"]) }}
-
-                    </span>
-
-
+                    <span class="me-objective" v-html="from_markdown_to_html(info.me.introduction)"></span>
                 </div>
-
-
             </div>
 
             <!-- EXPERIENCE AND SKILLS -->
@@ -64,7 +60,7 @@
                     </div>
                     <div class="overflow-auto sister-col" id="exps">
 
-                        {# {% for item in handler.application.info["info"]["experience"] %} #}
+                        {# {% for item in handler.application.info["experience"] %} #}
 
                         <div>
                             <exp v-for="(expdict, expindex) in info.experience" :expdict="expdict" :expindex="expindex" :key="expindex" inline-template>
@@ -99,7 +95,7 @@
                                         <div class="card-text mt-2">
                                             {# {% raw markdown.markdown(expdict.get("description", None), extensions=["extra"]) %} #}
                                             {# <vue-markdown> #}
-                                            <span v-html="$options.filters.fromMarkdownToHTML(expdict.description)"></span>
+                                            <span v-html="from_markdown_to_html(expdict.description)"></span>
 
                                             {# </vue-markdown> #}
 
@@ -115,15 +111,10 @@
 
                                             </a>
                                         </div>
-                                        {#
-                                            <a href="#"
-                                               class="btn btn-primary">Go somewhere</a> #}
                                     </div>
                                 </div>
                             </exp>
                         </div>
-
-                        {# {% end for %} #}
 
 
                     </div>
@@ -135,12 +126,7 @@
                         Skills (<span class="text-primary">{{! _.size(info.skills.list) }}</span>)
                     </h5>
                     <div class="input-group mb-3">
-                        {# <div class="input-group-prepend">
-                                <span class="input-group-text"
-                                      id="basic-addon1">
-                                    <i class="fas fa-search"></i>
-                                </span>
-                            </div> #}
+
                         <input type="text" class="form-control faf" placeholder="&#xF002;" aria-label="Skill Search" aria-describedby="basic-addon1" style="text-align: left;" v-model="filtersearch">
                     </div>
                     <div class="overflow-auto sister-col">
@@ -164,20 +150,14 @@
                                                 (<span class="text-muted">{{! skilldict["parent"] }}</span>)
                                             </div>
 
-
                                         </div>
 
-
-                                        {# <div class="col p-0">
-                                                <!-- spacing -->
-                                            </div> #}
                                         <div v-if="skilldict.link" class="col-auto p-0" style="text-align:right;">
                                             <a :href="skilldict.link">
                                                 <i class="far fa-question-circle"></i>
                                             </a>
                                         </div>
                                         <div class="col-auto d-flex flex-column">
-
 
                                             <div class="text-tertiary">
                                                 {# {{! this.$parent.info.skills.levels[skilldict.level] }} #}
@@ -186,27 +166,8 @@
                                                 </i>
                                             </div>
 
-
-
-
                                         </div>
                                     </div>
-
-
-
-
-
-
-
-                                    {# <div class="col-auto">
-                                            <span>
-                                                {{! this.$parent.info.skills.levels[skilldict.level] }}
-                                            </span>
-
-                                        </div> #}
-
-
-
 
                                 </div>
                             </skill>
@@ -225,14 +186,14 @@
 
     <footer style="text-align: right;">
         <small class="text-muted">
-            Last-updated: {{ handler.application.info["meta"]["last updated"] }}
+            Last-updated: {{! info["meta"]["last updated"] }}
         </small>
     </footer>
 
     <footer>
         {# <div class="links">
                 <h4 class="links-list">
-                    {% for linkdict in handler.application.info["info"]["links"] %}
+                    {% for linkdict in handler.application.info["links"] %}
                     <span class="link">
                         <a class="text-secondary"
                            :href="{{  linkdict['url']  }}"><i :class="{{  linkdict['url']  }}"></i>
@@ -259,50 +220,21 @@
 
 </main>
 
-<br />
-
-<footer style="text-align: right;">
-    <small class="text-muted">
-        Last-updated: {{ handler.application.info["meta"]["last updated"] }}
-    </small>
-</footer>
-
-<footer>
-    {# <div class="links">
-                <h4 class="links-list">
-                    {% for linkdict in handler.application.info["info"]["links"] %}
-                    <span class="link">
-                        <a class="text-secondary"
-                           :href="{{  linkdict['url']  }}"><i :class="{{  linkdict['url']  }}"></i>
-                        </a>
-                    </span>
-                </h4>
-            </div> #}
-    <!-- <h1>Contact</h1> -->
-
-    <div class="made-with">
-        <i class="fas fa-hammer"></i>
-        with
-        <span class="text-primary"><i class="fas fa-heart"></i></span>
-        by
-        <a href="https://github.com/ClaymasterJ" class="text-muted">
-            ClaymasterJ
-        </a>
-    </div>
-</footer>
-
-
 
 
 </div>
 
 
+{% end %}
 
-{% endblock %}
 
-
-{% block script %}
+{% block scripts %}
 <script type="text/javascript">
+    Vue.filter('from_markdown_to_html', function(val) {
+        // Global filter function
+        return mdconverter.makeHtml(val);
+    })
+
     Vue.component('skill', {
         template: "#skill",
         props: [
@@ -337,7 +269,11 @@
                 }
             }
         },
-        methods: {},
+        methods: {
+            from_markdown_to_html: function(x) {
+                return mdconverter.makeHtml(x);
+            }
+        },
     });
 
     Vue.component('exp', {
@@ -365,6 +301,9 @@
                     self.$parent.selectedexperiance = self.expindex;
                 }
             },
+            from_markdown_to_html: function(x) {
+                return mdconverter.makeHtml(x);
+            }
 
         },
     });
@@ -380,25 +319,33 @@
                     filtersearch: null,
 
                     selectedexperiance: null,
-                    static_url: `{% raw static_url("") %}`
+                    static_url: `{% raw static_url("") %}`,
+                    info: null,
+                    ready: false
                 },
 
 
             }
         },
         methods: {
-            fromMarkdownToHTML: function(x) {
-                return mdconverter.makeHTML(x);
-            }
+            from_markdown_to_html: function(x) {
+                return mdconverter.makeHtml(x);
+            },
             getInfo: function() {
                 var self = this;
 
-                self.$http.get('/info').then(function(response) {
-                    console.log(response.data);
-                    self.info = response.data;
+                $.get('/api/info').then(function(response) {
+                    console.log(response);
+                    self.info = response;
+                    self.ready = true;
                 }, function(response) {
                     console.log(response)
                 });
+            }
+        },
+        filters: {
+            from_markdown_to_html: function(x) {
+                return mdconverter.makeHtml(x);
             }
         },
         beforeMount() {
@@ -420,4 +367,4 @@
     })
 
 </script>
-{% endblock %}
+{% end %}

@@ -1,4 +1,4 @@
 tornado
-markdown
+markdown2
 pyyaml
 pyfiglet

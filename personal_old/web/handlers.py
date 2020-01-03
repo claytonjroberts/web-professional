@@ -69,7 +69,7 @@ class PageHandler(ConsoleInterface, tornado.web.RequestHandler):
         return " ".join(cls.__name__.split("_")[1:]).lower()
 
     @classmethod
-    def localUrl(cls):
+    def url_local(cls):
         return "/{}".format("/".join(cls.__name__.lower().split("_")[1:]))
 
     def raiseError(self, error):
@@ -134,8 +134,8 @@ def doOutput(some_function):
 
 class API(PageHandler):
     @classmethod
-    def localUrl(cls):
-        return "/api{}".format(super().localUrl())
+    def url_local(cls):
+        return "/api{}".format(super().url_local())
 
 
 # CREATE PageHandlers based on what is in the templates folder

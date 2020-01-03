@@ -5,17 +5,33 @@ from pathlib import Path
 
 from tornado.web import UIModule
 
+# from dataclasses import dataclass
 
-class UI(UIModule):
+from .helpers import get_path_from_name
+from ..core.constants import PATH_TEMPLATES
+from ..core.console import output
+
+
+class HandlerUI(UIModule):
     # def render(self, html=None, **kwargs):
     #     if html is None:
     #         html = self.__class__.__name__
     #     return self.render_string("ui/{}.html".format(html),
     #                               id=uuid.uuid4().__int__(), **kwargs)
 
-    def render(self):
+    def render(self, name_directory: str = "ui", name_file=None):
         self.id = str(uuid.uuid4()).replace("-", "")
-        return self.render_string("ui/{}.html".format(self.__class__.title()), ui=self)
+
+        return self.render_string(
+            (
+                f"{name_directory}/"
+                + get_path_from_name(
+                    name=(self.__class__.title() if not name_file else name_file),
+                    path=PATH_TEMPLATES / name_directory,
+                ).name
+            ),
+            ui=self,
+        )
 
     @classmethod
     def title(cls):
@@ -23,21 +39,33 @@ class UI(UIModule):
 
 
 # NOTE: SECTION -> DYNAMICALLY CREATED UIs
-for f in Path("templates/ui").glob("*.html"):
+for path_template in [
+    x
+    for x in (PATH_TEMPLATES / "ui").iterdir()
+    if (not x.is_dir() and re.search(r"\.html(?:\.j2)?", x.name, re.IGNORECASE))
+]:
     # Dont worry about not including some, everything is controlled by the PH anyway
     # if not re.search("(old|new|_?test_?|_$)", f.stem, re.IGNORECASE):
-    title_pre = f.stem.split("__")[0]
-    title_tags = f.stem.split("__")[1:]
-    # NOTE: Add __admin for admin-only pages, add __auth for authenticated-only pages
+    name_path_template = path_template.name.split(".")[0]
 
-    t = "".join([a if a.isupper() else b for a, b in zip(title_pre, title_pre.title())])
-    setattr(sys.modules[__name__], f"UI_{t}", type(f"UI_{t}", (UI,), {}))
+    # TODO: Add __admin for admin-only pages, add __auth for authenticated-only pages
+
+    t = "".join(
+        [
+            a if a.isupper() else b
+            for a, b in zip(name_path_template, name_path_template.title())
+        ]
+    )
+
+    _class_handler = type(f"UI_{t}", (HandlerUI,), {})
+    output(f"Created ui {_class_handler}")
+    setattr(sys.modules[__name__], _class_handler.__name__, _class_handler)
 
 
-class UI_Generic_Vue(UI):
-    def render(self, model):
-        self.model = model
-        return super().render()
+class UI_Vue(HandlerUI):
+    def render(self, name):
+        # self.model = model
+        return super().render(name_directory="vue", name_file=name)
 
     @property
     def splitName(self) -> str:

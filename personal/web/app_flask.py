@@ -39,11 +39,11 @@ class App(ConsoleInterface, Flask):
                 # if issubclass(x, API) and x is not API:
                 #     "API Handlers"
                 #     handlers.append(
-                #         ("/api{}".format(x.localUrl()), x)
+                #         ("/api{}".format(x.url_local()), x)
                 #         )
                 # else:
                 #     "Page handlers"
-                handlers.append(("{}".format(x.localUrl()), x))
+                handlers.append(("{}".format(x.url_local()), x))
         [self.output("{:>30} -> {}".format(x[0], x[1].__name__)) for x in handlers]
         return handlers
 

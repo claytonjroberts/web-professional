@@ -18,7 +18,7 @@ experience:
         title:            "Data Scientist"
         company:
             name:         "Cisco"
-            logo:         "src/images/logo_cisco.svg"
+            logo:         "images/logo_cisco.svg"
             link:         "http://www.cisco.com/"
 
         dateStart:
@@ -49,7 +49,7 @@ experience:
         title:            "Capstone"
         company:
             name:         "Georgia Tech"
-            logo:         "src/images/logo_gt.png"
+            logo:         "images/logo_gt.png"
             link:         "https://www.gatech.edu/"
             abbreviation: "GT"
         dateStart:
@@ -73,7 +73,7 @@ experience:
         title:            "BS in Industrial Engineering"
         company:
             name:         "Georgia Tech"
-            logo:         "src/images/logo_gt.png"
+            logo:         "images/logo_gt.png"
             link:         "https://www.gatech.edu/"
             abbreviation: "GT"
         dateStart:
@@ -103,7 +103,7 @@ experience:
         title:            "President"
         company:
             name:         "WaveWise Technical Solutions"
-            logo:         "src/images/logo_wavewise.png"
+            logo:         "images/logo_wavewise.png"
             link:         "http://www.wavewisetech.com/"
             abbreviation: "WaveWise"
 
@@ -127,7 +127,7 @@ experience:
         title:            "Consultant"
         company:
             name:         "StartBox"
-            logo:         "src/images/logo_startbox_screenshot.png"
+            logo:         "images/logo_startbox_screenshot.png"
             link:         "http://www.startboxor.com/"
 
         dateStart:
@@ -147,7 +147,7 @@ experience:
         title:            "Consultant"
         company:
             name:         "RHA"
-            logo:         "src/images/logo_rha.png"
+            logo:         "images/logo_rha.png"
             link:         "https://rhahealthservices.org/"
         dateStart:
             month:        "May"
