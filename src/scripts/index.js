@@ -33,10 +33,8 @@ Vue.filter('from_markdown_to_html', function(val) {
 
 import "../styles/index.scss";
 
-import vue_test from "../templates/vue/test.vue";
 import vue_exp from "../templates/vue/experience.vue";
 import vue_skill from "../templates/vue/skill.vue";
 
 Vue.component("exp", vue_exp);
 Vue.component("skill", vue_skill);
-Vue.component("test", vue_test);

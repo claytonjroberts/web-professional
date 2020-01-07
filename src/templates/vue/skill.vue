@@ -1,33 +1,31 @@
 
 
 <template>
-<div class="list-group-item skill" v-if="doShow">
-    <div class="row">
-        <div class="col-2 d-flex flex-column pr-0 text-muted" style="text-align: center; justify-content:center;">
+<div :class="'list-group-item skill ' + ($parent.skilladditional == skillkey ? 'hover': '')" v-if="doShow">
+    <div class="row" @click="$parent.skilladditional = skillkey">
+        <div class="col-2 d-flex text-muted" style="text-align: center; justify-content:center;">
 
-            <h4 v-if="(skilldict.icon || (parentDict && parentDict.icon))" class="m-0">
+            <h4 v-if="(skilldict.icon || (parentDict && parentDict.icon))" class="center-vertical ">
                 <i :class="skilldict.icon ? skilldict.icon : parentDict.icon" style="align-self:center;"></i>
             </h4>
         </div>
-        <div class="col d-flex flex-wrap pl-0">
+        <div class="col-8 d-flex flex-wrap pl-0">
+            <div class="center-vertical">
+                <div class="px-1 ">
+                    {{ skillkey }}
+                </div>
+                <div class="px-1 " v-if="skilldict.parent">
+                    (<span class="text-muted">{{ skilldict["parent"] }}</span>)
+                </div>
+            </div>
 
-            <div class="px-1">
-                {{ skillkey }}
-            </div>
-            <div class="px-1" v-if="skilldict.parent">
-                (<span class="text-muted">{{ skilldict["parent"] }}</span>)
-            </div>
 
         </div>
 
-        <div v-if="skilldict.link" class="col-auto p-0" style="text-align:right;">
-            <a :href="skilldict.link">
-                <i class="far fa-question-circle"></i>
-            </a>
-        </div>
-        <div class="col-auto d-flex flex-column">
 
-            <div class="text-tertiary">
+        <div class="col-2 ">
+
+            <div class="text-tertiary stars" style="text-orientation:">
                 <i class="far fa-star fa-xs" v-for="x in this.$_.range(3 - Math.ceil(skilldict.level/2))">
                 </i><i class="fas fa-star fa-xs" v-for="x in this.$_.range(Math.ceil(skilldict.level/2))">
                 </i>
@@ -35,6 +33,22 @@
 
         </div>
     </div>
+    <div class="row pt-2 p-1" v-if="$parent.skilladditional == skillkey">
+        <div class="col">
+            <p class="p-1 mb-0">
+                {{ skilldict.use }}
+            </p>
+        </div>
+        <div class="col-2">
+            <a class="center-vertical" style="text-align:center;" :href="skilldict.link" v-if="skilldict.link">
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+
+
+    </div>
+
 
 </div>
 </template>
@@ -48,13 +62,13 @@ export default {
         "skillkey",
     ],
     data: function() {
-        return {}
+        return {
+            showadditional: false,
+        }
     },
     computed: {
         doShow: function() {
-
             // `this` points to the vm instance
-            return true;
             var self = this;
 
             if (this.$parent.filterexperiance) {

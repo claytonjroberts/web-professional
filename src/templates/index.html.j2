@@ -32,7 +32,7 @@
 
             <!-- ME -->
             <div class="row align-items-center me pb-3">
-                <div class="col-auto">
+                <div class="col-sm-auto" style = "text-align: center;">
                     <img class="me-portrait" :src="static_url + 'images/me.jpg'">
                     </img>
                 </div>
@@ -40,8 +40,6 @@
                     <span class="me-objective" v-html="from_markdown_to_html(info.me.introduction)"></span>
                 </div>
             </div>
-
-            <test></test>
 
             <!-- EXPERIENCE AND SKILLS -->
             <div class="row">
@@ -157,53 +155,6 @@
 
 
 
-    // Vue.component('skill', {
-    //     template: "#skill",
-    //     props: [
-    //         "skilldict",
-    //         "skillkey",
-    //     ],
-    //     data: function() {
-    //         return {}
-    //     },
-    //     computed: {
-    //         doShow: function() {
-    //             // `this` points to the vm instance
-    //             // return true;
-    //             var self = this;
-    //             if (this.$parent.filterexperiance) {
-    //                 return (0 <= _.indexOf(this.$parent.filterexperiance, self.skillkey))
-    //             }
-    //             // return true;
-    //             else if (this.$parent.filtersearch) {
-    //                 return (self.skillkey.includes(self.$parent.filtersearch) || (self.skilldict.parent && self.skilldict.parent.includes(self.$parent.filtersearch)));
-    //             }
-    //             else {
-    //                 return true;
-    //             }
-    //
-    //         },
-    //         parentDict: function() {
-    //             var self = this;
-    //             if (self.skilldict.parent) {
-    //                 return this.$parent.info.skills.list[self.skilldict.parent];
-    //             }
-    //             else {
-    //                 return null;
-    //             }
-    //         },
-    //
-    //     },
-    //     methods: {
-    //         from_markdown_to_html: function(x) {
-    //             return mdconverter.makeHtml(x);
-    //         },
-    //         sort_experience: function(x) {
-    //
-    //         }
-    //     },
-    // });
-    //
 
     var app = new Vue({
         el: '#app',
@@ -216,7 +167,8 @@
                     filtersearch: null,
 
                     selectedexperiance: null,
-                    static_url: `{% raw static_url("") %}`,
+                    skilladditional: null,
+                    static_url: "/static/",
                     info: null,
                     ready: false
                 },

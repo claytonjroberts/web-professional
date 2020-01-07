@@ -241,7 +241,7 @@ main {
 
     &:hover {
         .link {
-            color: theme-color("secondary");
+            color: mix(theme-color("secondary"), theme-color("primary"));
         }
     }
 
@@ -260,7 +260,7 @@ main {
         // border-radius  : 50%;
         &:hover {
             // Following only applies for single link that mouse is hovering over
-            color: adjust-hue(theme-color("secondary"), -20) !important;
+            color: theme-color("secondary") !important;
         }
     }
 }
@@ -275,15 +275,39 @@ main {
 }
 
 .skill {
-    // border-radius          : 0.25rem;
-    border-right-color: theme-color("primary");
+    border-radius     : 0.25rem;
+    border-right-color: theme-color("primary") !important;
     transition        : $transition_time_color;
+    padding           : 1rem !important;
+    margin-top        : 0;
+    border-top-width  : 1px;
 
+    &.hover,
     &:hover {
-        border-right-color: theme-color("secondary");
-        border-right-width: medium !important;
-        // z-index     : inherit + 5;
-        // border-right : solid $border_thickness_right*2 theme-color("secondary") !important;
+        border-color    : theme-color("secondary") !important;
         // padding-right: $padding_right + ($border_thickness_right);
+        // border-right : solid $border_thickness_right*2 theme-color("secondary") !important;
+        // z-index     : inherit + 5;
+        // border-right-width: medium !important;
+        z-index         : inherit + 100;
+        border-top-width: 1px !important;
+        margin-top      : -1px;
+
+        &:first-child {
+            margin-top: 0;
+        }
     }
+}
+
+.stars {
+    writing-mode    : vertical-rl;
+    text-orientation: mixed;
+}
+
+.center-vertical {
+    margin   : 0;
+    position : absolute;
+    top      : 50%;
+    // left     : 50%;
+    transform: translate(0, -50%);
 }
