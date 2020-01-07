@@ -164,10 +164,9 @@ main {
         border-style    : solid;
         // width           : 30rem;
         // width           : 70%;
-        @media (min-width: 576px) {
-            width: 40%;
-        }
-
+        // @media (min-width: 576px) {
+        //     width: 40%;
+        // }
         .name {
             // color: lightskyblue;
             color     : lighten(theme-color("secondary"), 50%);
@@ -247,13 +246,21 @@ main {
     }
 
     .link {
+        $size     : 1.5rem;
+        //
         padding   : 0.5rem;
-        font-size : 1.5rem;
-        align-self: center;
+        font-size : $size;
         transition: $transition_time_color;
-
+        // text-decoration: none;
+        text-align: center;
+        // width     : $size !important;
+        // height    : $size !important;
+        // border-color   : transparent;
+        // border-style   : solid;
+        // border-radius  : 50%;
         &:hover {
-            color: lighten($color: theme-color("secondary"), $amount: 15%) !important;
+            // Following only applies for single link that mouse is hovering over
+            color: adjust-hue(theme-color("secondary"), -20) !important;
         }
     }
 }

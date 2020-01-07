@@ -33,7 +33,14 @@ class App(tornado.web.Application):
     """Master application"""
 
     def get_list_handlers(self) -> list:
-        handlers = [(r"/", hd.PH_Index)]
+        handlers = [
+            (r"/", hd.PH_Index),
+            # (
+            #     r"/(favicon.ico)",
+            #     tornado.web.StaticFileHandler,
+            #     {"path": str(Path() / "static" / "favicon.ico")},
+            # ),
+        ]
 
         "Add all the pages by their names here."
         for handler_name, handler_cls in inspect.getmembers(hd, inspect.isclass):
@@ -106,7 +113,7 @@ class App(tornado.web.Application):
             cookie_secret="Super secret cookie 4",
         )
 
-    def serve(self, port: int = 8000, isWSGI: bool = False):
+    def serve(self, port: int = 8080, isWSGI: bool = False):
 
         if tornado.ioloop.IOLoop.current():
             print(1)

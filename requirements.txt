@@ -2,3 +2,4 @@ tornado
 markdown2
 pyyaml
 pyfiglet
+colorama

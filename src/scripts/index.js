@@ -29,3 +29,4 @@ Vue.filter('from_markdown_to_html', function(val) {
 })
 
 import "../styles/index.scss";
+import "../templates/vue/test.vue";

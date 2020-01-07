@@ -1,5 +1,7 @@
 from personal.web.app_tornado import App
 
+application = App()
+
 
 if __name__ == "__main__":
     App().serve()

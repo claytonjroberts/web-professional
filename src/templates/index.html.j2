@@ -46,14 +46,13 @@
                 <div class="col pt-3">
                     <h5 class="text-muted">Experience</h5>
                     <div class="btn-group d-flex mb-3 overflow-auto">
-                        <a class="btn btn-light flex-fill" v-for="(expdict, expindex) in info.experience" v-scroll-to="{
+                        <a class="btn btn-light flex-fill" v-for="(expdict, expindex) in sortedexperience" v-scroll-to="{
                                                 container: '#exps',
                                                 el: '#exp' + expindex,
                                                 easing: 'ease-in',
                                                 force: true,
                                                 cancelable: true,
                                             }" href="#">
-
                             {{! expdict.company.abbreviation ? expdict.company.abbreviation : expdict.company.name }}
                         </a>
 
@@ -62,62 +61,62 @@
 
                         {# {% for item in handler.application.info["experience"] %} #}
 
-                        <div>
-                            <exp v-for="(expdict, expindex) in info.experience" :expdict="expdict" :expindex="expindex" :key="expindex" inline-template>
-                                <div class="card" :id="'exp' + expindex">
-                                    <div class="card-body">
-                                        <h6 style="align-self: center" v-if="expdict.isCurrent">
-                                            <span class="badge badge-primary">Current</span>
-                                        </h6>
 
-                                        <div class="d-flex justify-content-between">
+                        <exp v-for="(expdict, expindex) in sortedexperience" :expdict="expdict" :expindex="expindex" :key="expindex" inline-template>
+                            <div class="card" :id="'exp' + expindex">
+                                <div class="card-body">
+                                    <h6 style="align-self: center" v-if="expdict.isCurrent">
+                                        <span class="badge badge-primary">Current</span>
+                                    </h6>
 
-                                            <div>
-                                                <h5 class="card-title">
-                                                    {{! expdict.title }}
-                                                </h5>
-                                                <h6 class="text-muted card-subtitle">
-                                                    {{! expdict.dateStart.month }}, {{! expdict.dateStart.year }}
-                                                    <span v-if="expdict.dateEnd">- {{! expdict.dateEnd.month }}, {{! expdict.dateEnd.year }}</span>
-                                                </h6>
-                                            </div>
-                                            <div>
-                                                <a :href="expdict.company.link">
-                                                    <img class="card-img-side" :src="this.$parent.static_url + expdict.company.logo" :alt="expdict.company.name">
-                                                </a>
-                                            </div>
+                                    <div class="d-flex justify-content-between">
 
-
+                                        <div>
+                                            <h5 class="card-title">
+                                                {{! expdict.title }}
+                                            </h5>
+                                            <h6 class="text-muted card-subtitle">
+                                                {{! expdict.dateStart.month }}, {{! expdict.dateStart.year }}
+                                                <span v-if="expdict.dateEnd">- {{! expdict.dateEnd.month }}, {{! expdict.dateEnd.year }}</span>
+                                            </h6>
                                         </div>
-
-
-
-                                        <div class="card-text mt-2">
-                                            {# {% raw markdown.markdown(expdict.get("description", None), extensions=["extra"]) %} #}
-                                            {# <vue-markdown> #}
-                                            <span v-html="from_markdown_to_html(expdict.description)"></span>
-
-                                            {# </vue-markdown> #}
-
-                                        </div>
-                                        <div style="text-align: right;">
-                                            <a :class="'btn btn-sm ' + (isSelected ? 'btn-primary' : 'btn-light') " @click.prevent="doSelect" href>
-                                                <span v-if="!(isSelected)">
-                                                    Show Skills
-                                                </span>
-                                                <span v-else="isSelected">
-                                                    Showing Skills
-                                                </span>
-
+                                        <div>
+                                            <a :href="expdict.company.link">
+                                                <img class="card-img-side" :src="this.$parent.static_url + expdict.company.logo" :alt="expdict.company.name">
                                             </a>
                                         </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="card-text mt-2">
+                                        {# {% raw markdown.markdown(expdict.get("description", None), extensions=["extra"]) %} #}
+                                        {# <vue-markdown> #}
+                                        <span v-html="from_markdown_to_html(expdict.description)"></span>
+
+                                        {# </vue-markdown> #}
+
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <a :class="'btn btn-sm ' + (isSelected ? 'btn-primary' : 'btn-light') " @click.prevent="doSelect" href>
+                                            <span v-if="!(isSelected)">
+                                                Show Skills
+                                            </span>
+                                            <span v-else="isSelected">
+                                                Showing Skills
+                                            </span>
+
+                                        </a>
                                     </div>
                                 </div>
-                            </exp>
-                        </div>
-
+                            </div>
+                        </exp>
 
                     </div>
+
+                    <test></test>
 
 
                 </div>
@@ -126,8 +125,7 @@
                         Skills (<span class="text-primary">{{! _.size(info.skills.list) }}</span>)
                     </h5>
                     <div class="input-group mb-3">
-
-                        <input type="text" class="form-control faf" placeholder="&#xF002;" aria-label="Skill Search" aria-describedby="basic-addon1" style="text-align: left;" v-model="filtersearch">
+                        <input type="text" class="form-control faf" style="font-weight: 900" placeholder="&#xf002;" aria-label="Skill Search" aria-describedby="basic-addon1" style="text-align: left;" v-model="filtersearch">
                     </div>
                     <div class="overflow-auto sister-col">
                         <div class="list-group">
@@ -161,7 +159,7 @@
 
                                             <div class="text-tertiary">
                                                 {# {{! this.$parent.info.skills.levels[skilldict.level] }} #}
-                                                <i class="far fa-star fa-xs" v-for="x in _.range(3-Math.ceil(skilldict.level/2))">
+                                                <i class="far fa-star fa-xs" v-for="x in _.range(3 - Math.ceil(skilldict.level/2))">
                                                 </i><i class="fas fa-star fa-xs" v-for="x in _.range(Math.ceil(skilldict.level/2))">
                                                 </i>
                                             </div>
@@ -214,6 +212,7 @@
             {# <br /> #}
             {# <small>This website is still under development due to career obligations</small> #}
         </div>
+    </footer>
 
 
 </div>
@@ -233,7 +232,13 @@
     Vue.filter('from_markdown_to_html', function(val) {
         // Global filter function
         return mdconverter.makeHtml(val);
-    })
+    });
+    Vue.filter('reverse', function(value) {
+        // slice to make a copy of array, then reverse the copy
+        return value.slice().reverse();
+    });
+
+
 
     Vue.component('skill', {
         template: "#skill",
@@ -247,10 +252,12 @@
         computed: {
             doShow: function() {
                 // `this` points to the vm instance
+                // return true;
                 var self = this;
                 if (this.$parent.filterexperiance) {
                     return (0 <= _.indexOf(this.$parent.filterexperiance, self.skillkey))
                 }
+                // return true;
                 else if (this.$parent.filtersearch) {
                     return (self.skillkey.includes(self.$parent.filtersearch) || (self.skilldict.parent && self.skilldict.parent.includes(self.$parent.filtersearch)));
                 }
@@ -267,46 +274,50 @@
                 else {
                     return null;
                 }
-            }
-        },
-        methods: {
-            from_markdown_to_html: function(x) {
-                return mdconverter.makeHtml(x);
-            }
-        },
-    });
-
-    Vue.component('exp', {
-        template: "#exp",
-        props: [
-            "expdict",
-            "expindex"
-        ],
-        data: function() {
-            return {}
-        },
-        computed: {
-            isSelected: function() {
-                var self = this;
-                return (self.expindex == self.$parent.selectedexperiance);
-            }
-        },
-        methods: {
-            doSelect: function() {
-                var self = this;
-                if (self.isSelected) {
-                    self.$parent.selectedexperiance = null;
-                }
-                else {
-                    self.$parent.selectedexperiance = self.expindex;
-                }
             },
-            from_markdown_to_html: function(x) {
-                return mdconverter.makeHtml(x);
-            }
 
         },
+        methods: {
+            from_markdown_to_html: function(x) {
+                return mdconverter.makeHtml(x);
+            },
+            sort_experience: function(x) {
+
+            }
+        },
     });
+
+    // Vue.component('exp', {
+    //     template: "#exp",
+    //     props: [
+    //         "expdict",
+    //         "expindex"
+    //     ],
+    //     data: function() {
+    //         return {}
+    //     },
+    //     computed: {
+    //         isSelected: function() {
+    //             var self = this;
+    //             return (self.expindex == self.$parent.selectedexperiance);
+    //         }
+    //     },
+    //     methods: {
+    //         doSelect: function() {
+    //             var self = this;
+    //             if (self.isSelected) {
+    //                 self.$parent.selectedexperiance = null;
+    //             }
+    //             else {
+    //                 self.$parent.selectedexperiance = self.expindex;
+    //             }
+    //         },
+    //         from_markdown_to_html: function(x) {
+    //             return mdconverter.makeHtml(x);
+    //         }
+    //
+    //     },
+    // });
 
     var app = new Vue({
         el: '#app',
@@ -355,12 +366,17 @@
             filterexperiance: function() {
                 var self = this;
                 // self.selectedexperiance = null;
-                var a = null;
-                if (self.selectedexperiance) {
-                    a = self.info.experience[self.selectedexperiance].skillList;
+                // console.log(self.selectedexperiance);
+                if ( self.selectedexperiance) {
+                    console.log(self.sortedexperience[self.selectedexperiance].skillList);
                 }
-                return a;
 
+                return self.selectedexperiance != null ? self.sortedexperience[self.selectedexperiance].skillList : null;
+
+            },
+            sortedexperience: function() {
+                var self = this;
+                return _.reverse(_.sortBy(self.info.experience));
             }
         }
 

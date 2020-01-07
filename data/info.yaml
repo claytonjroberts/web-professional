@@ -14,7 +14,27 @@ links:
     #     icon:           "far fa-lg fa-file"
     #     url:            "http://google.com/"
 experience:
-    1:
+    7:
+        title:            "Consultant"
+        company:
+            name:         "Improving Atlanta"
+            logo:         "images/logo_improving.png"
+            link:         "http://www.improving.com/"
+            abbreviation: "Improving"
+        dateStart:
+            month:        "August"
+            year:         2019
+        isCurrent:        True
+        description:      |
+            -   Random forest prediction model for likelihood of account debt outcome on behalf of Hollis Cobb.
+            -   Guided the completion of a value-based care flagship project, resolving roadblocks present in productized data and engineering solutions to metrics not previously defined on behalf of IntegraConnect.
+            -   Supplied, newly introduced, frontline analytics on a weekly basis for client data discovery and engineering.
+        skillList:
+            -   Python
+            -   matplotlib
+            -   Plotly
+            -   scikit-learn
+    6:
         title:            "Data Scientist"
         company:
             name:         "Cisco"
@@ -24,7 +44,10 @@ experience:
         dateStart:
             month:        "June"
             year:         2018
-        isCurrent:        True
+        dateEnd:
+            month:        "July"
+            year:         2019
+        isCurrent:        False
         description:      |
             Sole-creator of full-fledged web application featuring:
 
@@ -45,7 +68,7 @@ experience:
             -   Network Optimization
             -   Factory Optimization
             -   Tornado
-    2:
+    5:
         title:            "Capstone"
         company:
             name:         "Georgia Tech"
@@ -69,7 +92,7 @@ experience:
             -   Motorcycle Riding
 
 
-    3:
+    4:
         title:            "BS in Industrial Engineering"
         company:
             name:         "Georgia Tech"
@@ -99,7 +122,7 @@ experience:
             -   Cheerleading
             -   Stunting
 
-    4:
+    3:
         title:            "President"
         company:
             name:         "WaveWise Technical Solutions"
@@ -123,7 +146,7 @@ experience:
             -   Vuex
 
 
-    5:
+    2:
         title:            "Consultant"
         company:
             name:         "StartBox"
@@ -143,7 +166,7 @@ experience:
             -   Python
             -   Swift
             -   Xcode
-    6:
+    1:
         title:            "Consultant"
         company:
             name:         "RHA"
@@ -186,21 +209,38 @@ skills:
             icon:         "fab fa-python"
             level:        5
             link:         "https://www.python.org/"
+            first:        2014
+            use:          >
+                Considered Clayton's swiss army knife, he uses Python for proof of concepts,
+                full fledged applications, and for fun.
+                This is Clayton's favorite language and a tool that he can't put down.
         HTML:
             level:        5
             icon:         "fab fa-html5"
+            first:        2005
+            use:          >
+                Clayton uses HTML as his prefered scaffolding to any complex (or simple) UI application.
         CSS:
             level:        4
             icon:         "fab fa-css3-alt"
+            first:        2005
+            use:          >
+                Though Clayton mostly uses CSS as an output from SASS, SCSS or other styling technologies,
+                Clayton enjoys working with CSS on the fly.
         SCSS:
             level:        3
             icon:         "fab fa-sass"
             link:         "https://sass-lang.com/"
+            use:          >
+                SCSS is Clayton's main medium for styling a user interface, and one that he uses with every web project.
         Bootstrap:
             level:        4
             icon:         "fab fa-bootstrap"
             parent:       "SCSS"
             link:         "https://getbootstrap.com/"
+            use:          >
+                Clayton believes in working both smarter and harder, but Bootstrap is
+                something that allows Clayton to quickly provide a styling boilerplate to web technologies with ease.
         FontAwesome:
             level:        5
             parent:       "SCSS"
@@ -230,6 +270,14 @@ skills:
             parent:       "Python"
             level:        4
             link:         "https://click.palletsprojects.com/en/master/"
+        Plotly:
+            parent:       "Python"
+            level:        3
+            link:         "https://plot.ly/"
+        matplotlib:
+            parent:       "Python"
+            level:        3
+            link :        "https://matplotlib.org/"
         RegEx:
             icon:         "fas fa-search"
             level:        4
@@ -385,3 +433,6 @@ skills:
         Photography:
             level:        1
             icon:         "fas fa-camera-retro"
+        Bartending:
+            level:        2
+            icon:         "fas fa-cocktail"
