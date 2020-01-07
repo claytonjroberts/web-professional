@@ -273,3 +273,17 @@ main {
         border-top   : 1rem;
     }
 }
+
+.skill {
+    // border-radius          : 0.25rem;
+    border-right-color: theme-color("primary");
+    transition        : $transition_time_color;
+
+    &:hover {
+        border-right-color: theme-color("secondary");
+        border-right-width: medium !important;
+        // z-index     : inherit + 5;
+        // border-right : solid $border_thickness_right*2 theme-color("secondary") !important;
+        // padding-right: $padding_right + ($border_thickness_right);
+    }
+}

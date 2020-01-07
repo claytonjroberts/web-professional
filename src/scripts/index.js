@@ -9,9 +9,12 @@ import VueAxios from 'vue-axios';
 import VueScrollTo from 'vue-scrollto';
 import VueMarkdown from 'vue-markdown';
 
+Object.defineProperty(Vue.prototype, '$_', { value: _ });
+// See https://stackoverflow.com/questions/37694243/using-lodash-in-all-of-vue-component-template
+// Above adds lodash to all Vue objects, accssable as this.$_
+
 Vue.use(VueScrollTo);
 Vue.use(VueMarkdown);
-
 
 
 window.Vue = Vue;
@@ -29,4 +32,11 @@ Vue.filter('from_markdown_to_html', function(val) {
 })
 
 import "../styles/index.scss";
-import "../templates/vue/test.vue";
+
+import vue_test from "../templates/vue/test.vue";
+import vue_exp from "../templates/vue/experience.vue";
+import vue_skill from "../templates/vue/skill.vue";
+
+Vue.component("exp", vue_exp);
+Vue.component("skill", vue_skill);
+Vue.component("test", vue_test);

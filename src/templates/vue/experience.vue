@@ -48,35 +48,36 @@
 </div>
 </template>
 
+
 <script>
-module.exports = {
-name: "exp",
-props: [
-    "expdict",
-    "expindex"
-],
-data: function() {
-    return {}
-},
-computed: {
-    isSelected: function() {
-        var self = this;
-        return (self.expindex == self.$parent.selectedexperiance);
-    }
-},
-methods: {
-    doSelect: function() {
-        var self = this;
-        if (self.isSelected) {
-            self.$parent.selectedexperiance = null;
-        } else {
-            self.$parent.selectedexperiance = self.expindex;
+export default {
+    name: "exp",
+    props: [
+        "expdict",
+        "expindex"
+    ],
+    data: function() {
+        return {}
+    },
+    computed: {
+        isSelected: function() {
+            var self = this;
+            return (self.expindex == self.$parent.selectedexperiance);
         }
     },
-    from_markdown_to_html: function(x) {
-        return mdconverter.makeHtml(x);
-    }
+    methods: {
+        doSelect: function() {
+            var self = this;
+            if (self.isSelected) {
+                self.$parent.selectedexperiance = null;
+            } else {
+                self.$parent.selectedexperiance = self.expindex;
+            }
+        },
+        from_markdown_to_html: function(x) {
+            return mdconverter.makeHtml(x);
+        }
 
-},
-});
+    },
+}
 </script>
