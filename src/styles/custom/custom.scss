@@ -1,5 +1,4 @@
-@import 'scss/root';
-$transition_time_color: 0.5s;
+@import "../constants.scss";
 
 .expand {
     display  : flex;
@@ -26,54 +25,6 @@ main {
         // flex          : 0 1;
         flex-grow     : 1;
         padding       : 5rem;
-    }
-}
-
-.me-portrait {
-    width          : $image-size;
-    min-width      : $image-size;
-    max-width      : 15rem;
-    height         : $image-size;
-    min-height     : $image-size;
-    max-height     : 15rem;
-    // padding        : 0.25rem;
-    margin         : 1rem;
-    transition     : $transition_time_color;
-    border         : solid theme-color('primary');
-    border-radius  : 50%;
-    $image-size    : 200px;
-    object-fit     : cover;
-    object-position: 100% 0;
-
-    &:hover {
-        border: solid theme-color('secondary');
-
-        .me-objective-keyword {
-            color: theme-color('secondary');
-        }
-    }
-}
-
-.me-objective {
-    align-self: center;
-
-    em {
-        transition: $transition_time_color;
-        color     : inherit;
-    }
-}
-
-.me {
-    justify-content: center;
-
-    &:hover {
-        .me-portrait {
-            border: solid theme-color('secondary');
-        }
-
-        .me-objective em {
-            color: theme-color('secondary') !important;
-        }
     }
 }
 
@@ -109,16 +60,6 @@ main {
     // background-color: theme-color("bg-light");
     // width: 18rem;
     margin-bottom: 2rem;
-}
-
-.static-tr {
-    position: fixed;
-    top     : 0.5rem;
-    right   : 0.5rem;
-}
-
-.sister-col {
-    max-height: 75vh;
 }
 
 .email-header {
@@ -236,13 +177,12 @@ main {
     }
 
     .link {
-        font-size : $size;
+        font-size : 1.5rem;
         //
         padding   : 0.5rem;
         transition: $transition_time_color;
         // text-decoration: none;
         text-align: center;
-        $size     : 1.5rem;
         // width     : $size !important;
         // height    : $size !important;
         // border-color   : transparent;
@@ -301,12 +241,4 @@ main {
     text-align      : center;
     writing-mode    : vertical-rl;
     text-orientation: mixed;
-}
-
-.center-vertical {
-    position : absolute;
-    top      : 50%;
-    margin   : 0;
-    // left     : 50%;
-    transform: translate(0, -50%);
 }

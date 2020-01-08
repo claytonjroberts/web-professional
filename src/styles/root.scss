@@ -1,8 +1,7 @@
-@import 'colors.scss';
-@import '~bootstrap/scss/bootstrap.scss';
-@import '~@fortawesome/fontawesome-free/css/all.min.css';
-@import 'fonts.scss'; // VARIABLES
+@import "colors.scss";
+@import "~bootstrap/scss/bootstrap.scss";
 $border-radius: 0.25rem;
+$color-background: lighten(theme-color('light'), 5%);
 
 html {
     font-family     : 'OpenSans' !important;
@@ -99,20 +98,19 @@ section {
     // padding: 0 3rem;
     .main-side-content {
         // position        : static;
-        position         : sticky;
-        top              : 50vh;
-        left             : 1rem;
-        padding          : 1rem;
-        transform        : translate(0%, -50%);
-        border-width     : 0.25rem;
-        border-style     : solid;
-        border-color     : darken($color-background, 10%);
-        border-radius    : 1rem;
+        position     : sticky;
+        top          : 50vh;
+        left         : 1rem;
+        padding      : 1rem;
+        transform    : translate(0%, -50%);
+        border-width : 0.25rem;
+        border-style : solid;
+        border-color : darken($color-background, 10%);
+        border-radius: 1rem;
         // padding         : 1rem;
         // margin-left     : 1.5rem;
-        background       : $color-background;
-        box-shadow       : 0 0 3rem darken($color-background, 10%);
-        $color-background: lighten(theme-color('light'), 5%);
+        background   : $color-background;
+        box-shadow   : 0 0 3rem darken($color-background, 10%);
     }
 }
 

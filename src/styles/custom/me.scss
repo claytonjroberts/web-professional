@@ -1,0 +1,48 @@
+@import "../constants.scss";
+
+.me-portrait {
+    width          : $image-size;
+    min-width      : $image-size;
+    max-width      : 15rem;
+    height         : $image-size;
+    min-height     : $image-size;
+    max-height     : 15rem;
+    // padding        : 0.25rem;
+    margin         : 1rem;
+    transition     : $transition_time_color;
+    border         : solid theme-color('primary');
+    border-radius  : 50%;
+    object-fit     : cover;
+    object-position: 100% 0;
+
+    &:hover {
+        border: solid theme-color('secondary');
+
+        .me-objective-keyword {
+            color: theme-color('secondary');
+        }
+    }
+}
+
+.me-objective {
+    align-self: center;
+
+    em {
+        transition: $transition_time_color;
+        color     : inherit;
+    }
+}
+
+.me {
+    justify-content: center;
+
+    &:hover {
+        .me-portrait {
+            border: solid theme-color('secondary');
+        }
+
+        .me-objective em {
+            color: theme-color('secondary') !important;
+        }
+    }
+}

@@ -1,2 +1,9 @@
-@import "./custom";
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "colors.scss";
+@import "fonts.scss";
+@import "root.scss";
+@import "helpers.scss";
+@import "custom/me.scss";
+@import "custom/experience.scss";
+@import "custom/custom.scss";
+@import "~bootstrap/scss/bootstrap.scss";
+@import '~@fortawesome/fontawesome-free/css/all.css';
