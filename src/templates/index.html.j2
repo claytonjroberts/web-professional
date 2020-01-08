@@ -2,8 +2,6 @@
 
 {% block content %}
 
-{% import markdown2 as markdown %}
-
 
 <div class="body" id="app" v-if="ready">
 
@@ -158,9 +156,9 @@
 
     var app = new Vue({
         el: '#app',
-        components: {
-            VueMarkdown,
-        },
+        // components: {
+        //     VueMarkdown,
+        // },
         data: function() {
             return {
                 ...{

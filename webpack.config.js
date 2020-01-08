@@ -47,7 +47,6 @@ module.exports = {
                     "style-loader", // creates style nodes from JS strings
                     "css-loader", // translates CSS into CommonJS
                     "sass-loader", // compiles Sass to CSS, using Node Sass by default
-                    // "url-loader",,,,,,,,,,,,,,,
                 ]
             }, {
                 test: /\.m?js$/,
@@ -63,25 +62,11 @@ module.exports = {
                 loader: "less-loader",
             }, {
                 test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract
-                // text plugin loader: "url?limit=10000"
                 loader: "url-loader"
             }, {
                 test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
                 loader: 'file-loader'
             },
-            // {     test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,      Limiting the size of
-            // the woff fonts breaks font-awesome ONLY for the extract text plugin loader:
-            // "url?limit=10000"     loader: "url-loader" }, {     test:
-            // /\.(ttf|eot|svg)(\?[\s\S]+)?$/,     loader: 'file-loader' },  {      test:
-            // /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,       Limiting the size of the woff
-            // fonts breaks font-awesome ONLY for the extract text plugin       loader:
-            // "url?limit=10000"      loader: "url-loader"  }, {     test:
-            // /\.(ttf|eot|svg)(\?[\s\S]+)?$/,     loader: 'file-loader' }, {     test:
-            // /(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,     loader: 'url-loader',
-            // use: {          loader: 'url-loader',          options: {              name:
-            // '[name].[ext]',              outputPath: 'fonts/'          }      }
-            // },,,,,,,,,,,,,,,
         ]
     },
     watchOptions: {
@@ -94,6 +79,8 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery',
             Vue: 'vue',
+            _: 'lodash',
+
         })
     ],
     // optimization: {

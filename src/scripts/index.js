@@ -3,22 +3,20 @@ import $ from 'jquery';
 import Bootstrap from 'bootstrap';
 import _ from 'lodash';
 import markdown from 'markdown';
-import axios from 'axios';
 import Vue from 'vue';
-import VueAxios from 'vue-axios';
 import VueScrollTo from 'vue-scrollto';
-import VueMarkdown from 'vue-markdown';
+// import VueMarkdown from 'vue-markdown';
 
 Object.defineProperty(Vue.prototype, '$_', { value: _ });
 // See https://stackoverflow.com/questions/37694243/using-lodash-in-all-of-vue-component-template
 // Above adds lodash to all Vue objects, accssable as this.$_
 
 Vue.use(VueScrollTo);
-Vue.use(VueMarkdown);
+// Vue.use(VueMarkdown);
 
 
 window.Vue = Vue;
-window.VueMarkdown = VueMarkdown;
+// window.VueMarkdown = VueMarkdown;
 window.$ = $;
 window._ = _;
 

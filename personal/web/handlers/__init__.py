@@ -12,7 +12,11 @@ from ...core.constants import PATH_TEMPLATES
 for path_template in [
     x
     for x in PATH_TEMPLATES.iterdir()
-    if (not x.is_dir() and re.search(r"\.html(?:\.j2)?", x.name, re.IGNORECASE))
+    if (
+        not x.is_dir()
+        and re.search(r"\.html(?:\.j2)?", x.name, re.IGNORECASE)
+        and not re.search(r"test.*\.", x.name, re.IGNORECASE)
+    )
 ]:
     l = path_template.stem
     # if (
