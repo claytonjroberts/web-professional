@@ -11,17 +11,17 @@
 }
 
 .experience-company {
-    color: theme-color("primary");
+    color: theme-color('primary');
     filter: hue-rotate(-45deg);
 }
 
 .experience-location {
-    color: darken(theme-color("primary"), 15%);
+    color: darken(theme-color('primary'), 15%);
     filter: hue-rotate(-45deg);
 }
 
 .experience-timeline {
-    color: darken(theme-color("primary"), 30%);
+    color: darken(theme-color('primary'), 30%);
     filter: hue-rotate(-45deg);
 }
 
@@ -32,6 +32,6 @@
 }
 
 .experience-challenge {
-    color     : theme-color("medium-dark");
     font-style: italic;
+    color     : theme-color('medium-dark');
 }

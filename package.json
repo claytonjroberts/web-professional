@@ -3,10 +3,12 @@
     "version": "1.0.0",
     "description": "",
     "main": "./src/scripts/index.js",
-    "engines": {
+    "engines":
+    {
         "node": "11.x"
     },
-    "dependencies": {
+    "dependencies":
+    {
         "@babel/core": "^7.7.7",
         "@babel/preset-env": "^7.7.7",
         "@fortawesome/fontawesome-free": "^5.12.0",
@@ -34,14 +36,16 @@
         "vue-scrollto": "^2.17.1",
         "vue-template-compiler": "^2.6.11"
     },
-    "devDependencies": {
+    "devDependencies":
+    {
         "glob": "^7.1.6",
         "less-loader": "^4.1.0",
         "node-sass": "^4.13.0",
         "webpack": "^4.41.5",
         "webpack-cli": "^3.3.10"
     },
-    "scripts": {
+    "scripts":
+    {
         "test": "mocha",
         "build": "webpack",
         "bundle": "webpack --config webpack.config.js",
@@ -50,12 +54,15 @@
     },
     "author": "",
     "license": "ISC",
-    "repository": {
+    "repository":
+    {
         "type": "git",
         "url": "git+https://github.com/ClaymasterJ/Personal.git"
     },
-    "bugs": {
+    "bugs":
+    {
         "url": "https://github.com/ClaymasterJ/Personal/issues"
     },
-    "homepage": "https://github.com/ClaymasterJ/Personal#readme"
+    "homepage": "https://github.com/ClaymasterJ/Personal#readme",
+
 }

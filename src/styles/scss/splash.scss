@@ -1,25 +1,25 @@
 .splash {
     width           : 100%;
-    // height          : 100%;
-    background-color: theme-color("splash");
-    // text-shadow:
-    color           : theme-color("splash-text");
-    border-style    : solid none solid none;
-    border-color    : theme-color("primary");
     margin          : 1rem 0 0;
+    // text-shadow:
+    color           : theme-color('splash-text');
+    border-style    : solid none solid none;
+    border-color    : theme-color('primary');
+    // height          : 100%;
+    background-color: theme-color('splash');
     // box-shadow      : inset 0 0 1rem 0 theme-color("primary");
     .name {
-        color      : theme-color("splash-text");
-        text-shadow: none;
         transition : text-shadow 0.3s;
+        color      : theme-color('splash-text');
+        text-shadow: none;
     }
 
     .name-around {
-        color: theme-color("dark");
+        color: theme-color('dark');
     }
 
     .name:hover {
-        text-shadow: 2px 2px theme-color("splash-text-darker");
+        text-shadow: 2px 2px theme-color('splash-text-darker');
     }
 
     .email {
@@ -35,7 +35,7 @@
         font-style: italic;
         position  : absolute;
         left      : 1rem;
-        color     : theme-color("dark");
+        color     : theme-color('dark');
     }
 
     a,
@@ -76,12 +76,12 @@
         }
 
         &::after {
-            content   : "";
             display   : block;
             width     : 0;
             height    : 2px;
-            background: theme-color("primary");
+            content   : '';
             transition: width 0.3s ease-in-out;
+            background: theme-color('primary');
             // animation-name    : example;
             // animation-duration: 4s;
         }

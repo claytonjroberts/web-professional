@@ -1,229 +1,42 @@
-$primary: #F05048; //#3090E0;
-$theme-colors: (
-    // "primary"           :
-    // "primary"           : #E8A000, //#EC9F05
-    "primary"           : $primary,
-    // "secondary"         : adjust-hue($primary, 15deg),
-    "secondary"         : adjust-hue($primary, 270deg),
-    // "secondary"         : darken($primary, 20%),
-    "tertiary"          : adjust-hue($primary, 30deg),
-    "quaternary"        : adjust-hue($primary, 45deg),
-    // "secondary"         : #E88300, //#E8A000,
-    // "secondary"         : #505050,
-    // "secondary"         : #,
-    // #D7B740,
-    // #D8A000
-    // "primary-1"         : #E8A000,
-    // "secondary"         : #F05048, //#F0544F
-    "danger"            : #B04040, //#b04136
-    // "html"              : #232320,
-    "html"              : #636360,
-    "splash"            : #404040,
-    // "splash"            : #906000,
-    "splash-text"       : #E5E5E0,
-    "splash-text-darker": #C0B8B8,
-    "bg"                : #FBFBFB,
-    "bg-light"          : #FBFBFB,
-    "light"             : #E5E5E5,
-    "medium-light"      : #D5D5D5,
-    "medium"            : #B5B5B5,
-    "medium-dark"       : #757575,
-    "dark"              : #757570,
-    "footer"            : #D5D5D5,
-    // "footer"            : #D5D5D0,
-    "footer-border"     : #757570,
-    "tool-border"       : #757570,
-    "white"             : #FFFFFF,
-);
-$colors: (
-    // "blue": $blue,
-    // "indigo": $indigo,
-    // "purple": $purple,
-    // "pink": $pink,
-    // "red": $red,
-    // "orange": $orange,
-    // "yellow": $yellow,
-    // "green": $green,
-    // "teal": $teal,
-    // "cyan": $cyan,
-    // "white": #906000,
-    // "gray": $gray-600,
-    // "gray-dark": $gray-800
-);
-@import "~bootstrap/scss/bootstrap.scss";
+@import 'colors.scss';
+@import '~bootstrap/scss/bootstrap.scss';
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
-@font-face {
-    font-family: "ProFontWindows";
-    src        : url("~/static/fonts/ProFontWindows.TTF");
-}
-@font-face {
-    font-family: "Roboto";
-    src        : url("~/static/fonts/Roboto/Roboto-Regular.ttf");
-}
-@font-face {
-    font-family: "OpenSans";
-    src        : url("~/static/fonts/OpenSans/OpenSans-Regular.ttf");
-}
-@font-face {
-    font-family: "FontAwesomeBrands";
-    src        : url("~@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf");
-}
-@font-face {
-    font-family: "FontAwesomeRegular";
-    src        : url("~@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf");
-}
-@font-face {
-    font-family: "FontAwesomeSolid";
-    src        : url("~@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf");
-}
-// VARIABLES
+@import 'fonts.scss'; // VARIABLES
 $border-radius: 0.25rem;
 
 html {
-    background-color: theme-color("html");
-    font-family     : "OpenSans", !important;
+    font-family     : 'OpenSans' !important;
+    background-color: theme-color('html');
 }
 
 .faf {
     // Font awesome font
-    font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands", "OpenSans" !important;
+    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands', 'OpenSans' !important;
     font-weight: 900;
 }
 
 .body,
 body {
-    background-color: theme-color("bg-light");
     // background-color: lighten(theme-color("medium-light"), 5%);
     // Set font for website -->
     display         : flex;
-    flex-direction  : column;
     flex            : 1 0 auto;
+    flex-direction  : column;
+    background-color: theme-color('bg-light');
 }
 
 main {
     flex: 1;
-    // section {
-    //     // margin   : 1rem 3rem;
-    //     margin   : 0;
-    //     padding  : 2rem 15rem;
-    //     // max-width: 100% !important;
-    //     max-width: 40rem;
-    //
-    //     &.objective {
-    //         padding-top   : 5rem;
-    //         padding-bottom: 5rem;
-    //         display       : flex;
-    //         flex-direction: row;
-    //
-    //         .objective-label {
-    //             width     : 20%;
-    //             align-self: center;
-    //             // border-right : 0.5rem;
-    //             // border-style : none solid none none;
-    //             // padding-right: 2rem;
-    //             // &::after {
-    //             //     content       : "";
-    //             //     display       : flex;
-    //             //     flex-direction: row;
-    //             //     width         : 2px;
-    //             //     height        : 10px;
-    //             //     background    : theme-color("primary");
-    //             // }
-    //         }
-    //
-    //         .objective-line {
-    //             // height: 100%;
-    //             // width       : 1rem;
-    //             border      : 0.25rem;
-    //             border-style: none none none solid;
-    //             border-color: theme-color("primary");
-    //         }
-    //
-    //         .objective-blockquote {
-    //             width      : 80%;
-    //             // outline-width: 1rem;
-    //             // outline-style: none none none solid;
-    //             // border-style: none none none solid;
-    //             margin-left: 2rem;
-    //         }
-    //     }
-    //
-    //     &.expskl {
-    //         padding: 0 2.5rem;
-    //         margin : 0 !important;
-    //
-    //         .card {
-    //             border    : none;
-    //             box-shadow: 0 0.5rem 1.5rem darken(theme-color("bg-light"),10%);
-    //
-    //             .card-body {
-    //                 background-color: darken(theme-color("bg-light"),10%);
-    //             }
-    //
-    //             .list-group-item {
-    //                 background-color: lighten(theme-color("bg-light"),2.5%);
-    //             }
-    //         }
-    //         // Experiance and Skills
-    //         .experience {}
-    //
-    //         .skills {}
-    //     }
-    //
-    //     &.tools {
-    //         // border      : 1rem none;
-    //         // border-style  : dashed none;
-    //         // border-width  : 3rem 0.1rem;
-    //         // border-radius : 0.05rem;
-    //         // border-width  : 0.1rem;
-    //         max-width     : none;
-    //         // border-color  : theme-color("tool-border");
-    //         // padding     : 0;
-    //         // margin        : 2rem 0;
-    //         // padding       : 1rem 0;
-    //         display       : flex;
-    //         flex-direction: column;
-    //         // overflow   : scroll;
-    //         .tool-list {
-    //             // text-align: center;
-    //             justify-content: center;
-    //             // display       : flex;
-    //             // flex-direction: row;
-    //             // overflow      : auto;
-    //             // // transform     : translate3d(0, 0, 0);
-    //             // width         : 100%;
-    //             // & > .tool {
-    //             //     transform     : translate3d(0, 0, 0);
-    //             // }
-    //             // &:hover {}
-    //             .tool {
-    //                 margin-top: 0;
-    //                 display   : flex;
-    //                 flex      : 0 1 auto;
-    //                 // margin-bottom: 0;
-    //             }
-    //         }
-    //
-    //         footer {
-    //             color      : theme-color("medium");
-    //             // background-color: darken(theme-color("primary"), 10%);
-    //             align-items: center;
-    //             text-align : center;
-    //             padding    : 0 3rem;
-    //         }
-    //     }
-    // }
 }
-// TESTING ---->
 
 .body,
 body {
-    background-color: theme-color("" + &);
     display         : flex;
     flex-direction  : column;
     min-height      : 100vh;
     margin          : 0;
     padding         : 0;
+    background-color: theme-color('' + &);
 }
 
 footer,
@@ -234,18 +47,18 @@ header {
 
 header {
     margin-top      : 3.5rem;
-    background-color: theme-color("" + &);
+    background-color: theme-color('' + &);
 }
 
 section {
-    padding       : 1rem;
-    margin        : 0 10rem;
-    max-width     : 60rem;
     display       : flex;
     flex-direction: column;
+    max-width     : 60rem;
+    margin        : 0 10rem;
+    padding       : 1rem;
 
     .section-dark {
-        background-color: gray("500");
+        background-color: gray('500');
     }
 }
 // main {
@@ -267,8 +80,8 @@ section {
     // background-color: lighten(theme-color("medium-light"), 5%);
     // padding         : 3rem 0;
     display        : flex;
-    flex-direction : row;
     flex           : 1 1 auto;
+    flex-direction : row;
     // align-items     : center;
     justify-content: center;
 }
@@ -285,26 +98,35 @@ section {
     // flex-direction : column;
     // padding: 0 3rem;
     .main-side-content {
-        $color-background: lighten(theme-color("light"), 5%);
         // position        : static;
         position         : sticky;
         top              : 50vh;
-        transform        : translate(0%, -50%);
         left             : 1rem;
+        padding          : 1rem;
+        transform        : translate(0%, -50%);
+        border-width     : 0.25rem;
+        border-style     : solid;
+        border-color     : darken($color-background, 10%);
+        border-radius    : 1rem;
         // padding         : 1rem;
         // margin-left     : 1.5rem;
         background       : $color-background;
-        padding          : 1rem;
-        border-radius    : 1rem;
         box-shadow       : 0 0 3rem darken($color-background, 10%);
-        border-style     : solid;
-        border-width     : 0.25rem;
-        border-color     : darken($color-background, 10%);
+        $color-background: lighten(theme-color('light'), 5%);
     }
 }
 
 .main-inner {
-    $color-background: lighten(theme-color("light"), 5%);
+    // max-width      : 80rem;
+    // margin         : 2rem;
+    // border-radius  : 1rem;
+    // padding        : 3rem;
+    margin           : 0 2rem;
+    padding-bottom   : 3rem;
+    border-width     : 0.25rem;
+    border-style     : solid;
+    border-color     : darken($color-background, 10%);
+    border-radius    : 1rem;
     // align-items    : center;
     // justify-content: center;
     // display        : flex;
@@ -312,17 +134,8 @@ section {
     // flex           : 1 0 auto;
     // max-width      : 100%;
     background       : $color-background;
-    // max-width      : 80rem;
-    // margin         : 2rem;
-    // border-radius  : 1rem;
-    // padding        : 3rem;
-    margin           : 0 2rem;
-    border-radius    : 1rem;
-    padding-bottom   : 3rem;
     box-shadow       : 0 0 2rem darken($color-background, 10%);
-    border-style     : solid;
-    border-width     : 0.25rem;
-    border-color     : darken($color-background, 10%);
+    $color-background: lighten(theme-color('light'), 5%);
 }
 // HELPERS
 
@@ -333,13 +146,13 @@ section {
     &:focus,
     &:hover,
     &:visited {
-        font-style     : inherit;
-        color          : inherit;
         // background-color: transparent;
         font-size      : inherit;
-        text-decoration: none;
-        font-variant   : inherit;
         font-weight    : inherit;
+        font-style     : inherit;
+        font-variant   : inherit;
+        text-decoration: none;
+        color          : inherit;
         // line-height   : inherit;
         // font-family   : inherit;
         // border-radius : inherit;

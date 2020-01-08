@@ -1,8 +1,8 @@
 
 
 <template>
-<div :class="'list-group-item skill ' + ($parent.skilladditional == skillkey ? 'hover': '')" v-if="doShow">
-    <div class="row" @click="$parent.skilladditional = skillkey">
+<div :class="'list-group-item skill '+ (skilldict.use ? 'hoverable ' : '') + ($parent.skilladditional == skillkey ? 'hover': '')" v-if="doShow" @click="$parent.skilladditional = skillkey" @mouseover="showlink = true" @mouseleave="showlink=false">
+    <div class="row">
         <div class="col-2 d-flex text-muted" style="text-align: center; justify-content:center;">
 
             <h4 v-if="(skilldict.icon || (parentDict && parentDict.icon))" class="center-vertical ">
@@ -23,26 +23,25 @@
         </div>
 
 
-        <div class="col-2 ">
+        <div class="col-2">
 
-            <div class="text-tertiary stars" style="text-orientation:">
+            <div class="text-tertiary stars" v-if="!showlink || !skilldict.link">
                 <i class="far fa-star fa-xs" v-for="x in this.$_.range(3 - Math.ceil(skilldict.level/2))">
                 </i><i class="fas fa-star fa-xs" v-for="x in this.$_.range(Math.ceil(skilldict.level/2))">
                 </i>
             </div>
 
+            <a v-if="showlink && skilldict.link" class="center-vertical" style="text-align:center;" :href="skilldict.link">
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+
         </div>
     </div>
-    <div class="row pt-2 p-1" v-if="$parent.skilladditional == skillkey">
+    <div class="row pt-2 p-1" v-if="($parent.skilladditional == skillkey) && (skilldict.use)">
         <div class="col">
             <p class="p-1 mb-0">
                 {{ skilldict.use }}
             </p>
-        </div>
-        <div class="col-2">
-            <a class="center-vertical" style="text-align:center;" :href="skilldict.link" v-if="skilldict.link">
-                <i class="fas fa-external-link-alt"></i>
-            </a>
         </div>
 
 
@@ -64,6 +63,7 @@ export default {
     data: function() {
         return {
             showadditional: false,
+            showlink: false,
         }
     },
     computed: {

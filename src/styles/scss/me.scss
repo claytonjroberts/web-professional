@@ -1,45 +1,45 @@
 .me {
-    padding        : 3rem 7rem;
     display        : flex;
     flex-direction : row;
     justify-content: space-around;
     max-width      : 100% !important;
+    padding        : 3rem 7rem;
     $image-size    : 250px;
 
     .me-picture {
+        width          : $image-size;
+        min-width      : $image-size;
         max-width      : 15rem;
+        height         : $image-size;
+        min-height     : $image-size;
         max-height     : 15rem;
+        // padding        : 0.25rem;
+        margin         : 1rem;
+        border         : solid theme-color('primary');
         border-radius  : 50%;
         object-fit     : cover;
         object-position: 100% 0;
-        width          : $image-size;
-        height         : $image-size;
-        min-width      : $image-size;
-        min-height     : $image-size;
-        border         : solid theme-color("primary");
-        // padding        : 0.25rem;
-        margin         : 1rem;
     }
 
     .me-line {
+        padding     : 0 1rem;
         border      : 0.25rem;
         border-style: none none none solid;
-        border-color: theme-color("primary");
-        padding     : 0 1rem;
+        border-color: theme-color('primary');
     }
 
     .me-about {
-        align-self    : center;
-        align-items   : center;
         display       : flex;
+        align-items   : center;
+        align-self    : center;
         flex-direction: column;
     }
 
     .me-about-item {
-        color: darken(theme-color("primary"), 5%);
+        color: darken(theme-color('primary'), 5%);
     }
 
     .me-about-principle {
-        color: darken(theme-color("primary"), 10%);
+        color: darken(theme-color('primary'), 10%);
     }
 }
