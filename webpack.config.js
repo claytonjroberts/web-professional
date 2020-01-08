@@ -1,23 +1,8 @@
 var path = require('path');
-var path = require('path');
 var glob = require("glob");
 
 const webpack = require('webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-
-
-// Get entry points for Vue files
-// var entry_vue = {};
-// glob.sync("./src/templates/vue/*.vue").reduce(function(obj,
-//     x) {
-//     console.log("obj", obj);
-//     console.log("x", x);
-//     entry_vue["vue_" + x.match(
-//         /(?:\/)([A-z_]+)(?:\.vue)/)[1]] = x;
-//     return;
-// }, null);
-
-// console.log(entry_vue);
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     mode: 'development',
