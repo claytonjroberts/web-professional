@@ -31,6 +31,11 @@
         transition: $transition_time_color;
         color     : inherit;
     }
+
+    p {
+        margin : 0;
+        padding: 0.5rem 0;
+    }
 }
 
 .me {

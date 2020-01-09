@@ -205,12 +205,13 @@ main {
 }
 
 .skill {
-    min-height      : 4rem;
-    margin-top      : 0;
-    padding         : 1rem !important;
-    transition      : $transition_time_color;
-    border-top-width: 1px;
-    border-radius   : 0.25rem;
+    min-height   : 4rem;
+    margin-top   : 0;
+    margin-bottom: -1px;
+    padding      : 1rem !important;
+    transition   : $transition_time_color;
+    border-width : 1px !important;
+    border-radius: 0.25rem;
 
     .row {
         min-height: 3rem;
@@ -225,14 +226,10 @@ main {
             // border-right : solid $border_thickness_right*2 theme-color("secondary") !important;
             // z-index     : inherit + 5;
             // border-right-width: medium !important;
-            z-index         : inherit + 100;
-            margin-top      : -1px;
-            border-color    : theme-color('secondary') !important;
-            border-top-width: 1px !important;
-
-            &:first-child {
-                margin-top: 0;
-            }
+            z-index     : 200;
+            // margin-top      : -1px;
+            border-color: theme-color('secondary') !important;
+            // border-top-width: 1px !important;
         }
     }
 }
