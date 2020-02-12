@@ -222,14 +222,9 @@ main {
 
         &.hover,
         &:hover {
-            // padding-right: $padding_right + ($border_thickness_right);
-            // border-right : solid $border_thickness_right*2 theme-color("secondary") !important;
-            // z-index     : inherit + 5;
-            // border-right-width: medium !important;
             z-index     : 200;
-            // margin-top      : -1px;
+            // ^ Needs to be higher than regular skill so that the bottom and top border is visible on hover
             border-color: theme-color('secondary') !important;
-            // border-top-width: 1px !important;
         }
     }
 }
