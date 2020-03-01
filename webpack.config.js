@@ -57,7 +57,7 @@ module.exports = {
     watchOptions: {
         ignored: /node_modules/
     },
-    watch: true,
+    watch: false,
 
     plugins: [
         new VueLoaderPlugin(), new webpack.ProvidePlugin({
