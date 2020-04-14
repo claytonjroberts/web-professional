@@ -9,6 +9,9 @@
         <h4 v-if="(skilldict.icon || (parentDict && parentDict.icon))">
             <i :class="skilldict.icon ? skilldict.icon : parentDict.icon" style="align-self:center;"></i>
         </h4>
+        <h4 v-else-if="(skilldict.icontext || (parentDict && parentDict.icon))">
+            {{ skilldict.icontext }}
+        </h4>
 
         <div class="text-tertiary stars">
             <!-- v-if="!showlink || !skilldict.link" -->

@@ -18,6 +18,10 @@
         // min-height: 3rem;
         margin: 0;
     }
+
+    .d-flex > * {
+        padding: 0 0.25rem;
+    }
     // &.hoverable {
     //     border-right-color: theme-color('primary') !important;
     //

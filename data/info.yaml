@@ -319,7 +319,8 @@ skills:
             icon:         "fab fa-app-store"
         "C#":
             level:        2
-            icon:         "fas fa-bug"
+            # icon:       "fas fa-bug"
+            icontext:     "#"
 
         Java:
             level:        2
@@ -367,7 +368,6 @@ skills:
             link:         "http://www.urwid.org/"
         Linux:
             icon:         "fab fa-linux"
-
             level:        4
         Ubuntu:
             icon:         "fab fa-ubuntu"
@@ -434,8 +434,11 @@ skills:
             level:        3
             icon:         "fas fa-motorcycle"
         Photography:
-            level:        1
+            level:        3
             icon:         "fas fa-camera-retro"
         Bartending:
             level:        2
             icon:         "fas fa-cocktail"
+        TypeScript:
+            level:        1
+            icontext:     "TS"
