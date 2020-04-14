@@ -22,14 +22,15 @@
     .d-flex > * {
         padding: 0 0.25rem;
     }
-    // &.hoverable {
-    //     border-right-color: theme-color('primary') !important;
-    //
-    //     &.hover,
-    //     &:hover {
-    //         z-index     : 200;
-    //         // ^ Needs to be higher than regular skill so that the bottom and top border is visible on hover
-    //         border-color: theme-color('secondary') !important;
-    //     }
-    // }
+
+    &.hoverable {
+        border-right-color: theme-color('primary') !important;
+
+        &.hover,
+        &:hover {
+            // z-index     : 200;
+            // ^ Needs to be higher than regular skill so that the bottom and top border is visible on hover
+            border-color: theme-color('secondary') !important;
+        }
+    }
 }

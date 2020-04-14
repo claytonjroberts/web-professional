@@ -37,7 +37,7 @@
     </div>
     <div class="card-footer">
 
-        <a :class="'btn btn-sm btn-block ' + (isSelected ? 'btn-primary' : 'btn-light') " @click.prevent="doSelect" href>
+        <a :class="'btn btn-sm btn-block ' + (isSelected ? 'btn-secondary' : 'btn-light') " @click.prevent="doSelect" href>
             <span v-if="!(isSelected)">
                 Show Skills
             </span>

@@ -74,13 +74,13 @@
                     <input type="text" class="form-control faf" style="font-weight: 900" placeholder="&#xf002;" aria-label="Skill Search" aria-describedby="basic-addon1" style="text-align: left;" v-model="filtersearch">
                 </div>
                 <h5 class="text-primary skill-header">
-                    {{! _.size(filteredskills) }}
+                    {{! _.size(listskill) }}
                 </h5>
             </div>
 
             <div class="row m-0 justify-content-between">
 
-                <skill v-for="(skilldict, skillkey) in filteredskills" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
+                <skill v-for="(skilldict, skillkey) in listskill" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
                 </skill>
 
             </div>
@@ -140,12 +140,11 @@
         // Global filter function
         return mdconverter.makeHtml(val);
     });
+
     Vue.filter('reverse', function(value) {
         // slice to make a copy of array, then reverse the copy
         return value.slice().reverse();
     });
-
-
 
 
     var app = new Vue({
@@ -189,8 +188,6 @@
             showskill: function(skilldict, skillkey) {
                 // `this` points to the vm instance
                 var self = this;
-                console.log(skillkey);
-                console.log(skilldict);
 
                 if (self.filterexperiance) {
                     return (0 <= _.indexOf(self.filterexperiance, skillkey))
@@ -239,11 +236,12 @@
             //     console.log(skill);
             //     return true;
             // },
-            filteredskills: function() {
+            listskill: function() {
                 var self = this;
                 var dict_skills = self.info.skills.list;
 
-                return _.pickBy(dict_skills, self.showskill);
+                // return _.fromPairs(_.sortBy(_.toPairs(_.pickBy(dict_skills, self.showskill)), ['level']));
+                return _.fromPairs(_.toPairs(_.pickBy(dict_skills, self.showskill)));
 
             }
         }

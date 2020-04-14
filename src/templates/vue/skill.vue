@@ -1,7 +1,8 @@
 
 
 <template>
-<div :class="'col-auto border skill '+ (skilldict.use ? 'hoverable ' : '') + ($parent.skilladditional == skillkey ? 'hover': '')" v-if="doshow" @click="$parent.skilladditional = skillkey" @mouseover="showlink = true" @mouseleave="showlink=false">
+<div :class="'col-auto border skill '+ (skilldict.use ? 'hoverable ' : '') + ($parent.skilladditional == skillkey ? 'hover': '')" @click="$parent.skilladditional = ($parent.skilladditional == skillkey ? null : skillkey)" @mouseover="showlink = true"
+    @mouseleave="showlink=false">
 
 
     <div class="row d-flex justify-content-between text-muted">
@@ -31,6 +32,12 @@
             (<span class="text-muted">{{ skilldict["parent"] }}</span>)
         </div>
 
+    </div>
+
+    <div class="row" v-if="($parent.skilladditional == skillkey) && (skilldict.use)">
+        <p class="px-1 text-muted">
+            {{ skilldict.use }}
+        </p>
     </div>
     <!-- </div> -->
     <!-- <div class="col-8 d-flex flex-wrap pl-0">

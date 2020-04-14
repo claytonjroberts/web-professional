@@ -35,3 +35,27 @@
     font-style: italic;
     color     : theme-color('medium-dark');
 }
+
+.experiance-btn {
+    &.hover,
+    &:hover {
+        background-color: theme-color(primary);
+    }
+}
+
+.experiance {
+    // .card-footer {
+    //     color          : theme-color("muted");
+    //     text-decoration: none;
+    //     text-align     : center;
+    //
+    //     &.hover,
+    //     &:hover {
+    //         background-color: theme-color("primary");
+    //     }
+    //
+    //     .selected {
+    //         background-color: theme-color("secondary");
+    //     }
+    // }
+}
