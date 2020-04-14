@@ -1,7 +1,7 @@
 
 
 <template>
-<div :class="'col-auto border skill '+ (skilldict.use ? 'hoverable ' : '') + ($parent.skilladditional == skillkey ? 'hover': '')" v-if="doShow" @click="$parent.skilladditional = skillkey" @mouseover="showlink = true" @mouseleave="showlink=false">
+<div :class="'col-auto border skill '+ (skilldict.use ? 'hoverable ' : '') + ($parent.skilladditional == skillkey ? 'hover': '')" v-if="doshow" @click="$parent.skilladditional = skillkey" @mouseover="showlink = true" @mouseleave="showlink=false">
 
 
     <div class="row d-flex justify-content-between text-muted">
@@ -86,7 +86,8 @@ export default {
         }
     },
     computed: {
-        doShow: function() {
+        doshow: function() {
+            return true;
             // `this` points to the vm instance
             var self = this;
 

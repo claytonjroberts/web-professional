@@ -43,7 +43,7 @@
 
             <h5 class="text-muted">Experience</h5>
 
-            <div class="btn-group d-flex mb-3 overflow-auto">
+            <!-- <div class="btn-group d-flex mb-3 overflow-auto">
                 <a class="btn btn-light flex-fill" v-for="(expdict, expindex) in sortedexperience" v-scroll-to="{
                                         container: '#exps',
                                         el: '#exp' + expindex,
@@ -53,7 +53,7 @@
                                     }" href="#">
                     {{! expdict.company.abbreviation ? expdict.company.abbreviation : expdict.company.name }}
                 </a>
-            </div>
+            </div> -->
 
             <div class="container-fluid scrolling-wrapper-flexbox card-deck" id="exps">
 
@@ -61,18 +61,26 @@
                 </exp>
 
             </div>
-            
+
+            <hr />
+
 
             <!-- SKILLS -->
-            <h5 class="text-muted" style="text-align: right;">
-                Skills (<span class="text-primary">{{! _.size(info.skills.list) }}</span>)
-            </h5>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control faf" style="font-weight: 900" placeholder="&#xf002;" aria-label="Skill Search" aria-describedby="basic-addon1" style="text-align: left;" v-model="filtersearch">
+            <div class="d-flex justify-content-between">
+                <h5 class="text-muted skill-header">
+                    Skills
+                </h5>
+                <div class="input-group">
+                    <input type="text" class="form-control faf" style="font-weight: 900" placeholder="&#xf002;" aria-label="Skill Search" aria-describedby="basic-addon1" style="text-align: left;" v-model="filtersearch">
+                </div>
+                <h5 class="text-primary skill-header">
+                    {{! _.size(filteredskills) }}
+                </h5>
             </div>
+
             <div class="row m-0 justify-content-between">
 
-                <skill v-for="(skilldict, skillkey) in info.skills.list" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
+                <skill v-for="(skilldict, skillkey) in filteredskills" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
                 </skill>
 
             </div>
@@ -167,13 +175,40 @@
             getInfo: function() {
                 var self = this;
 
-                $.get('/api/info').then(function(response) {
-                    console.log(response);
-                    self.info = response;
-                    self.ready = true;
-                }, function(response) {
-                    console.log(response)
-                });
+                $.get('/api/info').then(
+                    function(response) {
+                        console.log(response);
+                        self.info = response;
+                        self.ready = true;
+                    },
+                    function(response) {
+                        console.log(response)
+                    }
+                );
+            },
+            showskill: function(skilldict, skillkey) {
+                // `this` points to the vm instance
+                var self = this;
+                console.log(skillkey);
+                console.log(skilldict);
+
+                if (self.filterexperiance) {
+                    return (0 <= _.indexOf(self.filterexperiance, skillkey))
+                }
+
+                if (self.filtersearch) {
+                    return (
+                        skillkey.includes(self.filtersearch)
+                        || (
+                            skilldict.parent
+                            && skilldict.parent.includes(self.filtersearch)
+                        )
+                    );
+                }
+
+                return true;
+
+
             }
         },
         filters: {
@@ -189,7 +224,7 @@
                 var self = this;
                 // self.selectedexperiance = null;
                 // console.log(self.selectedexperiance);
-                if ( self.selectedexperiance) {
+                if ( self.selectedexperiance ) {
                     console.log(self.sortedexperience[self.selectedexperiance].skillList);
                 }
 
@@ -199,6 +234,17 @@
             sortedexperience: function() {
                 var self = this;
                 return _.reverse(_.sortBy(self.info.experience));
+            },
+            // dummy: function(skill) {
+            //     console.log(skill);
+            //     return true;
+            // },
+            filteredskills: function() {
+                var self = this;
+                var dict_skills = self.info.skills.list;
+
+                return _.pickBy(dict_skills, self.showskill);
+
             }
         }
 

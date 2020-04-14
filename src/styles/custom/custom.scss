@@ -209,3 +209,18 @@ main {
     // writing-mode    : vertical-rl;
     // text-orientation: mixed;
 }
+
+hr {
+    border-color: transparent !important;
+}
+
+.skill-header {
+    overflow-x    : visible;
+    white-space   : nowrap;
+    margin        : 0;
+    align-items   : center;
+    vertical-align: middle;
+    text-align    : center;
+    display       : inherit;
+    padding       : 0 0.5rem;
+}

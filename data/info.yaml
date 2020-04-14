@@ -27,16 +27,21 @@ experience:
         dateStart:
             month:        "August"
             year:         2019
-        isCurrent:        True
+        dateEnd:
+            month:        "April"
+            year:         2020
+        isCurrent:        False
         description:      |
             -   Random forest prediction model for likelihood of account debt outcome on behalf of Hollis Cobb.
             -   Guided the completion of a value-based care flagship project, resolving roadblocks present in productized data and engineering solutions to metrics not previously defined on behalf of IntegraConnect.
             -   Supplied, newly introduced, frontline analytics on a weekly basis for client data discovery and engineering.
+            -   Drastically improved performance and speed of in-house ETL tool at Cloud9 Orthodontics.
         skillList:
             -   Python
             -   matplotlib
             -   Plotly
             -   scikit-learn
+            -   "C#"
     6:
         title:            "Data Scientist"
         company:
