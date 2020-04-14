@@ -61,8 +61,7 @@
                 </exp>
 
             </div>
-
-
+            
 
             <!-- SKILLS -->
             <h5 class="text-muted" style="text-align: right;">
@@ -73,17 +72,8 @@
             </div>
             <div class="row m-0 justify-content-between">
 
-
-                <!-- <div class="container-fluid scrolling-wrapper-flexbox card-deck"> -->
-
-
-                    <skill v-for="(skilldict, skillkey) in info.skills.list" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
-
-                    </skill>
-
-
-                <!-- </div> -->
-
+                <skill v-for="(skilldict, skillkey) in info.skills.list" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
+                </skill>
 
             </div>
 
