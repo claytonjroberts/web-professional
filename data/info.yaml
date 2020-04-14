@@ -10,6 +10,9 @@ links:
     Email:
         icon:             "fas fa-at"
         url:              "mailto:me@claytonjroberts.com"
+    Instagram:
+        icon:             "fab fa-instagram"
+        url:              "http://instagram.com/ClaymasterJ"
     # -   name:           Resume
     #     icon:           "far fa-lg fa-file"
     #     url:            "http://google.com/"

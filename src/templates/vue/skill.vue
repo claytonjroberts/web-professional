@@ -1,29 +1,45 @@
 
 
 <template>
-<div :class="'list-group-item skill '+ (skilldict.use ? 'hoverable ' : '') + ($parent.skilladditional == skillkey ? 'hover': '')" v-if="doShow" @click="$parent.skilladditional = skillkey" @mouseover="showlink = true" @mouseleave="showlink=false">
-    <div class="row">
-        <div class="col-2 d-flex text-muted" style="text-align: center; justify-content:center;">
+<div :class="'col-auto border skill '+ (skilldict.use ? 'hoverable ' : '') + ($parent.skilladditional == skillkey ? 'hover': '')" v-if="doShow" @click="$parent.skilladditional = skillkey" @mouseover="showlink = true" @mouseleave="showlink=false">
 
-            <h4 v-if="(skilldict.icon || (parentDict && parentDict.icon))" class="center-vertical ">
-                <i :class="skilldict.icon ? skilldict.icon : parentDict.icon" style="align-self:center;"></i>
-            </h4>
+
+    <div class="row d-flex justify-content-between text-muted">
+        <!-- <div class="col-2 d-flex text-muted" style="text-align: center; justify-content:center;"> -->
+        <h4 v-if="(skilldict.icon || (parentDict && parentDict.icon))">
+            <i :class="skilldict.icon ? skilldict.icon : parentDict.icon" style="align-self:center;"></i>
+        </h4>
+
+        <div class="text-tertiary stars">
+            <!-- v-if="!showlink || !skilldict.link" -->
+            <i class="far fa-star fa-xs" v-for="x in this.$_.range(3 - Math.ceil(skilldict.level/2))">
+            </i><i class="fas fa-star fa-xs" v-for="x in this.$_.range(Math.ceil(skilldict.level/2))">
+            </i>
         </div>
-        <div class="col-8 d-flex flex-wrap pl-0">
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-auto px-1">
+            {{ skillkey }}
+        </div>
+        <div class="col-auto px-1" v-if="skilldict.parent">
+            (<span class="text-muted">{{ skilldict["parent"] }}</span>)
+        </div>
+
+    </div>
+    <!-- </div> -->
+    <!-- <div class="col-8 d-flex flex-wrap pl-0">
             <div class="center-vertical">
-                <div class="px-1 ">
-                    {{ skillkey }}
-                </div>
-                <div class="px-1 " v-if="skilldict.parent">
-                    (<span class="text-muted">{{ skilldict["parent"] }}</span>)
-                </div>
+
             </div>
 
 
-        </div>
+        </div> -->
 
 
-        <div class="col-2">
+    <!-- <div class="col-2">
 
             <div class="text-tertiary stars" v-if="!showlink || !skilldict.link">
                 <i class="far fa-star fa-xs" v-for="x in this.$_.range(3 - Math.ceil(skilldict.level/2))">
@@ -36,17 +52,17 @@
             </a>
 
         </div>
-    </div>
-    <div class="row pt-2 p-1" v-if="($parent.skilladditional == skillkey) && (skilldict.use)">
-        <div class="col">
-            <p class="p-1 mb-0">
-                {{ skilldict.use }}
-            </p>
-        </div>
+        <div class="row pt-2 p-1" v-if="($parent.skilladditional == skillkey) && (skilldict.use)">
+            <div class="col">
+                <p class="p-1 mb-0">
+                    {{ skilldict.use }}
+                </p>
+            </div>
 
 
 
-    </div>
+        </div> -->
+
 
 
 </div>

@@ -32,19 +32,22 @@
             <span v-html="from_markdown_to_html(expdict.description)"></span>
 
         </div>
-        <div style="text-align: right;">
 
-            <a :class="'btn btn-sm ' + (isSelected ? 'btn-primary' : 'btn-light') " @click.prevent="doSelect" href>
-                <span v-if="!(isSelected)">
-                    Show Skills
-                </span>
-                <span v-else="isSelected">
-                    Showing Skills
-                </span>
-            </a>
 
-        </div>
     </div>
+    <div class="card-footer">
+
+        <a :class="'btn btn-sm btn-block ' + (isSelected ? 'btn-primary' : 'btn-light') " @click.prevent="doSelect" href>
+            <span v-if="!(isSelected)">
+                Show Skills
+            </span>
+            <span v-else="isSelected">
+                Showing Skills
+            </span>
+        </a>
+
+    </div>
+
 </div>
 </template>
 

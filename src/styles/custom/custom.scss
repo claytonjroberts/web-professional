@@ -204,33 +204,8 @@ main {
     }
 }
 
-.skill {
-    min-height   : 4rem;
-    margin-top   : 0;
-    margin-bottom: -1px;
-    padding      : 1rem !important;
-    transition   : $transition_time_color;
-    border-width : 1px !important;
-    border-radius: 0.25rem;
-
-    .row {
-        min-height: 3rem;
-    }
-
-    &.hoverable {
-        border-right-color: theme-color('primary') !important;
-
-        &.hover,
-        &:hover {
-            z-index     : 200;
-            // ^ Needs to be higher than regular skill so that the bottom and top border is visible on hover
-            border-color: theme-color('secondary') !important;
-        }
-    }
-}
-
 .stars {
-    text-align      : center;
-    writing-mode    : vertical-rl;
-    text-orientation: mixed;
+    // text-align      : center;
+    // writing-mode    : vertical-rl;
+    // text-orientation: mixed;
 }

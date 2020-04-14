@@ -12,6 +12,47 @@
     right   : 0.5rem;
 }
 
-.sister-col {
-    max-height: 75vh;
+.sister-row {
+    // max-height    : 20vh;
+    // display       : flex;
+    // flex-direction: row;
+    // overflow-x    : auto;
+    // white-space   : nowrap;
+    // flex-wrap     : nowrap;
+    //
+    // .card {
+    //     display: inline-block;
+    //     float  : none;
+    // }
+}
+
+.scrolling-wrapper-flexbox {
+    display   : flex;
+    flex-flow : row nowrap !important;
+    overflow-x: scroll !important;
+
+    .card {
+        // display       : flex;
+        // flex-direction: row;
+        // flex          : 1 1 auto;
+        min-width: 20rem;
+    }
+    // .card-deck {
+    //     max-height    : 50vh;
+    //     display       : flex;
+    //     flex-direction: row;
+    //     flex-wrap     : nowrap;
+    //     flex          : 1 1 auto;
+    //     overflow-x    : auto;
+    //
+    //     .card {
+    //         display       : flex;
+    //         flex-direction: row;
+    //         flex          : 1 1 auto;
+    //     }
+    // }
+    //
+    // .card {
+    //     // flex: 0 0 auto;
+    // }
 }

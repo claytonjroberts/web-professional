@@ -40,53 +40,49 @@
             </div>
 
             <!-- EXPERIENCE AND SKILLS -->
+
+            <h5 class="text-muted">Experience</h5>
+
+            <div class="btn-group d-flex mb-3 overflow-auto">
+                <a class="btn btn-light flex-fill" v-for="(expdict, expindex) in sortedexperience" v-scroll-to="{
+                                        container: '#exps',
+                                        el: '#exp' + expindex,
+                                        easing: 'ease-in',
+                                        force: true,
+                                        cancelable: true,
+                                    }" href="#">
+                    {{! expdict.company.abbreviation ? expdict.company.abbreviation : expdict.company.name }}
+                </a>
+            </div>
+
+            <div class="container-fluid scrolling-wrapper-flexbox card-deck" id="exps">
+
+                <exp v-for="(expdict, expindex) in sortedexperience" :expdict="expdict" :expindex="expindex" :key="expindex">
+                </exp>
+
+            </div>
+
+
+
+
+            <h5 class="text-muted" style="text-align: right;">
+                Skills (<span class="text-primary">{{! _.size(info.skills.list) }}</span>)
+            </h5>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control faf" style="font-weight: 900" placeholder="&#xf002;" aria-label="Skill Search" aria-describedby="basic-addon1" style="text-align: left;" v-model="filtersearch">
+            </div>
             <div class="row">
-                <div class="col pt-3">
-                    <h5 class="text-muted">Experience</h5>
-                    <div class="btn-group d-flex mb-3 overflow-auto">
-                        <a class="btn btn-light flex-fill" v-for="(expdict, expindex) in sortedexperience" v-scroll-to="{
-                                                container: '#exps',
-                                                el: '#exp' + expindex,
-                                                easing: 'ease-in',
-                                                force: true,
-                                                cancelable: true,
-                                            }" href="#">
-                            {{! expdict.company.abbreviation ? expdict.company.abbreviation : expdict.company.name }}
-                        </a>
-
-                    </div>
-                    <div class="overflow-auto sister-col" id="exps">
-
-                        {# {% for item in handler.application.info["experience"] %} #}
 
 
-                        <exp v-for="(expdict, expindex) in sortedexperience" :expdict="expdict" :expindex="expindex" :key="expindex">
-                        </exp>
+                <!-- <div class="container-fluid scrolling-wrapper-flexbox card-deck"> -->
 
 
+                    <skill v-for="(skilldict, skillkey) in info.skills.list" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
 
-                    </div>
+                    </skill>
 
 
-                </div>
-                <div class="col pt-3">
-                    <h5 class="text-muted" style="text-align: right;">
-                        Skills (<span class="text-primary">{{! _.size(info.skills.list) }}</span>)
-                    </h5>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control faf" style="font-weight: 900" placeholder="&#xf002;" aria-label="Skill Search" aria-describedby="basic-addon1" style="text-align: left;" v-model="filtersearch">
-                    </div>
-                    <div class="overflow-auto sister-col">
-                        <div class="list-group">
-
-                            <skill v-for="(skilldict, skillkey) in info.skills.list" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
-
-                            </skill>
-                        </div>
-
-                    </div>
-
-                </div>
+                <!-- </div> -->
 
 
             </div>
