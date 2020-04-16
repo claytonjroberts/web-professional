@@ -1,23 +1,27 @@
 
 
 <template>
-<div :class="'col-auto border skill '+ (skilldict.use ? 'hoverable ' : '') + ($parent.skilladditional == skillkey ? 'hover': '')" @click="$parent.skilladditional = ($parent.skilladditional == skillkey ? null : skillkey)" @mouseover="showlink = true"
-    @mouseleave="showlink=false">
+<div :class="'col-auto border skill '+ (skilldict.use ? 'hoverable ' : '') + ($parent.skilladditional == skillkey ? 'hover': '')"
+     @click="$parent.skilladditional = ($parent.skilladditional == skillkey ? null : skillkey)"
+     @mouseover="showlink = true"
+     @mouseleave="showlink=false">
 
 
     <div class="row d-flex justify-content-between text-muted">
         <!-- <div class="col-2 d-flex text-muted" style="text-align: center; justify-content:center;"> -->
         <h4 v-if="(skilldict.icon || (parentDict && parentDict.icon))">
-            <i :class="skilldict.icon ? skilldict.icon : parentDict.icon" style="align-self:center;"></i>
+            <i :class="skilldict.icon ? skilldict.icon : parentDict.icon"
+               style="align-self:center;"></i>
         </h4>
         <h4 v-else-if="(skilldict.icontext || (parentDict && parentDict.icon))">
             {{ skilldict.icontext }}
         </h4>
 
         <div class="text-tertiary stars">
-            <!-- v-if="!showlink || !skilldict.link" -->
-            <i class="far fa-star fa-xs" v-for="x in this.$_.range(3 - Math.ceil(skilldict.level/2))">
-            </i><i class="fas fa-star fa-xs" v-for="x in this.$_.range(Math.ceil(skilldict.level/2))">
+            <i class="fas fa-star fa-xs"
+               v-for="x in this.$_.range(Math.ceil(skilldict.level/2))">
+            </i><i class="far fa-star fa-xs"
+               v-for="x in this.$_.range(3 - Math.ceil(skilldict.level/2))">
             </i>
         </div>
 
@@ -28,13 +32,15 @@
         <div class="col-auto px-1">
             {{ skillkey }}
         </div>
-        <div class="col-auto px-1" v-if="skilldict.parent">
+        <div class="col-auto px-1"
+             v-if="skilldict.parent">
             (<span class="text-muted">{{ skilldict["parent"] }}</span>)
         </div>
 
     </div>
 
-    <div class="row" v-if="($parent.skilladditional == skillkey) && (skilldict.use)">
+    <div class="row"
+         v-if="($parent.skilladditional == skillkey) && (skilldict.use)">
         <p class="px-1 text-muted">
             {{ skilldict.use }}
         </p>
@@ -86,14 +92,14 @@ export default {
         "skilldict",
         "skillkey",
     ],
-    data: function() {
+    data: function () {
         return {
             showadditional: false,
             showlink: false,
         }
     },
     computed: {
-        doshow: function() {
+        doshow: function () {
             return true;
             // `this` points to the vm instance
             var self = this;
@@ -109,7 +115,7 @@ export default {
             }
 
         },
-        parentDict: function() {
+        parentDict: function () {
             var self = this;
 
             if (self.skilldict.parent) {
@@ -118,7 +124,7 @@ export default {
                 return null;
             }
         },
-        stars: function() {
+        stars: function () {
             var self = this;
 
             return _.range(Math.ceil(this.skilldict.level / 2))
@@ -126,10 +132,10 @@ export default {
 
     },
     methods: {
-        from_markdown_to_html: function(x) {
+        from_markdown_to_html: function (x) {
             return mdconverter.makeHtml(x);
         },
-        sort_experience: function(x) {
+        sort_experience: function (x) {
 
         }
     },

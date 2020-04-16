@@ -1,12 +1,8 @@
 <template>
 <div class="card" :id="'exp' + expindex">
     <div class="card-body">
-        <h6 style="align-self: center" v-if="expdict.isCurrent">
-            <span class="badge badge-primary">Current</span>
-        </h6>
 
         <div class="d-flex justify-content-between">
-
             <div>
                 <h5 class="card-title">
                     {{ expdict.title }}
@@ -21,19 +17,18 @@
                     <img class="card-img-side" :src="this.$parent.static_url + expdict.company.logo" :alt="expdict.company.name">
                 </a>
             </div>
-
-
         </div>
-
 
 
         <div class="card-text mt-2">
-
             <span v-html="from_markdown_to_html(expdict.description)"></span>
-
         </div>
 
-
+    </div>
+    <div v-if="expdict.isCurrent" style="text-align: center;">
+        <h6 style="align-self: center">
+            <span class="badge badge-primary">Current</span>
+        </h6>
     </div>
     <div class="card-footer">
 
@@ -59,17 +54,17 @@ export default {
         "expdict",
         "expindex"
     ],
-    data: function() {
+    data: function () {
         return {}
     },
     computed: {
-        isSelected: function() {
+        isSelected: function () {
             var self = this;
             return (self.expindex == self.$parent.selectedexperiance);
         }
     },
     methods: {
-        doSelect: function() {
+        doSelect: function () {
             var self = this;
             if (self.isSelected) {
                 self.$parent.selectedexperiance = null;
@@ -77,7 +72,7 @@ export default {
                 self.$parent.selectedexperiance = self.expindex;
             }
         },
-        from_markdown_to_html: function(x) {
+        from_markdown_to_html: function (x) {
             return mdconverter.makeHtml(x);
         }
 

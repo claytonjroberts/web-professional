@@ -16,6 +16,15 @@ links:
     # -   name:           Resume
     #     icon:           "far fa-lg fa-file"
     #     url:            "http://google.com/"
+me:
+    introduction:         |
+        **Hello!** My name is Clayton. I'm a Full Stack Developer, Industrial Engineer and Photographer.
+
+        My __overarching goal__ is to test myself against true challenge with *passion*, *honesty*, and *determination*.
+
+        My __objective__ is to learn and lead, promoting growth in interdependent relationships
+        and driving the advancement and enhancement of business efficiency.
+
 experience:
     7:
         title:            "Consultant"
@@ -195,16 +204,6 @@ experience:
             -   "JavaScript"
             -   "Vue"
 
-me:
-    introduction:         |
-        **Hello!** My name is Clayton!
-
-        My __overarching goal__ is to test myself against true challenge with *passion*, *honesty*, and *determination*.
-
-        My __objective__ is to learn and lead, promoting growth in interdependent relationships
-        and driving the advancement and enhancement of business efficiency.
-
-
 skills:
     levels:
         5:                "Mastery"
@@ -323,7 +322,7 @@ skills:
             level:        2
             icon:         "fab fa-app-store"
         "C#":
-            level:        2
+            level:        3
             # icon:       "fas fa-bug"
             icontext:     "#"
 
@@ -439,7 +438,7 @@ skills:
             level:        3
             icon:         "fas fa-motorcycle"
         Photography:
-            level:        3
+            level:        4
             icon:         "fas fa-camera-retro"
         Bartending:
             level:        2
@@ -447,3 +446,7 @@ skills:
         TypeScript:
             level:        1
             icontext:     "TS"
+        Portrait Photography:
+            parent:       "Photography"
+            level:        3
+            icon:         "fas fa-camera-retro"
