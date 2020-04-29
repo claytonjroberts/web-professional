@@ -1,20 +1,15 @@
 import inspect
-
 import sys
-
-
+import json
 import tornado
 import tornado.autoreload
 import tornado.websocket
 
-
 from ...core.console import output
 
+from .base import HandlerPage, HandlerAPI, HandlerWebsocket
 
 _debug = True
-
-
-from .base import HandlerPage, HandlerAPI, HandlerWebsocket
 
 
 class PH_Logout(HandlerPage):
@@ -45,7 +40,7 @@ class PH_Admin(HandlerPage):
 
 class API_Info(HandlerAPI):
     def get(self):
-        self.write(self.application.info)
+        self.write(json.dumps(self.application.info, default=lambda x: str(x)))
 
 
 if __name__ == "__main__":

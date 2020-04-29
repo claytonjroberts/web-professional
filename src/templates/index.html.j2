@@ -174,7 +174,7 @@
             getInfo: function() {
                 var self = this;
 
-                $.get('/api/info').then(
+                $.getJSON('/api/info').then(
                     function(response) {
                         console.log(response);
                         self.info = response;
