@@ -217,6 +217,8 @@ skills:
             level:        5
             link:         "https://www.python.org/"
             first:        2014
+            experience:
+                years:    5
             use:          >
                 Considered Clayton's swiss army knife, he uses Python for proof of concepts,
                 full fledged applications, and for fun.
@@ -225,12 +227,16 @@ skills:
             level:        5
             icon:         "fab fa-html5"
             first:        2005
+            experience:
+                years:    6
             use:          >
                 Clayton uses HTML as his prefered scaffolding to any complex (or simple) UI application.
         CSS:
             level:        4
             icon:         "fab fa-css3-alt"
             first:        2005
+            experience:
+                years:    6
             use:          >
                 Though Clayton mostly uses CSS as an output from SASS, SCSS or other styling technologies,
                 Clayton enjoys working with CSS on the fly.
@@ -238,6 +244,8 @@ skills:
             level:        3
             icon:         "fab fa-sass"
             link:         "https://sass-lang.com/"
+            experience:
+                years:    2
             use:          >
                 SCSS is Clayton's main medium for styling a user interface, and one that he uses with every web project.
         Bootstrap:
@@ -245,6 +253,8 @@ skills:
             icon:         "fab fa-bootstrap"
             parent:       "SCSS"
             link:         "https://getbootstrap.com/"
+            experience:
+                years:    2
             use:          >
                 Clayton believes in working both smarter and harder, but Bootstrap is
                 something that allows Clayton to quickly provide a styling boilerplate to web technologies with ease.
@@ -253,38 +263,56 @@ skills:
             parent:       "SCSS"
             icon:         "fab fa-font-awesome"
             link:         "https://fontawesome.com/?from=io"
+            experience:
+                years:    1
         Pandas:
             parent:       "Python"
             level:        4
             link:         "https://pandas.pydata.org/"
+            experience:
+                years:    2.5
         NumPy:
             parent:       "Python"
             level:        3
             link:         "https://www.numpy.org/"
+            experience:
+                years:    2
         Tornado:
             parent:       "Python"
             level:        4
             link:         "https://www.tornadoweb.org/en/stable/"
+            experience:
+                years:    3
         SQLAlchemy:
             parent:       "Python"
             level:        5
             link:         "https://www.sqlalchemy.org/"
+            experience:
+                years:    3
         scikit-learn:
             parent:       "Python"
             level:        3
             link:         "https://scikit-learn.org/stable/"
+            experience:
+                years:    2
         Click:
             parent:       "Python"
             level:        4
             link:         "https://click.palletsprojects.com/en/master/"
+            experience:
+                years:    2
         Plotly:
             parent:       "Python"
             level:        3
             link:         "https://plot.ly/"
+            experience:
+                years:    0.5
         matplotlib:
             parent:       "Python"
             level:        3
             link :        "https://matplotlib.org/"
+            experience:
+                years:    6
         RegEx:
             icon:         "fas fa-search"
             level:        4
@@ -294,72 +322,115 @@ skills:
             icon:         "fab fa-vuejs"
             level:        4
             link:         "https://vuejs.org/"
+            experience:
+                years:    2
         Vuex:
             parent:       "Vue"
             level:        3
             link:         "https://vuex.vuejs.org/"
+            experience:
+                years:    0.5
         Angular:
             icon:         "fab fa-angular"
             level:        1
             link:         "https://angular.io/"
+            experience:
+                years:    0.5
         Microsoft Office:
             icon:         "fab fa-microsoft"
             level:        5
+            experience:
+                years:    12
         PostgreSQL:
             icon:         "fas fa-database"
             level:        4
             link:         "https://www.postgresql.org/"
+            experience:
+                years:    2
         SQL:
             icon:         "fas fa-database"
             level:        4
+            experience:
+                years:    3
         Server Management:
             icon :        "fas fa-server"
             level:        4
+            experience:
+                years:    1
         Swift:
             level:        1
             icon:         "fab fa-app-store"
+            experience:
+                years:    0.5
         Xcode:
             level:        2
             icon:         "fab fa-app-store"
+            experience:
+                years:    0.5
         "C#":
             level:        3
             # icon:       "fas fa-bug"
             icontext:     "#"
-
+            experience:
+                years:    1
+        ".NET":
+            level:        1
+            experience:
+                years:    1
         Java:
             level:        2
             icon:         "fab fa-java"
+            experience:
+                years:    0.5
         Assembly:
             level:        2
             icon:         "fas fa-microchip"
             link:         "https://en.wikipedia.org/wiki/Assembly_language"
+            experience:
+                years:    0.5
         R:
             level:        2
             link:         "https://www.r-project.org/about.html"
             icon:         "fab fa-r-project"
+            experience:
+                years:    0.5
         git:
             level:        4
             icon:         "fab fa-git"
+            experience:
+                years:    3
         GitHub:
             level:        4
             icon:         "fab fa-github"
+            experience:
+                years:    3
         Markdown:
             icon:         "fab fa-markdown"
             level:        5
+            experience:
+                years:    2
         JavaScript:
             icon:         "fab fa-js-square"
             level:        2
+            experience:
+                years:    5
         npm:
             icon:         "fab fa-npm"
             level:        2
             link:         "https://www.npmjs.com/"
+            experience:
+                years:    1
         Xpress:
             level:        3
             parent:       "Network Optimization"
             link:         "https://www.fico.com/en/products/fico-xpress-optimization"
+            experience:
+                years:    1
         Leadership:
             icon:         "fas fa-chalkboard-teacher"
             level:        2
+            experience:
+                years:    1
         Writing:
             icon:         "fas fa-pencil-alt"
             level:        5
@@ -370,79 +441,121 @@ skills:
             parent:       "Python"
             level:        2
             link:         "http://www.urwid.org/"
+            experience:
+                years:    0.5
         Linux:
             icon:         "fab fa-linux"
             level:        4
+            experience:
+                years:    1
         Ubuntu:
             icon:         "fab fa-ubuntu"
             level:        4
             parent:       "Linux"
+            experience:
+                years:    1
         OSX:
             icon:         "fab fa-apple"
             level:        5
             parent:       "Linux"
+            experience:
+                years:    4
         Homebrew:
             level:        5
             link:         "https://brew.sh/"
             parent:       "OSX"
+            experience:
+                years:    3
         DataGrip:
             icon:         "fas fa-table"
             level:        3
             link:         "https://www.jetbrains.com/DataGrip/"
+            experience:
+                years:    2
         MongoDB:
             icon:         "far fa-file"
             level:        2
             link:         "https://www.mongodb.com/"
+            experience:
+                years:    0.5
         Machine Learning:
             icon:         "fas fa-desktop"
             level:        3
+            experience:
+                years:    2
         Regression:
             icon:         "fas fa-chart-line"
             level:        4
             parent:       Machine Learning
+            experience:
+                years:    2
         Neural Network:
             icon:         "fas fa-brain"
             level:        3
             parent:       Machine Learning
+            experience:
+                years:    0.5
         Deep Learning:
             level:        3
             parent:       Neural Network
+            experience:
+                years:    0.5
         Optimization:
             level:        5
             icon:         "fas fa-tachometer-alt"
+            experience:
+                years:    2
         Factory Optimization:
             level:        5
             icon:         "fas fa-industry"
             parent:       Optimization
+            experience:
+                years:    1
         Network Optimization:
             level:        5
             icon:         "fas fa-project-diagram"
             parent:       Optimization
+            experience:
+                years:    2
         Supply Chain Guru:
             parent:       "Network Optimization"
             level:        4
             link:         "https://llamasoft.com/products/design/supply-chain-guru/"
+            experience:
+                years:    2
         Simio:
             parent:       Optimization
             level:        3
             link:         "https://www.simio.com/index.php"
+            experience:
+                years:    0.5
         Cheerleading:
             icon:         "far fa-laugh-beam"
             level:        3
             link:         "https://en.wikipedia.org/wiki/Cheerleading"
+            experience:
+                years:    3
         Stunting:
             level:        3
             link:         "https://en.wikipedia.org/wiki/List_of_cheerleading_stunts"
             parent:       "Cheerleading"
+            experience:
+                years:    3
         Motorcycle Riding:
             level:        3
             icon:         "fas fa-motorcycle"
+            experience:
+                start:    2016-08-01
         Photography:
             level:        4
             icon:         "fas fa-camera-retro"
+            experience:
+                start:    2019-06-01
         Bartending:
             level:        2
             icon:         "fas fa-cocktail"
+            experience:
+                start:    2020-01-01
         TypeScript:
             level:        1
             icontext:     "TS"
@@ -450,3 +563,26 @@ skills:
             parent:       "Photography"
             level:        3
             icon:         "fas fa-camera-retro"
+            experience:
+                start:    2020-02-01
+        Heroku:
+            level:        3
+            link:         "http://heroku.com"
+            icontext:     "H"
+            experience:
+                start:    2020-03-01
+            use:          >
+                This very site is hosted on Heroku! Clayton switched to Heroku for its fantastic integration with GitHub.
+        AWS:
+            level:        1
+            link:         "https://aws.amazon.com/"
+            icon:         "fab fa-aws"
+            experience:
+                years:    0.5
+        Google Cloud Platform:
+            level:        3
+            link:         "https://cloud.google.com/"
+            icon:         "fab fa-google"
+            experience:
+                years:    1
+
