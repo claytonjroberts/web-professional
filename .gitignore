@@ -1,7 +1,9 @@
 # GENERAL MAC #
 .DS_Store
 
-
+# DEV
+.azure
+.ropeproject
 
 # PYTHON #
 # Byte-compiled / optimized / DLL files
