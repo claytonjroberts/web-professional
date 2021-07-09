@@ -1,11 +1,14 @@
+@import "~bootstrap/scss/functions"; // Import custom colors & fonts
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 @import "colors.scss";
-@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/bootstrap";
 $border-radius: 0.25rem;
-$color-background: lighten(theme-color('light'), 5%);
+$color-background: lighten(map-get($theme-colors, "light"), 5%);
 
 html {
     font-family     : 'OpenSans' !important;
-    background-color: theme-color('html');
+    background-color: $color-background;
 }
 
 .faf {
@@ -13,16 +16,15 @@ html {
     font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands', 'OpenSans' !important;
     font-weight: 900;
 }
-
-.body,
-body {
-    // background-color: lighten(theme-color("medium-light"), 5%);
-    // Set font for website -->
-    display         : flex;
-    flex            : 1 0 auto;
-    flex-direction  : column;
-    background-color: theme-color('bg-light');
-}
+// .body,
+// body {
+//   // background-color: lighten(map-get($theme-colors, "medium-light"), 5%);
+//   // Set font for website -->
+//   display: flex;
+//   flex: 1 0 auto;
+//   flex-direction: column;
+//   background-color: $color-background;
+// }
 
 main {
     flex: 1;
@@ -35,7 +37,7 @@ body {
     min-height      : 100vh;
     margin          : 0;
     padding         : 0;
-    background-color: theme-color('' + &);
+    background-color: theme-color("" + &);
 }
 
 footer,
@@ -46,7 +48,7 @@ header {
 
 header {
     margin-top      : 3.5rem;
-    background-color: theme-color('' + &);
+    background-color: theme-color("" + &);
 }
 
 section {
@@ -57,7 +59,7 @@ section {
     padding       : 1rem;
 
     .section-dark {
-        background-color: gray('500');
+        background-color: gray("500");
     }
 }
 // main {
@@ -76,7 +78,7 @@ section {
 // }
 
 .main-wrapper {
-    // background-color: lighten(theme-color("medium-light"), 5%);
+    // background-color: lighten(map-get($theme-colors, "medium-light"), 5%);
     // padding         : 3rem 0;
     display        : flex;
     flex           : 1 1 auto;
@@ -133,7 +135,7 @@ section {
     // max-width      : 100%;
     background       : $color-background;
     box-shadow       : 0 0 2rem darken($color-background, 10%);
-    $color-background: lighten(theme-color('light'), 5%);
+    $color-background: lighten(map-get($theme-colors, "light"), 5%);
 }
 // HELPERS
 

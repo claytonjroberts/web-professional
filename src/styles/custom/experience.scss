@@ -11,17 +11,17 @@
 }
 
 .experience-company {
-    color: theme-color('primary');
+    color: map-get($theme-colors, "primary");
     filter: hue-rotate(-45deg);
 }
 
 .experience-location {
-    color: darken(theme-color('primary'), 15%);
+    color: darken(map-get($theme-colors, "primary"), 15%);
     filter: hue-rotate(-45deg);
 }
 
 .experience-timeline {
-    color: darken(theme-color('primary'), 30%);
+    color: darken(map-get($theme-colors, "primary"), 30%);
     filter: hue-rotate(-45deg);
 }
 
@@ -33,7 +33,7 @@
 
 .experience-challenge {
     font-style: italic;
-    color     : theme-color('medium-dark');
+    color     : map-get($theme-colors, "medium-dark");
 }
 
 .experiance-btn {
@@ -45,17 +45,17 @@
 
 .experiance {
     // .card-footer {
-    //     color          : theme-color("muted");
+    //     color          : map-get($theme-colors, "muted");
     //     text-decoration: none;
     //     text-align     : center;
     //
     //     &.hover,
     //     &:hover {
-    //         background-color: theme-color("primary");
+    //         background-color: map-get($theme-colors, "primary");
     //     }
     //
     //     .selected {
-    //         background-color: theme-color("secondary");
+    //         background-color: map-get($theme-colors, "secondary");
     //     }
     // }
 }

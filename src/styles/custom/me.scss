@@ -10,16 +10,16 @@
     // padding        : 0.25rem;
     margin         : 1rem;
     transition     : $transition_time_color;
-    border         : solid theme-color('primary');
+    border         : solid map-get($theme-colors, "primary");
     border-radius  : 50%;
     object-fit     : cover;
     object-position: 100% 0;
 
     &:hover {
-        border: solid theme-color('secondary');
+        border: solid map-get($theme-colors, "secondary");
 
         .me-objective-keyword {
-            color: theme-color('secondary');
+            color: map-get($theme-colors, "secondary");
         }
     }
 }
@@ -43,11 +43,11 @@
 
     &:hover {
         .me-portrait {
-            border: solid theme-color('secondary');
+            border: solid map-get($theme-colors, "secondary");
         }
 
         .me-objective em {
-            color: theme-color('secondary') !important;
+            color: map-get($theme-colors, "secondary") !important;
         }
     }
 }

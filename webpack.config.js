@@ -2,7 +2,8 @@ var path = require('path');
 var glob = require("glob");
 
 const webpack = require('webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+// const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
     mode: 'development',
@@ -82,7 +83,7 @@ module.exports = {
     // }
     // node: { global: true, fs: 'empty' }
     node: {
-        fs: 'empty'
+        // fs: 'empty'
     }
 
     // resolve: {     alias: {         'vue$': 'vue/dist/vue.esm.js'     },

@@ -1,10 +1,12 @@
 .skill {
-    margin       : 0.25rem !important;
-    padding      : 0.5rem;
-    transition   : $transition_time_color;
-    border-width : 1px !important;
-    border-radius: 0.25rem;
-    // border       : solid theme-color('muted');
+    margin          : 0.25rem !important;
+    padding         : 0.5rem;
+    transition      : $transition_time_color;
+    border-width    : 1px !important;
+    border-radius   : 0.25rem;
+    // border       : solid map-get($theme-colors, "muted");
+    background-color: map-get($theme-colors, "bg-light");
+
     h1,
     h2,
     h3,
@@ -24,13 +26,13 @@
     }
 
     &.hoverable {
-        border-right-color: theme-color('primary') !important;
+        border-right-color: map-get($theme-colors, "primary") !important;
 
         &.hover,
         &:hover {
             // z-index     : 200;
             // ^ Needs to be higher than regular skill so that the bottom and top border is visible on hover
-            border-color: theme-color('secondary') !important;
+            border-color: map-get($theme-colors, "secondary") !important;
         }
     }
 }

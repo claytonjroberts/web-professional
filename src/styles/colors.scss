@@ -1,52 +1,42 @@
-$primary: #f05048; //#3090E0;
+$primary: #f05048; //#3090E0; #E8A000, //#EC9F05
 $theme-colors: (
-    // "primary"           :
-    // "primary"           : #E8A000, //#EC9F05
-    'primary'           : $primary,
+    "primary"           : $primary,
     // "secondary"         : adjust-hue($primary, 15deg),
-    'secondary'         : adjust-hue($primary, 270deg),
-    // "secondary"         : darken($primary, 20%),
-    'tertiary'          : adjust-hue($primary, 30deg),
-    'quaternary'        : adjust-hue($primary, 45deg),
-    // "secondary"         : #E88300, //#E8A000,
-    // "secondary"         : #505050,
-    // "secondary"         : #,
-    // #D7B740,
-    // #D8A000
-    // "primary-1"         : #E8A000,
-    // "secondary"         : #F05048, //#F0544F
-    'danger'            : #b04040, //#b04136
-    // "html"              : #232320,
-    'html'              : #636360,
-    'splash'            : #404040,
-    // "splash"            : #906000,
-    'splash-text'       : #e5e5e0,
-    'splash-text-darker': #c0b8b8,
-    'bg'                : #fbfbfb,
-    'bg-light'          : #fbfbfb,
-    'light'             : #e5e5e5,
-    'medium-light'      : #d5d5d5,
-    'medium'            : #b5b5b5,
-    'medium-dark'       : #757575,
-    'dark'              : #757570,
-    'footer'            : #d5d5d5,
-    // "footer"            : #D5D5D0,
-    'footer-border'     : #757570,
-    'tool-border'       : #757570,
-    'white'             : #fff,
-);
-$colors: (
-    // "blue": $blue,
-    // "indigo": $indigo,
-    // "purple": $purple,
-    // "pink": $pink,
-    // "red": $red,
-    // "orange": $orange,
-    // "yellow": $yellow,
-    // "green": $green,
-    // "teal": $teal,
-    // "cyan": $cyan,
-    // "white": #906000,
-    // "gray": $gray-600,
-    // "gray-dark": $gray-800
-);
+    "secondary"         : adjust-hue($primary, 270deg),
+    //"secondary": darken($primary, 20%),
+    "tertiary"          : adjust-hue($primary, 30deg),
+    "quaternary"        : adjust-hue($primary, 45deg),
+    "html"              : #636360,
+    "splash"            : #404040,
+    //"splash": #906000,
+    "splash-text"       : #e5e5e0,
+    "splash-text-darker": #c0b8b8,
+    "bg"                : #fbfbfb,
+    "bg-light"          : #fbfbfb,
+    "light"             : #e5e5e5,
+    "medium-light"      : #d5d5d5,
+    "medium"            : #b5b5b5,
+    "medium-dark"       : #757575,
+    "dark"              : #757570,
+    "footer"            : #d5d5d5,
+    //"footer": #d5d5d0,
+    "footer-border"     : #757570,
+    "tool-border"       : #757570,
+    "white"             : #fff,
+    "body"              : #fbfbfb
+); // $theme-colors: map-merge($theme-colors, $custom-colors);
+// $colors: (
+//   // "blue": $blue,
+//     // "indigo": $indigo,
+//     // "purple": $purple,
+//     // "pink": $pink,
+//     // "red": $red,
+//     // "orange": $orange,
+//     // "yellow": $yellow,
+//     // "green": $green,
+//     // "teal": $teal,
+//     // "cyan": $cyan,
+//     // "white": #906000,
+//     // "gray": $gray-600,
+//     // "gray-dark": $gray-800
+// );
