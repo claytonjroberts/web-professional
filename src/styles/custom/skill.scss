@@ -32,7 +32,8 @@
         &:hover {
             // z-index     : 200;
             // ^ Needs to be higher than regular skill so that the bottom and top border is visible on hover
-            border-color: map-get($theme-colors, "secondary") !important;
+            border-color    : map-get($theme-colors, "secondary") !important;
+            background-color: mix(map-get($theme-colors, "bg-light"), map-get($theme-colors, "secondary"), 90%);
         }
     }
 }
