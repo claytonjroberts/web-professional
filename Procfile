@@ -1,2 +1,1 @@
-web: gunicorn -k tornado main:app
-
+web: python3 main.py
