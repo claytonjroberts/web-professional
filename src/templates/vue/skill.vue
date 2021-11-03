@@ -115,8 +115,8 @@ export default {
             // `this` points to the vm instance
             var self = this;
 
-            if (this.$parent.filterexperiance) {
-                return (0 <= _.indexOf(this.$parent.filterexperiance, self.skillkey))
+            if (this.$parent.filterexperience) {
+                return (0 <= _.indexOf(this.$parent.filterexperience, self.skillkey))
             }
             // return true;
             else if (this.$parent.filtersearch) {

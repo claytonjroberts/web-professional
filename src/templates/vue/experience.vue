@@ -1,5 +1,6 @@
 <template>
-<div class="card" :id="'exp' + expindex">
+<div class="card experience"
+     :id="'exp' + expindex">
     <div class="card-body">
 
         <div class="d-flex justify-content-between">
@@ -14,7 +15,9 @@
             </div>
             <div>
                 <a :href="expdict.company.link">
-                    <img class="card-img-side" :src="this.$parent.static_url + expdict.company.logo" :alt="expdict.company.name">
+                    <img class="card-img-side"
+                         :src="this.$parent.static_url + expdict.company.logo"
+                         :alt="expdict.company.name">
                 </a>
             </div>
         </div>
@@ -25,18 +28,21 @@
         </div>
 
     </div>
-    <div v-if="expdict.isCurrent" style="text-align: center;">
+    <div v-if="expdict.isCurrent"
+         style="text-align: center;">
         <h6 style="align-self: center">
             <span class="badge badge-primary">Current</span>
         </h6>
     </div>
     <div class="card-footer">
 
-        <a :class="'btn btn-sm btn-block ' + (isSelected ? 'btn-secondary' : 'btn-light') " @click.prevent="doSelect" href>
+        <a :class="'btn btn-sm btn-block ' + (isSelected ? 'btn-secondary' : 'btn-light') "
+           @click.prevent="doSelect"
+           href>
             <span v-if="!(isSelected)">
                 Show Skills
             </span>
-            <span v-else="isSelected">
+            <span v-else>
                 Showing Skills
             </span>
         </a>
@@ -60,16 +66,16 @@ export default {
     computed: {
         isSelected: function () {
             var self = this;
-            return (self.expindex == self.$parent.selectedexperiance);
+            return (self.expindex == self.$parent.selectedexperience);
         }
     },
     methods: {
         doSelect: function () {
             var self = this;
             if (self.isSelected) {
-                self.$parent.selectedexperiance = null;
+                self.$parent.selectedexperience = null;
             } else {
-                self.$parent.selectedexperiance = self.expindex;
+                self.$parent.selectedexperience = self.expindex;
             }
         },
         from_markdown_to_html: function (x) {

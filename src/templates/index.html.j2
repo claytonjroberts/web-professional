@@ -39,7 +39,9 @@
 
             <!-- EXPERIENCE -->
 
-            <h5 class="text-muted">Experience</h5>
+            <div class="custom-container-experience-header">
+                <h5 class="text-muted">Experience</h5>
+            </div>
 
             <!-- <div class="btn-group d-flex mb-3 overflow-auto">
                 <a class="btn btn-light flex-fill" v-for="(expdict, expindex) in sortedexperience" v-scroll-to="{
@@ -63,24 +65,34 @@
 
 
             <!-- SKILLS -->
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between custom-container-skill-search-bar">
                 <h5 class="text-muted skill-header">
                     Skills
                 </h5>
                 <div class="input-group">
-                    <input type="text" class="form-control faf" style="font-weight: 900" placeholder="&#xf002;" aria-label="Skill Search" aria-describedby="basic-addon1" style="text-align: left;" v-model="filtersearch">
+                    <input type="text"
+                        class="form-control faf"
+                        style="font-weight: 900"
+                        placeholder="&#xf002;"
+                        aria-label="Skill Search"
+                        aria-describedby="basic-addon1"
+                        style="text-align: left;"
+                        v-model="filtersearch" />
                 </div>
-                <h5 class="text-primary skill-header">
+                <h5 class="text-primary skill-header skill-header-number">
                     {{! _.size(listskill) }}
                 </h5>
             </div>
 
-            <div class="row m-0 justify-content-between">
+            <div class="custom-container-skill-list">
+                <div class="row m-0 justify-content-between">
 
-                <skill v-for="(skilldict, skillkey) in listskill" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
-                </skill>
+                    <skill v-for="(skilldict, skillkey) in listskill" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
+                    </skill>
 
+                </div>
             </div>
+
 
     </main>
 
@@ -93,18 +105,6 @@
     </footer>
 
     <footer>
-        {# <div class="links">
-                <h4 class="links-list">
-                    {% for linkdict in handler.application.info["links"] %}
-                    <span class="link">
-                        <a class="text-secondary"
-                           :href="{{  linkdict['url']  }}"><i :class="{{  linkdict['url']  }}"></i>
-                        </a>
-                    </span>
-                </h4>
-            </div> #}
-        <!-- <h1>Contact</h1> -->
-
         <div class="made-with">
             <i class="fas fa-hammer"></i>
             with
@@ -117,8 +117,6 @@
             <i class="fab fa-github"></i>
         </div>
     </footer>
-
-
 </div>
 
 </main>
@@ -151,15 +149,13 @@
         // },
         data: function() {
             return {
-                ...{
-                    filtersearch: null,
+                filtersearch: null,
 
-                    selectedexperiance: null,
-                    skilladditional: null,
-                    static_url: "/static/",
-                    info: null,
-                    ready: false
-                },
+                selectedexperience: null,
+                skilladditional: null,
+                static_url: "/static/",
+                info: null,
+                ready: false,
             }
         },
         methods: {
@@ -184,8 +180,8 @@
                 // `this` points to the vm instance
                 var self = this;
 
-                if (self.filterexperiance) {
-                    return (0 <= _.indexOf(self.filterexperiance, skillkey))
+                if (self.filterexperience) {
+                    return (0 <= _.indexOf(self.filterexperience, skillkey))
                 }
 
                 if (self.filtersearch) {
@@ -212,15 +208,15 @@
             this.getInfo();
         },
         computed: {
-            filterexperiance: function() {
+            filterexperience: function() {
                 var self = this;
-                // self.selectedexperiance = null;
-                // console.log(self.selectedexperiance);
-                if ( self.selectedexperiance ) {
-                    console.log(self.sortedexperience[self.selectedexperiance].skillList);
+                // self.selectedexperience = null;
+                // console.log(self.selectedexperience);
+                if ( self.selectedexperience ) {
+                    console.log(self.sortedexperience[self.selectedexperience].skillList);
                 }
 
-                return self.selectedexperiance != null ? self.sortedexperience[self.selectedexperiance].skillList : null;
+                return self.selectedexperience != null ? self.sortedexperience[self.selectedexperience].skillList : null;
 
             },
             sortedexperience: function() {

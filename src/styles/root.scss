@@ -8,7 +8,7 @@ $color-background: lighten(map-get($theme-colors, "light"), 5%);
 
 html {
     font-family     : 'OpenSans' !important;
-    background-color: $color-background;
+    background-color: darken(map-get($theme-colors, "body"), 10%);
 }
 
 .faf {

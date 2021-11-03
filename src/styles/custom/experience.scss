@@ -36,14 +36,14 @@
     color     : map-get($theme-colors, "medium-dark");
 }
 
-.experiance-btn {
+.experience-btn {
     &.hover,
     &:hover {
         background-color: theme-color(primary);
     }
 }
 
-.experiance {
+.experience {
     // .card-footer {
     //     color          : map-get($theme-colors, "muted");
     //     text-decoration: none;

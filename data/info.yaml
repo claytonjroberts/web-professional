@@ -1,5 +1,5 @@
 meta:
-    last updated:         "July 12th 2021"
+    last updated:         "November 3rd 2021"
 links:
     LinkedIn:
         icon:             "fab fa-linkedin-in"
@@ -49,7 +49,7 @@ experience:
             -   ETL tooling with data lineage and PHI detection in Google Cloud using Cloud Composer (Airflow).
             -   Experience with HIPAA-compliant cloud solution development and design.
             -   Cloud-based architecture design, including Kubernetes based applications.
-            -   Plentiful experiance with implementation on Google Cloud Platform.
+            -   Plentiful experience with implementation on Google Cloud Platform.
         skillList:
             - Python
             - Google Cloud Platform
@@ -654,7 +654,7 @@ skills:
             level:        3
             icon:         "fas fa-cubes"
             link:         "https://Kubernetes.io/"
-            experiance:
+            experience:
                 years:    0.5
         Airflow:
             level:        4

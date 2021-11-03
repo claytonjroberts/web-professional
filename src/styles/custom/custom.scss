@@ -145,7 +145,7 @@ main {
     // background-color: lighten(map-get($theme-colors, "primary"), 5%);
     color           : map-get($theme-colors, "dark");
     // background-color: map-get($theme-colors, "medium-light");
-    background-color: darken(map-get($theme-colors, "bg-light"), 10%);
+    background-color: darken(map-get($theme-colors, "body"), 10%);
 
     .text-primary {
         transition: $transition_time_color;
@@ -221,5 +221,22 @@ hr {
     vertical-align: middle;
     text-align    : center;
     display       : inherit;
-    padding       : 0 0.5rem;
+    padding       : 0 0.5rem 0 0;
+
+    &.skill-header-number {
+        padding       : 0 0 0 0.5rem;
+    }
+}
+
+.custom-container-skill-search-bar {
+    padding: 0.5rem;
+}
+
+.custom-container-skill-list {
+    min-height: 40vh;
+    background-color: darken(map-get($theme-colors, "body"), 5%);
+    border-radius: 0.25rem;
+}
+.custom-container-experience-header {
+    padding: 0.5rem;
 }
