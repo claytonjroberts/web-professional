@@ -7,6 +7,8 @@
     // border       : solid map-get($theme-colors, "muted");
     background-color: map-get($theme-colors, "bg-light");
 
+    color: darken(map-get($theme-colors, "bg-light"), 50%);
+
     h1,
     h2,
     h3,
@@ -35,5 +37,16 @@
             border-color    : map-get($theme-colors, "secondary") !important;
             background-color: mix(map-get($theme-colors, "bg-light"), map-get($theme-colors, "secondary"), 90%);
         }
+    }
+
+    .stars {
+        // text-align      : center;
+        // writing-mode    : vertical-rl;
+        // text-orientation: mixed;
+        white-space: nowrap;
+    }
+
+    .skill-text-parent {
+        color: darken(map-get($theme-colors, "bg-light"), 30%);
     }
 }

@@ -6,4 +6,4 @@ from personal.web.app_tornado import App
 app = App()
 
 if __name__ == "__main__":
-    app.serve(port=int(os.environ["PORT"]))
+    app.serve(port=int(os.environ.get("PORT", 8000)))

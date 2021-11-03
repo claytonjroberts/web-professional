@@ -10,12 +10,6 @@ links:
     Email:
         icon:             "fas fa-at"
         url:              "mailto:me@claytonjroberts.com"
-    # Instagram:
-    #     icon:           "fab fa-instagram"
-    #     url:            "http://instagram.com/ClaymasterJ"
-    # -   name:           Resume
-    #     icon:           "far fa-lg fa-file"
-    #     url:            "http://google.com/"
 me:
     introduction:         |
         **Hello!** My name is Clayton. I'm a _Full Stack Developer_, _Industrial Engineer_, and _Photographer_.
@@ -63,6 +57,8 @@ experience:
             - Kubernetes
             - Pandas
             - Airflow
+            - GitLab
+            - SQL
     7:
         title:            "Consultant"
         company:
@@ -669,3 +665,12 @@ skills:
             use: >
                 Clayton loves working with Airflow and has had the opportunity to understand
                 some of the hidden mechanics that makes it work, and to do so properly.
+        GitLab:
+            level: 4
+            icon: "fab fa-gitlab"
+            link: "https://gitlab.com/"
+            experience:
+                years: 1
+            use: >
+                Clayton has been using GitLab for both smaller- and larger-scope projects.
+                He knows how to set up a GitLab pipeline for CI/CD processes
