@@ -1,10 +1,15 @@
 // Import bootstrap helpers
 @import "colors.scss";
-@import "~bootstrap/scss/functions"; // Import custom colors & fonts
+// ^ Import custom colors & fonts (this needs to be first for bootstrap to use it)
+
+@import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
+
 @import "fonts.scss";
+
 @import "~bootstrap/scss/bootstrap";
+
 @import "root.scss";
 @import "helpers.scss";
 @import "custom/me.scss";

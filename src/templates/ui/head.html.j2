@@ -8,7 +8,7 @@
     <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
 
 
-    <title>{{ handler.title().title() }}</title>
+    <title>{{ handler.title().title() if handler.title().lower() != "index" else "CJR" }}</title>
 
     <script src="{{ static_url( 'dist/index.js' ) }}"></script>
 
