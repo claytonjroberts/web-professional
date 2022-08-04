@@ -2,19 +2,18 @@
 
 This is my personal website with:
 
-    - Python & Tornado backend
-    - Vue frontend
+    Python (Tornado) }--> Vue
+    ^ Backend             ^ Frontend
 
-Access my website at <http://www.ClaytonJRoberts.com>
+Access my website at <https://www.ClaytonJRoberts.com>
 
-## Icon
+## Icon Credit
 
-The favicon was generated via <https://favicon.io/favicon-generator/>
-<https://favicon.io/favicon-generator/?t=CJR&ff=Roboto&fs=60&fc=%23FBFBFB&b=rounded&bc=%23F05048>
+The [favicon](static/favicon.ico) was generated with a [favicon generator](https://favicon.io/favicon-generator/). Check out the [actual favicon](https://favicon.io/favicon-generator/?t=CJR&ff=Roboto&fs=60&fc=%23FBFBFB&b=rounded&bc=%23F05048).
 
 # Debugging
 
-To run the application, simply run the `startup.sh` script from this project's root.
+To run the application, simply run the [startup.sh](helpers/startup.sh) script from this project's root.
 
 ```shell
 . ./helpers/startup.sh
