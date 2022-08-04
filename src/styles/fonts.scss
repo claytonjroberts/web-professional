@@ -4,21 +4,27 @@
 // }
 @font-face {
     font-family: 'Roboto';
-    src        : url('/static/fonts/Roboto/Roboto-Regular.ttf');
+    // src        : url('/static/fonts/Roboto/Roboto-Regular.ttf');
+    src: ur("https://fonts.googleapis.com/css?family=Roboto");
 }
+
 @font-face {
     font-family: 'OpenSans';
-    src        : url('/static/fonts/OpenSans/OpenSans-Regular.ttf');
+    // src: url('/static/fonts/OpenSans/OpenSans-Regular.ttf');
+    src: url("https://fonts.googleapis.com/css?family=Open+Sans");
 }
+
 @font-face {
     font-family: 'FontAwesomeBrands';
-    src        : url('~@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf');
+    src: url('~@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf');
 }
+
 @font-face {
     font-family: 'FontAwesomeRegular';
-    src        : url('~@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf');
+    src: url('~@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf');
 }
+
 @font-face {
     font-family: 'FontAwesomeSolid';
-    src        : url('~@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf');
+    src: url('~@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf');
 }

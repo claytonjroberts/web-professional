@@ -1,15 +1,19 @@
+"""Handlers for tornado."""
+
+
+# Core libs
 import inspect
 import sys
 import json
+
+# Third-party libs
 import tornado
 import tornado.autoreload
 import tornado.websocket
 
-from ...core.console import output
-
+# Source libs
 from .base import HandlerPage, HandlerAPI, HandlerWebsocket
-
-_debug = True
+from ..constants import PATH_INFO, PATH_TEMPLATES
 
 
 class PH_Logout(HandlerPage):

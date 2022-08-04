@@ -1,9 +1,10 @@
+"""General helper functions."""
+
 from pathlib import Path
-import typing
 import re
 
 
-def get_path_from_name(name: str, path: Path) -> typing.List[Path]:
+def get_path_from_name(name: str, path: Path) -> Path:
     list_name_file_template = [
         pth
         for pth in path.iterdir()

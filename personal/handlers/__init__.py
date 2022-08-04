@@ -1,11 +1,13 @@
-import sys
+"""Tornado web handler factory."""
+
 import re
+import sys
+import logging
 from pathlib import Path
 
 
 from .base import HandlerPage, HandlerAPI, HandlerWebsocket
-from ...core.console import output
-from ...core.constants import PATH_TEMPLATES
+from ..constants import PATH_TEMPLATES
 
 # CREATE HandlerPages based on what is in the templates folder
 
@@ -30,7 +32,7 @@ for path_template in [
     t = "".join([a if a.isupper() else b for a, b in zip(tlist, tlist.title())])
 
     _class_handler = type(f"PH_{t}", (HandlerPage,), {})
-    output(f"Created handler {_class_handler}")
+    logging.info(f"Created handler {_class_handler}")
 
     setattr(sys.modules[__name__], _class_handler.__name__, _class_handler)
 

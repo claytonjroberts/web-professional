@@ -1,3 +1,6 @@
+"""Main tornado application."""
+
+# Core libs
 import inspect
 import json
 import yaml
@@ -6,9 +9,7 @@ import time
 import uuid
 import typing
 import socket
-
-# import sys
-
+import logging
 from pathlib import Path
 from threading import Thread
 
@@ -24,9 +25,7 @@ import tornado.wsgi
 
 from . import handlers as hd
 from . import ui
-
-from ..core.console import output
-from ..core.constants import PATH_INFO
+from .constants import PATH_INFO, PATH_TEMPLATES
 
 
 class App(tornado.web.Application):
@@ -51,9 +50,7 @@ class App(tornado.web.Application):
                 handlers.append((handler_cls.url_local(), handler_cls))
 
         [
-            output(
-                source=self, message=f"{handler_name :>30} -> {handler_cls.__name__}"
-            )
+            logging.info(f"{handler_name :>30} -> {handler_cls.__name__}")
             for handler_name, handler_cls in handlers
         ]
 
@@ -74,7 +71,7 @@ class App(tornado.web.Application):
                 #     "Page handlers"
                 uis.append(item)
 
-        [output(source=self, message=f"{item !r} -> {item.__name__}") for item in uis]
+        [logging.info(f"{item !r} -> {item.__name__}") for item in uis]
 
         return uis
 
@@ -116,7 +113,6 @@ class App(tornado.web.Application):
     def serve(self, port: int = 8080, isWSGI: bool = False):
 
         if tornado.ioloop.IOLoop.current():
-            print(1)
             tornado.ioloop.IOLoop.current()
 
         ip = (
@@ -135,8 +131,7 @@ class App(tornado.web.Application):
             )
             + ["no IP found"]
         )[0]
-        output(f"Starting at http://{ip}:{port}/", self)
-        # output("Starting at port '{}'".format(port), self)
+        logging.info(f"Starting at http://{ip}:{port}/")
 
         if not isWSGI:
             server = tornado.httpserver.HTTPServer(self)

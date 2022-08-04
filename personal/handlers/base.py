@@ -1,12 +1,17 @@
+"""Base handlers for the Tornado web server."""
+
+# Core Libs
 import inspect
 import json
 import re
 import sys
 import time
 import uuid
+import logging
 from collections import defaultdict
 from pathlib import Path
 
+# Third-party libs
 import tornado
 import tornado.autoreload
 import tornado.websocket
@@ -14,11 +19,9 @@ import tornado.websocket
 from tornado import gen
 from tornado.ioloop import IOLoop, PeriodicCallback
 
-from ...core.console import output
-from ...core.constants import PATH_TEMPLATES
+# Source libs
 from ..helpers import get_path_from_name
-
-_debug = True
+from ..constants import PATH_INFO, PATH_TEMPLATES
 
 
 class HandlerWebsocket(tornado.websocket.WebSocketHandler):
@@ -29,27 +32,27 @@ class HandlerWebsocket(tornado.websocket.WebSocketHandler):
     @gen.coroutine
     def open(self):
         self.application.addWebsocket(self)
-        output(source=self, message="WebSocket opened [_]")
+        logging.info("WebSocket opened [_]")
         self.chirp()
 
     @gen.coroutine
     def chirp(self):
-        output(source=self, message="CAW")
+        logging.info("CAW")
         """Send message to client to update."""
         self.write_message("chirp")
 
     # @gen.coroutine
     # def on_message(self, message):
-    #     # output(source = self, message = "[RECIEVED] {}".format(message))
+    #     # logging.info(source = self, message = "[RECIEVED] {}".format(message))
     #
     #     cargo = Cargo.loadData(message)
     #
-    #     output(source = self, message = "[RECIEVED] {}".format(cargo.__repr__()))
+    #     logging.info(source = self, message = "[RECIEVED] {}".format(cargo.__repr__()))
     #
     #     return self.send(self.application.parse(cargo, self))
 
     def on_close(self):
-        output(source=self, message="WebSocket closed [X]")
+        logging.info("WebSocket closed [X]")
 
     # @gen.coroutine
     # def send(self, cargo):
@@ -59,7 +62,7 @@ class HandlerWebsocket(tornado.websocket.WebSocketHandler):
     #         print(type(cargo))
     #         quit()
     #     self.write_message(cargo.wrap())
-    #     output(source = self, message = "[SENT] {}".format(repr(cargo)))
+    #     logging.info(source = self, message = "[SENT] {}".format(repr(cargo)))
 
 
 class HandlerPage(tornado.web.RequestHandler):
@@ -95,8 +98,6 @@ class HandlerPage(tornado.web.RequestHandler):
         self.get()
 
     def write_error(self, status_code, **kwargs):
-        print("writing an error")
-
         if status_code == 404:
             return PH_Unauthorized.get()
 

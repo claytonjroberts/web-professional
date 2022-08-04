@@ -1,15 +1,18 @@
+"""User Interface elements for web application."""
+
+# Core libs
 import re
 import sys
 import uuid
+import logging
 from pathlib import Path
 
+# Third-party libs
 from tornado.web import UIModule
 
-# from dataclasses import dataclass
-
+# Source libs
 from .helpers import get_path_from_name
-from ..core.constants import PATH_TEMPLATES
-from ..core.console import output
+from .constants import PATH_INFO, PATH_TEMPLATES
 
 
 class HandlerUI(UIModule):
@@ -50,15 +53,15 @@ for path_template in [
 
     # TODO: Add __admin for admin-only pages, add __auth for authenticated-only pages
 
-    t = "".join(
+    name = "".join(
         [
             a if a.isupper() else b
             for a, b in zip(name_path_template, name_path_template.title())
         ]
     )
 
-    _class_handler = type(f"UI_{t}", (HandlerUI,), {})
-    output(f"Created ui {_class_handler}")
+    _class_handler = type(f"UI_{name}", (HandlerUI,), {})
+    logging.info(f"Created ui {_class_handler}")
     setattr(sys.modules[__name__], _class_handler.__name__, _class_handler)
 
 

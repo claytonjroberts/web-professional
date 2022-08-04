@@ -76,7 +76,6 @@ class App(ConsoleInterface, Flask):
         # self.websockets = set()
         with open(Path() / "info.yaml") as fh:
             self.info = yaml.load(fh, Loader=yaml.FullLoader)
-            # print(self.info)
 
         tornado.autoreload.watch(Path() / "info.yaml")
         tornado.web.Application.__init__(
@@ -87,35 +86,9 @@ class App(ConsoleInterface, Flask):
         assert isinstance(websocket, WH.Websocket)
         self.websockets.add(websocket)
 
-    @gen.coroutine
-    def startWebpack(self, install=False, build=False):
-        pth = Path() / "package.json"
-        # print(pth)
-        pkg = NPMPackage(pth.absolute())
-
-        if install:
-            pkg.install()
-
-        if build:
-            pkg.build()
-
-        # self.process_webpack = multiprocessing.Process(
-        #     target=pkg.run_script, args=("build",), daemon=True
-        # )
-        # self.process_webpack.start()
-        # process.join()
-
-        self.process_webpack = Thread(
-            target=pkg.run_script, args=("build",), daemon=True
-        )
-        self.process_webpack.start()
-
-        # pkg.run_script("build")
-
     def serve(self, port: int = 8000, isWSGI: bool = False):
 
         if tornado.ioloop.IOLoop.current():
-            print(1)
             tornado.ioloop.IOLoop.current()
 
         ip = (
