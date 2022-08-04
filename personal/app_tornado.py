@@ -2,34 +2,25 @@
 
 # Core libs
 import inspect
-import json
-import yaml
-import re
-import time
-import uuid
-import typing
-import socket
 import logging
+import socket
+import typing
 from pathlib import Path
-from threading import Thread
 
 import tornado
 import tornado.autoreload
-import tornado.websocket
-
-# from pynpm import NPMPackage
-from tornado import gen
-from tornado.ioloop import IOLoop, PeriodicCallback
 import tornado.web
+import tornado.websocket
 import tornado.wsgi
+import yaml
 
 from . import handlers as hd
 from . import ui
-from .constants import PATH_INFO, PATH_TEMPLATES
+from .constants import PATH_INFO
 
 
 class App(tornado.web.Application):
-    """Master application"""
+    """Master tornado-based application."""
 
     def get_list_handlers(self) -> list:
         handlers = [
@@ -49,10 +40,8 @@ class App(tornado.web.Application):
             ):
                 handlers.append((handler_cls.url_local(), handler_cls))
 
-        [
+        for handler_name, handler_cls in handlers:
             logging.info(f"{handler_name :>30} -> {handler_cls.__name__}")
-            for handler_name, handler_cls in handlers
-        ]
 
         return handlers
 
@@ -71,7 +60,8 @@ class App(tornado.web.Application):
                 #     "Page handlers"
                 uis.append(item)
 
-        [logging.info(f"{item !r} -> {item.__name__}") for item in uis]
+        for item in uis:
+            logging.info(f"{item !r} -> {item.__name__}")
 
         return uis
 
@@ -89,7 +79,7 @@ class App(tornado.web.Application):
 
         # http_server = tornado.httpserver.HTTPServer(application, )
 
-        with open(PATH_INFO) as fh:
+        with PATH_INFO.open() as fh:
             self.info = yaml.load(fh, Loader=yaml.FullLoader)
 
         # If information in info.yaml is changed, reload app
@@ -110,8 +100,8 @@ class App(tornado.web.Application):
             cookie_secret="Super secret cookie 4",
         )
 
-    def serve(self, port: int = 8080, isWSGI: bool = False):
-
+    def serve(self, port: int = 8080, is_wsgi: bool = False):
+        """Start the server."""
         if tornado.ioloop.IOLoop.current():
             tornado.ioloop.IOLoop.current()
 
@@ -133,7 +123,7 @@ class App(tornado.web.Application):
         )[0]
         logging.info(f"Starting at http://{ip}:{port}/")
 
-        if not isWSGI:
+        if not is_wsgi:
             server = tornado.httpserver.HTTPServer(self)
             # server.bind(int(port))
             # , ssl_options={
@@ -159,4 +149,4 @@ class App(tornado.web.Application):
 
             # server = wsgiref.simple_server.make_server("", 8888, wsgi_app)
             # server.serve_forever()
-            raise
+            raise Exception("Application is not WSGI compatible.")

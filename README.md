@@ -2,8 +2,12 @@
 
 This is my personal website with:
 
-    Python (Tornado) }--> Vue
-    ^ Backend             ^ Frontend
+    +-------------{Heroku}---------------+
+    |                                    |
+    |  Python (Tornado) }--> Vue         |
+    |  ^ Backend             ^ Frontend  |
+    |                                    |
+    +------------------------------------+
 
 Access my website at <https://www.ClaytonJRoberts.com>
 

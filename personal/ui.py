@@ -1,28 +1,24 @@
 """User Interface elements for web application."""
 
 # Core libs
+import logging
 import re
 import sys
 import uuid
-import logging
-from pathlib import Path
 
 # Third-party libs
 from tornado.web import UIModule
 
 # Source libs
+from .constants import PATH_TEMPLATES
 from .helpers import get_path_from_name
-from .constants import PATH_INFO, PATH_TEMPLATES
 
 
 class HandlerUI(UIModule):
-    # def render(self, html=None, **kwargs):
-    #     if html is None:
-    #         html = self.__class__.__name__
-    #     return self.render_string("ui/{}.html".format(html),
-    #                               id=uuid.uuid4().__int__(), **kwargs)
+    """Base class for UI elements."""
 
     def render(self, name_directory: str = "ui", name_file=None):
+        """Render the UI element."""
         self.id = str(uuid.uuid4()).replace("-", "")
 
         return self.render_string(
@@ -53,19 +49,21 @@ for path_template in [
 
     # TODO: Add __admin for admin-only pages, add __auth for authenticated-only pages
 
-    name = "".join(
+    ui_name = "".join(
         [
             a if a.isupper() else b
             for a, b in zip(name_path_template, name_path_template.title())
         ]
     )
 
-    _class_handler = type(f"UI_{name}", (HandlerUI,), {})
+    _class_handler = type(f"UI_{ui_name}", (HandlerUI,), {})
     logging.info(f"Created ui {_class_handler}")
     setattr(sys.modules[__name__], _class_handler.__name__, _class_handler)
 
 
 class UI_Vue(HandlerUI):
+    """Vue.js UI element."""
+
     def render(self, name):
         # self.model = model
         return super().render(name_directory="vue", name_file=name)
