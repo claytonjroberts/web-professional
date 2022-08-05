@@ -1,5 +1,12 @@
+.list-experience {
+    // Container to hold experience cards
+    padding: 1rem;
+    background-color: map-get($theme-colors, "bg-light");
+}
+
 .experience-item {
     padding-bottom: 1rem;
+    // padding: 0;
 }
 
 .experience-title {
@@ -44,6 +51,8 @@
 }
 
 .experience {
+    margin: 0 !important; // Override default margin from .card
+    padding: 0;
     // .card-footer {
     //     color          : map-get($theme-colors, "muted");
     //     text-decoration: none;

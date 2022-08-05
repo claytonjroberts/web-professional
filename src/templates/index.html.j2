@@ -55,7 +55,7 @@
                 </a>
             </div> -->
 
-            <div class="container-fluid scrolling-wrapper-flexbox card-deck" id="exps">
+            <div class="container-fluid scrolling-wrapper-flexbox card-deck list-experience" id="exps">
 
                 <exp v-for="(expdict, expindex) in sortedexperience" :expdict="expdict" :expindex="expindex" :key="expindex">
                 </exp>
@@ -85,12 +85,10 @@
             </div>
 
             <div class="custom-container-skill-list">
-                <div class="row m-0 justify-content-between">
 
-                    <skill v-for="(skilldict, skillkey) in listskill" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
-                    </skill>
+                <skill v-for="(skilldict, skillkey) in listskill" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
+                </skill>
 
-                </div>
             </div>
 
 
