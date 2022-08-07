@@ -233,10 +233,22 @@ hr {
 }
 
 .custom-container-skill-list {
-    min-height: 40vh;
-    background-color: darken(map-get($theme-colors, "body"), 5%);
+    height: 40vh;
+    // max-height: 60vh;
+    background-color: map-get($theme-colors, "bg-medium");
     border-radius: 0.25rem;
+
+    margin: 0.5rem;
+    padding: 0.5rem;
+
+    overflow-y: scroll;
 }
 .custom-container-experience-header {
     padding: 0.5rem;
+}
+
+.custom-container-list-experience {
+    // Container to hold experience cards
+    padding: 1rem;
+    background-color: map-get($theme-colors, "bg-medium");
 }
