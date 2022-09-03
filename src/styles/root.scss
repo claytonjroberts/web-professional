@@ -7,24 +7,15 @@ $border-radius: 0.25rem;
 $color-background: lighten(map-get($theme-colors, "light"), 5%);
 
 html {
-    font-family     : 'OpenSans' !important;
+    font-family     : 'Open Sans';
     background-color: darken(map-get($theme-colors, "body"), 10%);
 }
 
 .faf {
-    // Font awesome font
-    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands', 'OpenSans' !important;
+    // Font awesome font with Open Sans fallback
+    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands', 'Open Sans' !important;
     font-weight: 900;
 }
-// .body,
-// body {
-//   // background-color: lighten(map-get($theme-colors, "medium-light"), 5%);
-//   // Set font for website -->
-//   display: flex;
-//   flex: 1 0 auto;
-//   flex-direction: column;
-//   background-color: $color-background;
-// }
 
 main {
     flex: 1;
