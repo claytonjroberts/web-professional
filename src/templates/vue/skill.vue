@@ -1,43 +1,53 @@
 
 
 <template>
-<div class="col-auto border skill"
-     @click="$parent.skilladditional = ($parent.skilladditional == skillkey ? null : skillkey)"
-     @mouseover="showlink = true"
-     @mouseleave="showlink=false">
+    <div class="col-auto border skill"
+        @click="$parent.skilladditional = ($parent.skilladditional == skillkey ? null : skillkey)"
+        @mouseover="showlink = true" @mouseleave="showlink = false">
 
 
-    <div class="row justify-content-start">
-        <div class="col-1 skill-stars" style="text-align: center;">
-            <div class="text-tertiary stars">
-                <i class="fas fa-star fa-xs"
-                   v-for="x in this.$_.range(Math.ceil(skilldict.level/2))"
-                   :key="`star-${x}`">
-                </i><i class="far fa-star fa-xs"
-                   v-for="x in this.$_.range(3 - Math.ceil(skilldict.level/2))"
-                   :key="`star-empty-${x}`">
-                </i>
+        <div class="row justify-content-start">
+            <div class="col-1 text-muted content-center-vertical-with-margin" style="min-width: 3em; text-align: center;">
+                <div>
+                    <span class="skill-icon" v-if="showIcon">
+                        <i :class="skilldict.icon ? skilldict.icon : parentDict.icon" style="align-self:center;"></i>
+                    </span>
+                    <span class="skill-icon" v-if="showIconText">
+                        {{ skilldict.icontext }}
+                    </span>
+                </div>
+
+            </div>
+            <div class="col content-center-vertical-with-margin">
+                <h5 class="skill-name">{{ skillkey }}</h5>
+                <h6 class="skill-name-parent text-muted" v-if="skilldict.parent">
+                    {{ skilldict.parent }}
+                </h6>
+                <!-- {{ skilldict.keyword }}
+                {{ skillkey }} <span v-if="skilldict.parent">(<span class="skill-text-parent">{{ skilldict["parent"]
+                }}</span>)</span> -->
+            </div>
+            <div class="col-auto skill-experience">
+                <div class="text-tertiary stars">
+                    <i class="fas fa-star fa-xs" v-for="x in this.$_.range(Math.ceil(skilldict.level / 2))"
+                        :key="`star-${x}`">
+                    </i><i class="far fa-star fa-xs" v-for="x in this.$_.range(3 - Math.ceil(skilldict.level / 2))"
+                        :key="`star-empty-${x}`">
+                    </i>
+                </div>
+                <div>
+                    <span class="skill-years" :if="skilldict.experience.years">
+                        {{ skilldict.experience.years }} yrs
+                    </span>
+                </div>
             </div>
         </div>
-        <div class="col-1 skill-icon" style="min-width: 3em; text-align: center;">
-            <h4 v-if="showIcon">
-                <i :class="skilldict.icon ? skilldict.icon : parentDict.icon"
-                   style="align-self:center;"></i>
-            </h4>
-            <h4 v-if="showIconText">
-                {{ skilldict.icontext }}
-            </h4>
-        </div>
-        <div class="col-4 px-1 skill-name">
-            {{ skillkey }} <span v-if="skilldict.parent">(<span class="skill-text-parent">{{ skilldict["parent"] }}</span>)</span>
-        </div>
-        <div class="col-6 skill-description">
-            <span class="text-muted">
+        <div class="row justify-content-start">
+            <div class="col-auto skill-description">
                 {{ skilldict.use }}
-            </span>
+            </div>
         </div>
     </div>
-</div>
 </template>
 
 

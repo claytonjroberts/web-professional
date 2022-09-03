@@ -11,12 +11,6 @@ html {
     background-color: darken(map-get($theme-colors, "body"), 10%);
 }
 
-.faf {
-    // Font awesome font with Open Sans fallback
-    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands', 'Open Sans' !important;
-    font-weight: 900;
-}
-
 main {
     flex: 1;
 }
@@ -127,30 +121,4 @@ section {
     background       : $color-background;
     box-shadow       : 0 0 2rem darken($color-background, 10%);
     $color-background: lighten(map-get($theme-colors, "light"), 5%);
-}
-// HELPERS
-
-.link-unstyled {
-    &,
-    &:active,
-    &:active:hover,
-    &:focus,
-    &:hover,
-    &:visited {
-        // background-color: transparent;
-        font-size      : inherit;
-        font-weight    : inherit;
-        font-style     : inherit;
-        font-variant   : inherit;
-        text-decoration: none;
-        color          : inherit;
-        // line-height   : inherit;
-        // font-family   : inherit;
-        // border-radius : inherit;
-        // border        : inherit;
-        // outline       : inherit;
-        // box-shadow    : inherit;
-        // padding       : inherit;
-        // vertical-align: inherit;
-    }
 }
