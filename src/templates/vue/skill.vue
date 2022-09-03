@@ -6,6 +6,7 @@
         @mouseover="showlink = true" @mouseleave="showlink = false">
 
 
+
         <div class="row justify-content-start">
             <div class="col-1 text-muted content-center-vertical-with-margin" style="min-width: 3em; text-align: center;">
                 <div>
@@ -36,13 +37,13 @@
                     </i>
                 </div>
                 <div>
-                    <span class="skill-years" :if="skilldict.experience.years">
-                        {{ skilldict.experience.years }} yrs
+                    <span class="skill-years" v-if="experience_years">
+                        {{ experience_years }} yrs
                     </span>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-start">
+        <div class="row justify-content-start" v-if="skilldict.use">
             <div class="col-auto skill-description">
                 {{ skilldict.use }}
             </div>
@@ -108,8 +109,19 @@ export default {
             var self = this;
 
             return _.range(Math.ceil(this.skilldict.level / 2))
-        }
+        },
+        experience_years: function () {
+            var self = this;
 
+            if (self.skilldict.experience.years) {
+                return self.skilldict.experience.years;
+            } else if (self.skilldict.experience.start) {
+                var ageDifMs = Date.now() - Date.parse(self.skilldict.experience.start);
+                var ageDate = new Date(ageDifMs); // miliseconds from epoch
+                return Math.abs(ageDate.getUTCFullYear() - 1970);
+            }
+            return null;
+        }
     },
     methods: {
         from_markdown_to_html: function (x) {

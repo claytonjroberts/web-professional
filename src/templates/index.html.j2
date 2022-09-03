@@ -25,23 +25,24 @@
     <main>
         <div class="container-fluid" style="max-width: 50rem;">
 
-
             <!-- ME -->
-            <div class="row align-items-center me pb-3">
-                <div class="col-sm-auto" style = "text-align: center;">
-                    <img class="me-portrait" :src="static_url + 'images/me.jpg'">
-                    </img>
+            <section>
+                <div class="row align-items-center me pb-3">
+                    <div class="col-sm-auto" style = "text-align: center;">
+                        <img class="me-portrait" :src="static_url + 'images/me.jpg'">
+                        </img>
+                    </div>
+                    <div class="col">
+                        <span class="me-objective" v-html="from_markdown_to_html(info.me.introduction)"></span>
+                    </div>
                 </div>
-                <div class="col">
-                    <span class="me-objective" v-html="from_markdown_to_html(info.me.introduction)"></span>
-                </div>
-            </div>
+            </section>
 
             <!-- EXPERIENCE -->
-
-            <div class="custom-container-experience-header">
-                <h5 class="text-muted">Experience</h5>
-            </div>
+            <section>
+                <div class="custom-container-experience-header">
+                    <h5 class="text-muted">Experience</h5>
+                </div>
 
             <!-- <div class="btn-group d-flex mb-3 overflow-auto">
                 <a class="btn btn-light flex-fill" v-for="(expdict, expindex) in sortedexperience" v-scroll-to="{
@@ -55,41 +56,43 @@
                 </a>
             </div> -->
 
-            <div class="container-fluid scrolling-wrapper-flexbox card-deck custom-container-list-experience" id="exps">
 
-                <exp v-for="(expdict, expindex) in sortedexperience" :expdict="expdict" :expindex="expindex" :key="expindex">
-                </exp>
-
-            </div>
+                <div class="container-fluid scrolling-wrapper-flexbox card-deck custom-container-list-experience" id="exps">
+                    <exp v-for="(expdict, expindex) in sortedexperience" :expdict="expdict" :expindex="expindex" :key="expindex">
+                    </exp>
+                </div>
+            </section>
 
 
 
             <!-- SKILLS -->
-            <div class="d-flex justify-content-between custom-container-skill-search-bar">
-                <h5 class="text-muted skill-header">
-                    Skills
-                </h5>
-                <div class="input-group">
-                    <input
-                        type="text"
-                        class="form-control faf"
-                        placeholder="&#xf002;"
-                        aria-label="Skill Search"
-                        aria-describedby="basic-addon1"
-                        style="text-align: left;"
-                        v-model="filtersearch" />
+            <section>
+                <div class="d-flex justify-content-between custom-container-skill-search-bar">
+                    <h5 class="text-muted skill-header">
+                        Skills
+                    </h5>
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            class="form-control faf"
+                            placeholder="&#xf002;"
+                            aria-label="Skill Search"
+                            aria-describedby="basic-addon1"
+                            style="text-align: left;"
+                            v-model="filtersearch" />
+                    </div>
+                    <h5 class="text-primary skill-header skill-header-number">
+                        {{! _.size(listskill) }}
+                    </h5>
                 </div>
-                <h5 class="text-primary skill-header skill-header-number">
-                    {{! _.size(listskill) }}
-                </h5>
-            </div>
 
-            <div class="custom-container-skill-list">
+                <div class="custom-container-skill-list">
 
-                <skill v-for="(skilldict, skillkey) in listskill" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
-                </skill>
+                    <skill v-for="(skilldict, skillkey) in listskill" :skilldict="skilldict" :skillkey="skillkey" :key="skillkey">
+                    </skill>
 
-            </div>
+                </div>
+            </section>
 
 
     </main>

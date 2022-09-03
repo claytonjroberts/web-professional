@@ -21,6 +21,7 @@
     .row {
         // min-height: 3rem;
         margin: 0;
+        padding: 0.25rem;
     }
 
     .d-flex>* {
@@ -71,7 +72,6 @@
     }
 
     .skill-years {
-        color: darken(map-get($theme-colors, "bg-light"), 30%);
         flex-wrap: nowrap;
     }
 

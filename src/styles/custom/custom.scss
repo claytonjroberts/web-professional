@@ -247,7 +247,7 @@ hr {
     background-color: map-get($theme-colors, "bg-medium");
     border-radius: 0.25rem;
 
-    margin: 0.5rem;
+    margin: 0;
     padding: 0.5rem;
 
     overflow-y: scroll;
@@ -255,6 +255,7 @@ hr {
 
 .custom-container-experience-header {
     padding: 0.5rem;
+    margin: 0 !important;
 }
 
 .custom-container-list-experience {

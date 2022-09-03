@@ -1,17 +1,17 @@
 meta:
-    last updated:         "August 5th 2022"
+    last updated: "August 5th 2022"
 links:
     LinkedIn:
-        icon:             "fab fa-linkedin-in"
-        url:              "http://www.linkedin.com/in/claytonjroberts"
+        icon: "fab fa-linkedin-in"
+        url: "http://www.linkedin.com/in/claytonjroberts"
     GitHub:
-        icon:             "fab fa-github"
-        url:              "http://github.com/ClaymasterJ"
+        icon: "fab fa-github"
+        url: "http://github.com/ClaymasterJ"
     Email:
-        icon:             "fas fa-at"
-        url:              "mailto:me@claytonjroberts.com"
+        icon: "fas fa-at"
+        url: "mailto:me@claytonjroberts.com"
 me:
-    introduction:         |
+    introduction: |
         **Hello!** My name is Clayton. I'm a _Full Stack Developer_, _Industrial Engineer_, and _Photographer_.
 
         My **overarching goal** is to test myself against true challenge with *passion*, *candidness*, and *curiosity*.
@@ -19,7 +19,7 @@ me:
         My **objective** is to learn and lead, promoting growth in interdependent relationships
         and driving the advancement and enhancement of business efficiency.
 
-    description:          |
+    description: |
         Experience in full stack web development, data and cloud systems engineering,
         with a Bachelor of Science in Industrial Engineering from Georgia Tech,
         Clayton is the right choice for anything you want help doing.
@@ -32,20 +32,19 @@ me:
         Clayton is transparent, blunt, and is sure to ensure the correct direction
         becomes the current one.
 
-
 experience:
     8:
-        title:            "Full Stack Software Engineer"
+        title: "Full Stack Software Engineer"
         company:
-            name:         "Pandera Systems"
-            logo:         "images/logo_pandera.png"
-            link:         "https://www.panderasystems.com/"
+            name: "Pandera Systems"
+            logo: "images/logo_pandera.png"
+            link: "https://www.panderasystems.com/"
             abbreviation: "Pandera"
         dateStart:
-            month:        "June"
-            year:         2020
-        isCurrent:        True
-        description:      |
+            month: "June"
+            year: 2020
+        isCurrent: True
+        description: |
             -   ETL tooling with data lineage and PHI detection in Google Cloud using Cloud Composer (Airflow).
             -   Experience with HIPAA-compliant cloud solution development and design.
             -   Cloud-based architecture design, including Kubernetes based applications.
@@ -60,46 +59,46 @@ experience:
             - GitLab
             - SQL
     7:
-        title:            "Consultant"
+        title: "Consultant"
         company:
-            name:         "Improving Atlanta"
-            logo:         "images/logo_improving.png"
-            link:         "http://www.improving.com/"
+            name: "Improving Atlanta"
+            logo: "images/logo_improving.png"
+            link: "http://www.improving.com/"
             abbreviation: "Improving"
         dateStart:
-            month:        "August"
-            year:         2019
+            month: "August"
+            year: 2019
         dateEnd:
-            month:        "April"
-            year:         2020
-        isCurrent:        False
-        description:      |
+            month: "April"
+            year: 2020
+        isCurrent: False
+        description: |
             -   Random forest prediction model for likelihood of account debt outcome on behalf of Hollis Cobb.
             -   Guided the completion of a value-based care flagship project, resolving roadblocks present in productized data and engineering solutions to metrics not previously defined on behalf of IntegraConnect.
             -   Supplied, newly introduced, frontline analytics on a weekly basis for client data discovery and engineering.
             -   Drastically improved performance and speed of in-house ETL tool at Cloud9 Orthodontics.
         skillList:
-            -   Python
-            -   matplotlib
-            -   Plotly
-            -   scikit-learn
-            -   "C#"
-            -   ETL
+            - Python
+            - matplotlib
+            - Plotly
+            - scikit-learn
+            - "C#"
+            - ETL
     6:
-        title:            "Data Scientist"
+        title: "Data Scientist"
         company:
-            name:         "Cisco"
-            logo:         "images/logo_cisco.svg"
-            link:         "http://www.cisco.com/"
+            name: "Cisco"
+            logo: "images/logo_cisco.svg"
+            link: "http://www.cisco.com/"
 
         dateStart:
-            month:        "June"
-            year:         2018
+            month: "June"
+            year: 2018
         dateEnd:
-            month:        "July"
-            year:         2019
-        isCurrent:        False
-        description:      |
+            month: "July"
+            year: 2019
+        isCurrent: False
+        description: |
             Sole-creator of full-fledged web application featuring:
 
             -   Product classification via machine learning for direct fulfillment sites,
@@ -107,561 +106,599 @@ experience:
             -   Holistic network optimization and scenario tool, and
             -   Logistics lane rate normalization and standardization.
         skillList:
-            -   Python
-            -   SQLAlchemy
-            -   Pandas
-            -   NumPy
-            -   Vue
-            -   Vuex
-            -   JavaScript
-            -   R
-            -   Neural Network
-            -   Network Optimization
-            -   Factory Optimization
-            -   Tornado
-            -   ETL
+            - Python
+            - SQLAlchemy
+            - Pandas
+            - NumPy
+            - Vue
+            - Vuex
+            - JavaScript
+            - R
+            - Neural Network
+            - Network Optimization
+            - Factory Optimization
+            - Tornado
+            - ETL
     5:
-        title:            "Capstone"
+        title: "Capstone"
         company:
-            name:         "Georgia Tech"
-            logo:         "images/logo_gt.png"
-            link:         "https://www.gatech.edu/"
+            name: "Georgia Tech"
+            logo: "images/logo_gt.png"
+            link: "https://www.gatech.edu/"
             abbreviation: "GT"
         dateStart:
-            month:        August
-            year:         2017
+            month: August
+            year: 2017
         dateEnd:
-            month:        May
-            year:         2018
-        description:      |
+            month: May
+            year: 2018
+        description: |
             Optimization of manufacturing facility in terms of machine asset cost.
             Lead designer in data transformation and generation tools. Optimization model co-designer.
         skillList:
-            -   Python
-            -   Network Optimization
-            -   Xpress
-            -   SQL
-            -   Motorcycle Riding
-
+            - Python
+            - Network Optimization
+            - Xpress
+            - SQL
+            - Motorcycle Riding
 
     4:
-        title:            "BS in Industrial Engineering"
+        title: "BS in Industrial Engineering"
         company:
-            name:         "Georgia Tech"
-            logo:         "images/logo_gt.png"
-            link:         "https://www.gatech.edu/"
+            name: "Georgia Tech"
+            logo: "images/logo_gt.png"
+            link: "https://www.gatech.edu/"
             abbreviation: "GT"
         dateStart:
-            month:        August
-            year:         2014
+            month: August
+            year: 2014
         dateEnd:
-            month:        May
-            year:         2018
-        description:      |
+            month: May
+            year: 2018
+        description: |
             -   Attained membership of Dean’s List more than half of semesters attended.
             -   Dual enrolled during high school.
             -   Entered with 8 credits from Advanced Placement courses.
             -   Double-competing cheerleading athlete.
         skillList:
-            -   Python
-            -   Network Optimization
-            -   Factory Optimization
-            -   Xpress
-            -   R
-            -   Regression
-            -   Simio
-            -   Optimization
-            -   Cheerleading
-            -   Stunting
-            -   ETL
+            - Python
+            - Network Optimization
+            - Factory Optimization
+            - Xpress
+            - R
+            - Regression
+            - Simio
+            - Optimization
+            - Cheerleading
+            - Stunting
+            - ETL
 
     3:
-        title:            "President"
+        title: "President"
         company:
-            name:         "WaveWise Technical Solutions"
-            logo:         "images/logo_wavewise.png"
-            link:         "http://www.wavewisetech.com/"
+            name: "WaveWise Technical Solutions"
+            logo: "images/logo_wavewise.png"
+            link: "http://www.wavewisetech.com/"
             abbreviation: "WaveWise"
 
         dateStart:
-            month:        "May"
-            year:         2017
-        isCurrent:        True
-        description:      "Wide range and scope of various projects usually weighty in Python and relevant supporting libraries.
+            month: "May"
+            year: 2017
+        isCurrent: True
+        description:
+            "Wide range and scope of various projects usually weighty in Python and relevant supporting libraries.
             Projects entail API creation, library creation, data analysis and management, game logic and deep database design."
         skillList:
-            -   Python
-            -   SQLAlchemy
-            -   PostgreSQL
-            -   MongoDB
-            -   Tornado
-            -   Vue
-            -   Vuex
+            - Python
+            - SQLAlchemy
+            - PostgreSQL
+            - MongoDB
+            - Tornado
+            - Vue
+            - Vuex
 
     2:
-        title:            "Consultant"
+        title: "Consultant"
         company:
-            name:         "StartBox"
-            logo:         "images/logo_startbox_screenshot.png"
-            link:         "http://www.startboxor.com/"
+            name: "StartBox"
+            logo: "images/logo_startbox_screenshot.png"
+            link: "http://www.startboxor.com/"
 
         dateStart:
-            month:        "July"
-            year:         2017
+            month: "July"
+            year: 2017
 
         dateEnd:
-            month:        "February"
-            year:         2018
-        isCurrent:        False
-        description:      "Feature integration and medical mobile application streamlining. Solo development focused. API development and documentation."
+            month: "February"
+            year: 2018
+        isCurrent: False
+        description: "Feature integration and medical mobile application streamlining. Solo development focused. API development and documentation."
         skillList:
-            -   Python
-            -   Swift
-            -   Xcode
+            - Python
+            - Swift
+            - Xcode
     1:
-        title:            "Consultant"
+        title: "Consultant"
         company:
-            name:         "RHA"
-            logo:         "images/logo_rha.png"
-            link:         "https://rhahealthservices.org/"
+            name: "RHA"
+            logo: "images/logo_rha.png"
+            link: "https://rhahealthservices.org/"
         dateStart:
-            month:        "May"
-            year:         2016
+            month: "May"
+            year: 2016
         dateEnd:
-            month:        "August"
-            year:         2016
-        isCurrent:        False
-        description:      |
+            month: "August"
+            year: 2016
+        isCurrent: False
+        description: |
             Development of maintenance of large scale web application heavy in C#, Entity Framework, JavaScript, and Vue.
             Lead creation of government standardized form printing project that cut operating expense by two-thirds.
         skillList:
-            -   "C#"
-            -   "JavaScript"
-            -   "Vue"
+            - "C#"
+            - "JavaScript"
+            - "Vue"
 
 skills:
     levels:
-        5:                "Mastery"
-        4:                "Experienced"
-        3:                "Proficient"
-        2:                "Adequate"
-        1:                "Exposed"
+        5: "Mastery"
+        4: "Experienced"
+        3: "Proficient"
+        2: "Adequate"
+        1: "Exposed"
     list:
         Python:
-            icon:         "fab fa-python"
-            level:        5
-            link:         "https://www.python.org/"
-            first:        2014
+            icon: "fab fa-python"
+            level: 5
+            link: "https://www.python.org/"
+            first: 2014
             experience:
-                years:    5
-            use:          >
+                start: 2016-08-01
+            use: >
                 Considered Clayton's swiss army knife, he uses Python for proof of concepts,
                 full fledged applications, and for fun.
                 This is Clayton's favorite language and a tool that he can't put down.
         HTML:
-            level:        5
-            icon:         "fab fa-html5"
-            first:        2005
+            level: 5
+            icon: "fab fa-html5"
+            first: 2005
             experience:
-                years:    6
-            use:          >
+                years: 6
+            use: >
                 Clayton uses HTML as his prefered scaffolding to any complex (or simple) UI application.
         CSS:
-            level:        4
-            icon:         "fab fa-css3-alt"
-            first:        2005
+            level: 4
+            icon: "fab fa-css3-alt"
+            first: 2005
             experience:
-                years:    6
-            use:          >
+                years: 6
+            use: >
                 Though Clayton mostly uses CSS as an output from SASS, SCSS or other styling technologies,
                 Clayton enjoys working with CSS on the fly.
         SCSS:
-            level:        3
-            icon:         "fab fa-sass"
-            link:         "https://sass-lang.com/"
+            level: 3
+            icon: "fab fa-sass"
+            link: "https://sass-lang.com/"
             experience:
-                years:    2
-            use:          >
+                years: 2
+            use: >
                 SCSS is Clayton's main medium for styling a user interface, and one that he uses with every web project.
         Bootstrap:
-            level:        4
-            icon:         "fab fa-bootstrap"
-            parent:       "SCSS"
-            link:         "https://getbootstrap.com/"
+            level: 4
+            icon: "fab fa-bootstrap"
+            parent: "SCSS"
+            link: "https://getbootstrap.com/"
             experience:
-                years:    2
-            use:          >
+                years: 2
+            use: >
                 Clayton believes in working both smarter and harder, but Bootstrap is
                 something that allows Clayton to quickly provide a styling boilerplate to web technologies with ease.
         FontAwesome:
-            level:        3
-            parent:       "SCSS"
-            icon:         "fab fa-font-awesome"
-            link:         "https://fontawesome.com/?from=io"
+            level: 3
+            parent: "SCSS"
+            icon: "fab fa-font-awesome"
+            link: "https://fontawesome.com/?from=io"
             experience:
-                years:    1
+                years: 1
         Pandas:
-            parent:       "Python"
-            level:        4
-            link:         "https://pandas.pydata.org/"
+            parent: "Python"
+            level: 4
+            link: "https://pandas.pydata.org/"
             experience:
-                years:    3
-            use:          >
+                years: 3
+            use: >
                 Clayton has used Pandas in just about every Python project he's helped to develop.
                 He sees Pandas as a foundational tool within Python.
         NumPy:
-            parent:       "Python"
-            level:        3
-            link:         "https://www.numpy.org/"
+            parent: "Python"
+            level: 3
+            link: "https://www.numpy.org/"
             experience:
-                years:    2
+                years: 2
         Tornado:
-            parent:       "Python"
-            level:        4
-            link:         "https://www.tornadoweb.org/en/stable/"
+            parent: "Python"
+            level: 4
+            link: "https://www.tornadoweb.org/en/stable/"
             experience:
-                years:    3
+                years: 3
+            use: >
+                Tornado is Clayton's go-to web framework for Python. He has used it for both
+                small and large scale projects, and for his personal websites.
         SQLAlchemy:
-            parent:       "Python"
-            level:        5
-            link:         "https://www.sqlalchemy.org/"
+            parent: "Python"
+            level: 5
+            link: "https://www.sqlalchemy.org/"
             experience:
-                years:    3
-            use:          >
+                years: 3
+            use: >
                 Another foundational tool, SQLAlchemy is used whenever possible
                 for any sufficently advanced database connection. Clayton has spent more time than he'd care to admit
                 understanding the underlying functions that make SQLAlchemy tick.
         scikit-learn:
-            parent:       "Python"
-            level:        3
-            link:         "https://scikit-learn.org/stable/"
+            parent: "Python"
+            level: 3
+            link: "https://scikit-learn.org/stable/"
             experience:
-                years:    2
-            use:          >
+                years: 2
+            use: >
                 Truly a staple in the Python-based machine learning community,
                 Clayton frequently uses this library whenever working on machine learning projects.
         Click:
-            parent:       "Python"
-            level:        4
-            link:         "https://click.palletsprojects.com/en/master/"
+            parent: "Python"
+            level: 3
+            link: "https://click.palletsprojects.com/en/master/"
             experience:
-                years:    2
+                years: 1
+            tags:
+                - console
+                - command line
+        Typer:
+            parent: "Python"
+            level: 4
+            link: "https://typer.tiangolo.com/"
+            experience:
+                years: 2
+            tags:
+                - console
+                - command line
+            use: >
+                Typer is a library that Clayton has used to create command line applications for
+                both personal and professional use. It allows a quick way to make scripts into useful tools for both
+                himself and others.
         Plotly:
-            parent:       "Python"
-            level:        3
-            link:         "https://plot.ly/"
+            parent: "Python"
+            level: 3
+            link: "https://plot.ly/"
             experience:
-                years:    0.5
+                years: 0.5
         matplotlib:
-            parent:       "Python"
-            level:        3
-            link :        "https://matplotlib.org/"
+            parent: "Python"
+            level: 3
+            link: "https://matplotlib.org/"
             experience:
-                years:    6
+                years: 4
         RegEx:
-            icon:         "fas fa-search"
-            level:        4
-            link:         "https://en.wikipedia.org/wiki/Regular_expression"
+            icon: "fas fa-search"
+            level: 4
+            link: "https://en.wikipedia.org/wiki/Regular_expression"
+            use: >
+                Clayton finds himself using regular expressions for just about every project, and he has found that
+                regular expressions are invaluable for all kinds of texual operations.
         Vue:
-            parent:       "JavaScript"
-            icon:         "fab fa-vuejs"
-            level:        4
-            link:         "https://vuejs.org/"
+            parent: "JavaScript"
+            icon: "fab fa-vuejs"
+            level: 4
+            link: "https://vuejs.org/"
             experience:
-                years:    2
+                years: 2
         Vuex:
-            parent:       "Vue"
-            level:        3
-            link:         "https://vuex.vuejs.org/"
+            parent: "Vue"
+            level: 3
+            link: "https://vuex.vuejs.org/"
             experience:
-                years:    0.5
+                years: 0.5
         Angular:
-            icon:         "fab fa-angular"
-            level:        1
-            link:         "https://angular.io/"
+            icon: "fab fa-angular"
+            level: 1
+            link: "https://angular.io/"
             experience:
-                years:    0.5
+                years: 0.5
         Microsoft Office:
-            icon:         "fab fa-microsoft"
-            level:        5
+            icon: "fab fa-microsoft"
+            level: 5
             experience:
-                years:    12
+                years: 12
         PostgreSQL:
-            icon:         "fas fa-database"
-            level:        4
-            link:         "https://www.postgresql.org/"
+            icon: "fas fa-database"
+            level: 4
+            link: "https://www.postgresql.org/"
             experience:
-                years:    2
+                years: 2
         SQL:
-            icon:         "fas fa-database"
-            level:        4
+            icon: "fas fa-database"
+            level: 4
             experience:
-                years:    3
+                years: 3
         Server Management:
-            icon :        "fas fa-server"
-            level:        4
+            icon: "fas fa-server"
+            level: 4
             experience:
-                years:    1
+                years: 1
         Swift:
-            level:        1
-            icon:         "fab fa-app-store"
+            level: 1
+            icon: "fab fa-app-store"
             experience:
-                years:    0.5
+                years: 0.5
         Xcode:
-            level:        2
-            icon:         "fab fa-app-store"
+            level: 2
+            icon: "fab fa-app-store"
             experience:
-                years:    0.5
+                years: 0.5
         "C#":
-            level:        3
-            # icon:       "fas fa-bug"
-            link:         "https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/"
-            icontext:     "C#"
+            level: 3
+            link: "https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/"
+            icon: "fab fa-microsoft"
             experience:
-                years:    1
+                years: 1
         ".NET":
-            icontext:     ".NET"
-            level:        1
-            link:         "https://dotnet.microsoft.com/"
+            level: 1
+            icon: "fab fa-microsoft"
+            link: "https://dotnet.microsoft.com/"
             experience:
-                years:    1
+                years: 1
         Java:
-            level:        2
-            icon:         "fab fa-java"
-            link:         "https://www.java.com/en/"
+            level: 2
+            icon: "fab fa-java"
+            link: "https://www.java.com/en/"
             experience:
-                years:    0.5
+                years: 0.5
         Assembly:
-            level:        2
-            icon:         "fas fa-microchip"
-            link:         "https://en.wikipedia.org/wiki/Assembly_language"
+            level: 2
+            icon: "fas fa-microchip"
+            link: "https://en.wikipedia.org/wiki/Assembly_language"
             experience:
-                years:    0.5
+                years: 0.5
         R:
-            level:        2
-            link:         "https://www.r-project.org/about.html"
-            icon:         "fab fa-r-project"
+            level: 2
+            link: "https://www.r-project.org/about.html"
+            icon: "fab fa-r-project"
             experience:
-                years:    0.5
+                years: 0.5
         git:
-            level:        4
-            icon:         "fab fa-git"
+            level: 4
+            icon: "fab fa-git"
             experience:
-                years:    3
+                years: 3
         GitHub:
-            level:        4
-            icon:         "fab fa-github"
-            link:         "https://github.com/home"
+            level: 4
+            icon: "fab fa-github"
+            link: "https://github.com/home"
             experience:
-                years:    3
+                years: 3
         Markdown:
-            icon:         "fab fa-markdown"
-            level:        5
+            icon: "fab fa-markdown"
+            level: 5
             experience:
-                years:    2
+                years: 2
         JavaScript:
-            icon:         "fab fa-js-square"
-            level:        2
+            icon: "fab fa-js-square"
+            level: 2
             experience:
-                years:    5
+                years: 5
         npm:
-            icon:         "fab fa-npm"
-            level:        2
-            link:         "https://www.npmjs.com/"
+            icon: "fab fa-npm"
+            level: 2
+            link: "https://www.npmjs.com/"
             experience:
-                years:    1
+                years: 1
         Xpress:
-            level:        3
-            parent:       "Network Optimization"
-            link:         "https://www.fico.com/en/products/fico-xpress-optimization"
+            level: 3
+            parent: "Network Optimization"
+            link: "https://www.fico.com/en/products/fico-xpress-optimization"
             experience:
-                years:    1
+                years: 1
         Leadership:
-            icon:         "fas fa-chalkboard-teacher"
-            level:        2
+            icon: "fas fa-chalkboard-teacher"
+            level: 2
             experience:
-                years:    1
+                years: 1
         Writing:
-            icon:         "fas fa-pencil-alt"
-            level:        5
+            icon: "fas fa-pencil-alt"
+            level: 5
         Emotional Intelligence:
-            level:        5
-            icon:         "far fa-grin-beam"
+            level: 5
+            icon: "far fa-grin-beam"
+            tags:
+                - people
+                - communication
+            use: >
+                The value of emotional intelligence cannot be overstated. Clayton understands the importance of
+                soft skills and knows that they are just as important as technical skills.
         Urwid:
-            parent:       "Python"
-            level:        2
-            link:         "http://www.urwid.org/"
+            parent: "Python"
+            level: 2
+            link: "http://www.urwid.org/"
             experience:
-                years:    0.5
+                years: 0.5
         Linux:
-            icon:         "fab fa-linux"
-            level:        4
+            icon: "fab fa-linux"
+            level: 4
             experience:
-                years:    1
+                years: 1
+            use: >
+                Clayton has used Linux for a variety of projects, but understands that linux is a great platform for
+                docker images as well as a lightweight operating system.
         Ubuntu:
-            icon:         "fab fa-ubuntu"
-            level:        4
-            parent:       "Linux"
+            icon: "fab fa-ubuntu"
+            level: 4
+            parent: "Linux"
             experience:
-                years:    1
+                years: 1
         OSX:
-            icon:         "fab fa-apple"
-            level:        5
-            parent:       "Linux"
+            icon: "fab fa-apple"
+            level: 5
+            parent: "Linux"
             experience:
-                years:    4
+                years: 4
         Homebrew:
-            level:        5
-            link:         "https://brew.sh/"
-            parent:       "OSX"
+            level: 5
+            link: "https://brew.sh/"
+            parent: "OSX"
             experience:
-                years:    3
+                years: 3
         DataGrip:
-            icon:         "fas fa-table"
-            level:        3
-            link:         "https://www.jetbrains.com/DataGrip/"
+            icon: "fas fa-table"
+            level: 3
+            link: "https://www.jetbrains.com/DataGrip/"
             experience:
-                years:    2
+                years: 2
         MongoDB:
-            icon:         "far fa-file"
-            level:        2
-            link:         "https://www.mongodb.com/"
+            icon: "far fa-file"
+            level: 2
+            link: "https://www.mongodb.com/"
             experience:
-                years:    0.5
+                years: 0.5
         Machine Learning:
-            icon:         "fas fa-desktop"
-            level:        3
+            icon: "fas fa-desktop"
+            level: 3
             experience:
-                years:    2
+                years: 2
+            use: >
+                The most common use case for Clayton is simple forms of regression, but he has also used machine learning
+                for advanced use cases that are quickly becoming the norm.
         Regression:
-            icon:         "fas fa-chart-line"
-            level:        4
-            parent:       Machine Learning
+            icon: "fas fa-chart-line"
+            level: 4
+            parent: Machine Learning
             experience:
-                years:    2
+                years: 2
         Neural Network:
-            icon:         "fas fa-brain"
-            level:        3
-            parent:       Machine Learning
+            icon: "fas fa-brain"
+            level: 3
+            parent: Machine Learning
             experience:
-                years:    0.5
+                years: 0.5
         Deep Learning:
-            level:        3
-            parent:       Neural Network
+            level: 3
+            parent: Neural Network
             experience:
-                years:    0.5
+                years: 0.5
         Optimization:
-            level:        5
-            icon:         "fas fa-tachometer-alt"
+            level: 5
+            icon: "fas fa-tachometer-alt"
             experience:
-                years:    2
+                years: 2
             use: >
                 Clayton loves creating and designing optimization problems, which was one of
                 the main reasons he obtained an Industrial Engineering degree.
                 Clayton has a deep connection to improving things and processes.
         Factory Optimization:
-            level:        5
-            icon:         "fas fa-industry"
-            parent:       Optimization
+            level: 5
+            icon: "fas fa-industry"
+            parent: Optimization
             experience:
-                years:    1
+                years: 1
         Network Optimization:
-            level:        5
-            icon:         "fas fa-project-diagram"
-            parent:       Optimization
+            level: 5
+            icon: "fas fa-project-diagram"
+            parent: Optimization
             experience:
-                years:    2
+                years: 2
 
         Supply Chain Guru:
-            parent:       "Network Optimization"
-            level:        4
-            link:         "https://llamasoft.com/products/design/supply-chain-guru/"
+            parent: "Network Optimization"
+            level: 4
+            link: "https://llamasoft.com/products/design/supply-chain-guru/"
             experience:
-                years:    2
+                years: 2
         Simio:
-            parent:       Optimization
-            level:        3
-            link:         "https://www.simio.com/index.php"
+            parent: Optimization
+            level: 3
+            link: "https://www.simio.com/index.php"
             experience:
-                years:    0.5
+                years: 0.5
         Cheerleading:
-            icon:         "far fa-laugh-beam"
-            level:        3
-            link:         "https://en.wikipedia.org/wiki/Cheerleading"
+            icon: "far fa-laugh-beam"
+            level: 3
+            link: "https://en.wikipedia.org/wiki/Cheerleading"
             experience:
-                years:    3
+                years: 3
         Stunting:
-            level:        3
-            link:         "https://en.wikipedia.org/wiki/List_of_cheerleading_stunts"
-            parent:       "Cheerleading"
+            level: 3
+            link: "https://en.wikipedia.org/wiki/List_of_cheerleading_stunts"
+            parent: "Cheerleading"
             experience:
-                years:    3
+                start: 2016-10-01
+            use:
+                >
+                    Clayton's favorite physical activity. He has learned a lot about cooperation and communication
+                    through cheerleading, as it is necessary for the success of the stunt.
         Motorcycle Riding:
-            level:        3
-            icon:         "fas fa-motorcycle"
+            level: 3
+            icon: "fas fa-motorcycle"
             experience:
-                start:    2016-08-01
+                start: 2016-08-01
             use: >
                 Clayton frequently takes his sports bike to the Georiga mountains for the thrill on twisty roads.
+                It is a great teacher for understanding and conquering fear.
         Photography:
-            level:        4
-            icon:         "fas fa-camera-retro"
+            level: 4
+            icon: "fas fa-camera-retro"
             experience:
-                start:    2019-06-01
+                start: 2019-06-01
         Bartending:
-            level:        2
-            icon:         "fas fa-cocktail"
+            level: 2
+            icon: "fas fa-cocktail"
             experience:
-                start:    2020-01-01
+                start: 2020-01-01
         TypeScript:
-            level:        1
-            icontext:     "TS"
+            level: 1
+            icontext: "TS"
         Portrait Photography:
-            parent:       "Photography"
-            level:        3
-            icon:         "fas fa-camera-retro"
+            parent: "Photography"
+            level: 3
+            icon: "fas fa-camera-retro"
             experience:
-                start:    2020-02-01
+                start: 2020-02-01
         Heroku:
-            level:        3
-            link:         "http://heroku.com"
-            icontext:     "H"
+            level: 3
+            link: "http://heroku.com"
+            icontext: "H"
             experience:
-                start:    2020-03-01
-            use:          >
+                start: 2020-03-01
+            use: >
                 This very site is hosted on Heroku! Clayton switched to Heroku for its fantastic integration with GitHub.
         AWS:
-            level:        1
-            link:         "https://aws.amazon.com/"
-            icon:         "fab fa-aws"
+            level: 1
+            link: "https://aws.amazon.com/"
+            icon: "fab fa-aws"
             experience:
-                years:    0.5
+                years: 0.5
         Google Cloud Platform:
-            level:        4
-            link:         "https://cloud.google.com/"
-            icon:         "fab fa-google"
+            level: 4
+            link: "https://cloud.google.com/"
+            icon: "fab fa-google"
             experience:
-                years:    1.5
+                years: 1.5
             use: >
                 Clayton is very familar with GCP, being both Google Professional Cloud Architect
                 and Google Professional Data Engineer certified.
         ETL:
-            level:        5
-            icon:         "fas fa-server"
+            level: 5
+            icon: "fas fa-server"
             experience:
-                years:    5
+                years: 5
         Kubernetes:
-            level:        3
-            icon:         "fas fa-cubes"
-            link:         "https://Kubernetes.io/"
+            level: 3
+            icon: "fas fa-cubes"
+            link: "https://Kubernetes.io/"
             experience:
-                years:    0.5
+                years: 0.5
         Airflow:
-            level:        4
-            icon:         "fas fa-wind"
-            link:         "https://airflow.apache.org/"
+            level: 4
+            icon: "fas fa-wind"
+            link: "https://airflow.apache.org/"
             experience:
-                years:    0.5
+                years: 0.5
             use: >
                 Clayton loves working with Airflow and has had the opportunity to understand
                 some of the hidden mechanics that makes it work, and to do so properly.
@@ -673,4 +710,6 @@ skills:
                 years: 1
             use: >
                 Clayton has been using GitLab for both smaller- and larger-scope projects.
-                He knows how to set up a GitLab pipeline for CI/CD processes
+                He knows how to set up a GitLab pipeline for CI/CD processes, including very
+                advanced use cases involving pipelines that change by environment, branch,
+                and type of GitLab event.
