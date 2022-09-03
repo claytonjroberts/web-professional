@@ -1,18 +1,7 @@
-// @font-face {
-//     font-family: 'ProFontWindows';
-//     src        : url('/static/fonts/ProFontWindows.TTF');
-// }
-@font-face {
-    font-family: 'Roboto';
-    // src        : url('/static/fonts/Roboto/Roboto-Regular.ttf');
-    src: ur("https://fonts.googleapis.com/css?family=Roboto");
-}
-
-@font-face {
-    font-family: 'OpenSans';
-    // src: url('/static/fonts/OpenSans/OpenSans-Regular.ttf');
-    src: url("https://fonts.googleapis.com/css?family=Open+Sans");
-}
+@import url("//fonts.googleapis.com/css?family=Open+Sans");
+@import url("//fonts.googleapis.com/css?family=Roboto");
+@import url("//fonts.googleapis.com/css?family=Ubuntu");
+@import url("//fonts.googleapis.com/css?family=Ubuntu+Mono");
 
 @font-face {
     font-family: 'FontAwesomeBrands';

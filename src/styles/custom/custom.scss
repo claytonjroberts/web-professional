@@ -1,7 +1,7 @@
 @import "../constants.scss";
 
 .expand {
-    display  : flex;
+    display: flex;
     flex-grow: 1;
 }
 
@@ -10,21 +10,22 @@ main {
     // flex-direction: column;
     // flex-grow     : 1;
     // align-items   : center;
-    align-content  : center;
+    align-content: center;
     justify-content: center;
     // background-color: map-get($theme-colors, "light");
     // border-radius   : 1rem;
-    margin         : 0;
+    margin: 0;
+
     @media (min-width: 576px) {
         margin: 0 2rem;
     }
 
     .inner {
-        display       : flex;
+        display: flex;
         flex-direction: row;
         // flex          : 0 1;
-        flex-grow     : 1;
-        padding       : 5rem;
+        flex-grow: 1;
+        padding: 5rem;
     }
 }
 
@@ -35,7 +36,7 @@ main {
     // border    : solid transparent;
     // padding     : 2rem 2rem 0;
     // padding   : 25%;
-    padding   : 20% 20% 10%;
+    padding: 20% 20% 10%;
     // max-height: 3rem;
     // border      : 0.1rem;
     // border-style: solid;
@@ -48,7 +49,7 @@ main {
     // padding     : 2rem 2rem 0;
     // padding   : 25%;
     // padding   : 20% 20% 10%;
-    max-width : 5rem;
+    max-width: 5rem;
     max-height: 5rem;
     // max-height: 3rem;
     // border      : 0.1rem;
@@ -63,24 +64,25 @@ main {
 }
 
 .email-header {
-    display        : flex;
+    display: flex;
     // flex-shrink    : 0;
-    align-content  : center;
-    align-self     : center;
-    flex-direction : row;
-    flex-grow      : 1;
+    align-content: center;
+    align-self: center;
+    flex-direction: row;
+    flex-grow: 1;
     justify-content: center;
-    height         : 4rem;
-    max-height     : 4rem;
-    margin         : 1rem 0;
-    padding        : 1rem;
-    transition     : $transition_time_color;
-    text-align     : center;
-    border         : 0.1rem;
-    border-style   : solid;
-    border-color   : map-get($theme-colors, "primary");
+    height: 4rem;
+    max-height: 4rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    transition: $transition_time_color;
+    text-align: center;
+    border: 0.1rem;
+    border-style: solid;
+    border-color: map-get($theme-colors, "primary");
     // width          : 40rem;
-    border-radius  : 2rem;
+    border-radius: 2rem;
+
     // max-width      : 30rem;
     // width          : 80%;
     @media (min-width: 576px) {
@@ -88,11 +90,12 @@ main {
     }
 
     &:hover {
-        border          : 1rem;
-        border-style    : solid;
-        border-color    : map-get($theme-colors, "secondary") !important;
+        border: 1rem;
+        border-style: solid;
+        border-color: map-get($theme-colors, "secondary") !important;
         // transition      : $transition_time_color;
         background-color: map-get($theme-colors, "secondary");
+
         // width           : 30rem;
         // width           : 70%;
         // @media (min-width: 576px) {
@@ -101,7 +104,7 @@ main {
         .name {
             transition: 0.1s !important;
             // color: lightskyblue;
-            color     : lighten(map-get($theme-colors, "secondary"), 50%);
+            color: lighten(map-get($theme-colors, "secondary"), 50%);
         }
 
         .name-around {
@@ -115,6 +118,7 @@ main {
 .email {
     align-self: center;
     text-align: center;
+
     // transition: $transition_time_color;
     // background-color: white;
     .name {
@@ -134,16 +138,16 @@ main {
     // color           : map-get($theme-colors, "light");
     // border-style    : solid none none none;
     // border-color    : map-get($theme-colors, "footer-border");
-    flex-direction  : column;
+    flex-direction: column;
     // border-radius: 1.5rem;
     // box-shadow   : inset 0 0 1rem darken(map-get($theme-colors, "footer"), 15%);
     // background-color: darken(map-get($theme-colors, "footer"), 10%);
-    padding         : 1.5rem 0;
-    transition      : $transition_time_color;
-    text-align      : center;
+    padding: 1.5rem 0;
+    transition: $transition_time_color;
+    text-align: center;
     // background-color: darken(map-get($theme-colors, "primary"), 10%);
     // background-color: lighten(map-get($theme-colors, "primary"), 5%);
-    color           : map-get($theme-colors, "dark");
+    color: map-get($theme-colors, "dark");
     // background-color: map-get($theme-colors, "medium-light");
     background-color: darken(map-get($theme-colors, "body"), 10%);
 
@@ -157,24 +161,27 @@ main {
         }
     }
 }
+
 // .card {
 //     background-color: map-get($theme-colors, "bg-light");
 // }
 
 .links {
-    z-index       : 1000;
+    z-index: 1000;
     // background-color: map-get($theme-colors, "medium-light");
     // padding       : 2rem;
-    display       : flex;
+    display: flex;
     flex-direction: column;
-    flex-shrink   : 1;
-    transition    : $transition_time_color;
+    flex-shrink: 1;
+    transition: $transition_time_color;
+
     // color         : map-get($theme-colors, "primary") !important;
     a {
         color: map-get($theme-colors, "primary");
     }
 
     &:hover {
+
         .link,
         a {
             color: mix(map-get($theme-colors, "secondary"), map-get($theme-colors, "primary"));
@@ -182,12 +189,13 @@ main {
     }
 
     .link {
-        font-size : 1.5rem;
+        font-size: 1.5rem;
         //
-        padding   : 0.5rem;
+        padding: 0.5rem;
         transition: $transition_time_color;
         // text-decoration: none;
         text-align: center;
+
         // width     : $size !important;
         // height    : $size !important;
         // border-color   : transparent;
@@ -202,9 +210,10 @@ main {
 
 .btn {
     border-bottom: 1rem !important;
+
     // border-color : darken(map-get($theme-colors, "primary"), 10%);
     .active {
-        border-top   : 1rem;
+        border-top: 1rem;
         border-bottom: 0;
     }
 }
@@ -214,17 +223,17 @@ hr {
 }
 
 .skill-header {
-    overflow-x    : visible;
-    white-space   : nowrap;
-    margin        : 0;
-    align-items   : center;
+    overflow-x: visible;
+    white-space: nowrap;
+    margin: 0;
+    align-items: center;
     vertical-align: middle;
-    text-align    : center;
-    display       : inherit;
-    padding       : 0 0.5rem 0 0;
+    text-align: center;
+    display: inherit;
+    padding: 0 0.5rem 0 0;
 
     &.skill-header-number {
-        padding       : 0 0 0 0.5rem;
+        padding: 0 0 0 0.5rem;
     }
 }
 
@@ -233,10 +242,24 @@ hr {
 }
 
 .custom-container-skill-list {
-    min-height: 40vh;
-    background-color: darken(map-get($theme-colors, "body"), 5%);
+    height: 40vh;
+    // max-height: 60vh;
+    background-color: map-get($theme-colors, "bg-medium");
     border-radius: 0.25rem;
+
+    margin: 0;
+    padding: 0.5rem;
+
+    overflow-y: scroll;
 }
+
 .custom-container-experience-header {
     padding: 0.5rem;
+    margin: 0 !important;
+}
+
+.custom-container-list-experience {
+    // Container to hold experience cards
+    padding: 1rem;
+    background-color: map-get($theme-colors, "bg-medium");
 }

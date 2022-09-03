@@ -7,24 +7,9 @@ $border-radius: 0.25rem;
 $color-background: lighten(map-get($theme-colors, "light"), 5%);
 
 html {
-    font-family     : 'OpenSans' !important;
+    font-family     : 'Open Sans';
     background-color: darken(map-get($theme-colors, "body"), 10%);
 }
-
-.faf {
-    // Font awesome font
-    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands', 'OpenSans' !important;
-    font-weight: 900;
-}
-// .body,
-// body {
-//   // background-color: lighten(map-get($theme-colors, "medium-light"), 5%);
-//   // Set font for website -->
-//   display: flex;
-//   flex: 1 0 auto;
-//   flex-direction: column;
-//   background-color: $color-background;
-// }
 
 main {
     flex: 1;
@@ -52,16 +37,13 @@ header {
 }
 
 section {
-    display       : flex;
-    flex-direction: column;
-    max-width     : 60rem;
-    margin        : 0 10rem;
+    // display       : flex;
+    // flex-direction: column;
+    // max-width     : 60rem;
+    // margin        : 0 10rem;
     padding       : 1rem;
-
-    .section-dark {
-        background-color: gray("500");
-    }
 }
+
 // main {
 //     background-color: theme-color("" + &);
 //     padding         : 0 1rem;
@@ -136,30 +118,4 @@ section {
     background       : $color-background;
     box-shadow       : 0 0 2rem darken($color-background, 10%);
     $color-background: lighten(map-get($theme-colors, "light"), 5%);
-}
-// HELPERS
-
-.link-unstyled {
-    &,
-    &:active,
-    &:active:hover,
-    &:focus,
-    &:hover,
-    &:visited {
-        // background-color: transparent;
-        font-size      : inherit;
-        font-weight    : inherit;
-        font-style     : inherit;
-        font-variant   : inherit;
-        text-decoration: none;
-        color          : inherit;
-        // line-height   : inherit;
-        // font-family   : inherit;
-        // border-radius : inherit;
-        // border        : inherit;
-        // outline       : inherit;
-        // box-shadow    : inherit;
-        // padding       : inherit;
-        // vertical-align: inherit;
-    }
 }

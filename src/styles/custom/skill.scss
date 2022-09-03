@@ -1,13 +1,13 @@
 .skill {
-    margin          : 0.25rem !important;
-    padding         : 0.5rem;
-    transition      : $transition_time_color;
-    border-width    : 1px !important;
-    border-radius   : 0.25rem;
+    margin: 0.25rem !important;
+    padding: 0.5rem;
+    transition: $transition_time_color;
+    border-width: 1px !important;
+    border-radius: 0.25rem;
     // border       : solid map-get($theme-colors, "muted");
     background-color: map-get($theme-colors, "bg-light");
 
-    color: darken(map-get($theme-colors, "bg-light"), 50%);
+    // color: darken(map-get($theme-colors, "bg-light"), 50%);
 
     h1,
     h2,
@@ -21,9 +21,10 @@
     .row {
         // min-height: 3rem;
         margin: 0;
+        padding: 0.25rem;
     }
 
-    .d-flex > * {
+    .d-flex>* {
         padding: 0 0.25rem;
     }
 
@@ -34,19 +35,47 @@
         &:hover {
             // z-index     : 200;
             // ^ Needs to be higher than regular skill so that the bottom and top border is visible on hover
-            border-color    : map-get($theme-colors, "secondary") !important;
+            border-color: map-get($theme-colors, "secondary") !important;
             background-color: mix(map-get($theme-colors, "bg-light"), map-get($theme-colors, "secondary"), 90%);
         }
     }
 
     .stars {
+        // Stars to show skill
+
         // text-align      : center;
         // writing-mode    : vertical-rl;
         // text-orientation: mixed;
         white-space: nowrap;
     }
 
+    .skill-name {
+        // font-size: 2rem;
+    }
+
+    .skill-name-parent {
+        // font-size: 1.5rem;
+        // color: darken(map-get($theme-colors, "bg-light"), 30%);
+    }
+
+    .skill-icon {
+        font-size: 2rem;
+    }
+
     .skill-text-parent {
         color: darken(map-get($theme-colors, "bg-light"), 30%);
+    }
+
+    .skill-description {
+        // color: darken(map-get($theme-colors, "bg-light"), 30%);
+        // font-size: .75rem;
+    }
+
+    .skill-years {
+        flex-wrap: nowrap;
+    }
+
+    .skill-experience {
+        min-width: 5rem;
     }
 }

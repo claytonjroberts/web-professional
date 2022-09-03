@@ -1,30 +1,38 @@
 $primary: #f05048; //#3090E0; #E8A000, //#EC9F05
+$primary-bg: #fbfbfb;
+
+$colors-background: (
+    "bg" : $primary-bg,
+    "bg-light" : $primary-bg,
+    "bg-medium" : darken($primary-bg, 7%),
+    "bg-dark" : darken($primary-bg, 15%),
+);
+
 $theme-colors: (
-    "primary"           : $primary,
+    "primary" : $primary,
     // "secondary"         : adjust-hue($primary, 15deg),
-    "secondary"         : adjust-hue($primary, 270deg),
+    "secondary" : adjust-hue($primary, 270deg),
     //"secondary": darken($primary, 20%),
-    "tertiary"          : adjust-hue($primary, 30deg),
-    "quaternary"        : adjust-hue($primary, 45deg),
-    "html"              : #636360,
-    "splash"            : #404040,
+    "tertiary" : adjust-hue($primary, 30deg),
+    "quaternary" : adjust-hue($primary, 45deg),
+    "html" : #636360,
+    "splash" : #404040,
     //"splash": #906000,
-    "splash-text"       : #e5e5e0,
+    "splash-text" : #e5e5e0,
     "splash-text-darker": #c0b8b8,
-    "bg"                : #fbfbfb,
-    "bg-light"          : #fbfbfb,
-    "light"             : #e5e5e5,
-    "medium-light"      : #d5d5d5,
-    "medium"            : #b5b5b5,
-    "medium-dark"       : #757575,
-    "dark"              : #757570,
-    "footer"            : #d5d5d5,
+    "light" : #e5e5e5,
+    "medium-light" : #d5d5d5,
+    "medium" : #b5b5b5,
+    "medium-dark" : #757575,
+    "dark" : #757570,
+    "footer" : #d5d5d5,
     //"footer": #d5d5d0,
-    "footer-border"     : #757570,
-    "tool-border"       : #757570,
-    "white"             : #fff,
-    "body"              : #fbfbfb
-); // $theme-colors: map-merge($theme-colors, $custom-colors);
+    "footer-border" : #757570,
+    "tool-border" : #757570,
+    "white" : #fff,
+    "body" : #fbfbfb
+);
+$theme-colors: map-merge($theme-colors, $colors-background);
 // $colors: (
 //   // "blue": $blue,
 //     // "indigo": $indigo,

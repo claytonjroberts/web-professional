@@ -1,15 +1,20 @@
 .center-vertical {
-    position : absolute;
-    top      : 50%;
-    margin   : 0;
+    position: absolute;
+    top: 50%;
+    margin: 0;
     // left     : 50%;
     transform: translate(0, -50%);
 }
 
+.content-center-vertical-with-margin {
+    margin: auto 0;
+    height: 50%;
+}
+
 .static-tr {
     position: fixed;
-    top     : 0.5rem;
-    right   : 0.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
 }
 
 .sister-row {
@@ -27,8 +32,8 @@
 }
 
 .scrolling-wrapper-flexbox {
-    display   : flex;
-    flex-flow : row nowrap !important;
+    display: flex;
+    flex-flow: row nowrap !important;
     overflow-x: scroll !important;
 
     .card {
@@ -37,6 +42,7 @@
         // flex          : 1 1 auto;
         min-width: 20rem;
     }
+
     // .card-deck {
     //     max-height    : 50vh;
     //     display       : flex;
@@ -55,4 +61,37 @@
     // .card {
     //     // flex: 0 0 auto;
     // }
+}
+
+.faf {
+    // Font awesome font with Open Sans fallback
+    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands', 'Open Sans' !important;
+    font-weight: 900;
+}
+
+
+.link-unstyled {
+
+    &,
+    &:active,
+    &:active:hover,
+    &:focus,
+    &:hover,
+    &:visited {
+        // background-color: transparent;
+        font-size: inherit;
+        font-weight: inherit;
+        font-style: inherit;
+        font-variant: inherit;
+        text-decoration: none;
+        color: inherit;
+        // line-height   : inherit;
+        // font-family   : inherit;
+        // border-radius : inherit;
+        // border        : inherit;
+        // outline       : inherit;
+        // box-shadow    : inherit;
+        // padding       : inherit;
+        // vertical-align: inherit;
+    }
 }
