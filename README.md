@@ -1,4 +1,6 @@
-# About
+# [DEPRICATED] Clayton Roberts's Professional Website
+
+**Note**: This website has been replaced with my [LinkedIn Profile](https://www.linkedin.com/in/claytonjroberts/).
 
 This is my personal website with:
 
